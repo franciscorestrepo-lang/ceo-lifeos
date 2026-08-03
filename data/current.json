@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "CEO LifeOS",
+    "week": "3–9 agosto 2026",
+    "generatedAt": "2026-08-03T17:10:00-05:00",
+    "status": "Fase 1 — Pendiente de aprobación",
+    "capacityUsed": 68,
+    "dispersion": "Alta"
+  },
+  "criticalOutcomes": [
+    {"company":"AllUp","title":"Responder RFP Alquería","priority":"P0","status":"Pendiente","owner":"Francisco + Nathalia","due":"3 ago"},
+    {"company":"Sports Crowd","title":"Decisión go/no-go lanzamiento","priority":"P0","status":"En riesgo","owner":"Francisco + Mauricio","due":"4 ago"},
+    {"company":"AllUp","title":"Aprobar propuesta Surtigas/GDO","priority":"P1","status":"En curso","owner":"Francisco + Carolina","due":"5 ago"},
+    {"company":"AllUp","title":"Plan de recuperación Riopaila","priority":"P0","status":"En riesgo","owner":"Francisco + Daniel","due":"5 ago"},
+    {"company":"Teky","title":"Definir owner y roadmap","priority":"P1","status":"Pendiente","owner":"Francisco","due":"7 ago"}
+  ],
+  "companies": [
+    {"name":"AllUp","health":64,"status":"Atención","cash":"Seguimiento requerido","focus":"Cierre comercial + Riopaila","risk":"Alta dispersión entre oportunidades y delivery"},
+    {"name":"Teky","health":52,"status":"Débil","cash":"No consolidado","focus":"Roadmap Fixi/Flow","risk":"Sin workspace ni owner único"},
+    {"name":"Sports Crowd","health":48,"status":"Crítico","cash":"Dependiente de lanzamientos","focus":"Estabilidad + pagos","risk":"Recurrencia, PWA y Tienda B"},
+    {"name":"Personal","health":73,"status":"Estable","cash":"Majure en revisión","focus":"Foco + arrendamiento","risk":"Sobrecarga cognitiva"}
+  ],
+  "decisions": [
+    {"id":"DEC-01","company":"AllUp","decision":"Participar en RFP Alquería y aprobar preguntas finales","due":"Hoy","impact":"Venta enterprise","recommendation":"Participar condicionado a alcance, SLA y volúmenes","status":"Pendiente"},
+    {"id":"DEC-02","company":"Sports Crowd","decision":"Autorizar lanzamiento o postergarlo","due":"4 ago","impact":"Revenue y reputación","recommendation":"Piloto controlado solo con checklist en verde","status":"Pendiente"},
+    {"id":"DEC-03","company":"AllUp","decision":"Modelo económico Surtigas/GDO","due":"5 ago","impact":"COP 47M–398M","recommendation":"Piloto + V1 CAPEX, soporte separado","status":"Pendiente"},
+    {"id":"DEC-04","company":"AllUp","decision":"Estrategia de recuperación Riopaila","due":"5 ago","impact":"Retención y margen","recommendation":"War room, alcance congelado y fecha final","status":"Pendiente"},
+    {"id":"DEC-05","company":"Teky","decision":"Gobierno y sistema operativo de producto","due":"7 ago","impact":"Foco y escalabilidad","recommendation":"Workspace Teky independiente","status":"Pendiente"}
+  ],
+  "risks": [
+    {"id":"R-01","company":"Sports Crowd","risk":"Lanzamiento con fallas de pagos o estabilidad","probability":"Alta","impact":"Crítico","mitigation":"Checklist y piloto limitado"},
+    {"id":"R-02","company":"AllUp","risk":"Deterioro de relación con Riopaila","probability":"Alta","impact":"Alto","mitigation":"Plan de cierre y comité ejecutivo"},
+    {"id":"R-03","company":"AllUp","risk":"Perder Alquería por respuesta tardía","probability":"Media-Alta","impact":"Alto","mitigation":"Enviar preguntas hoy"},
+    {"id":"R-04","company":"Teky","risk":"Desarrollo sin producto consolidado","probability":"Alta","impact":"Alto","mitigation":"Roadmap, owner y métricas"},
+    {"id":"R-05","company":"CEO","risk":"Sobrecarga y cambio constante de contexto","probability":"Alta","impact":"Alto","mitigation":"Máximo 7 acciones personales"}
+  ],
+  "franciscoActions": [
+    {"id":"FCO-01","company":"AllUp","priority":"P0","action":"Aprobar preguntas Alquería","due":"Hoy","duration":"30 min","done":"Documento aprobado y envío autorizado"},
+    {"id":"FCO-03","company":"Sports Crowd","priority":"P0","action":"Tomar decisión go/no-go","due":"4 ago","duration":"45 min","done":"Decisión y condiciones registradas"},
+    {"id":"FCO-04","company":"AllUp","priority":"P1","action":"Aprobar propuesta Surtigas","due":"5 ago","duration":"45 min","done":"Propuesta autorizada"},
+    {"id":"FCO-05","company":"AllUp","priority":"P0","action":"Aprobar recuperación Riopaila","due":"5 ago","duration":"45 min","done":"Plan y fecha de cierre aprobados"},
+    {"id":"FCO-07","company":"Teky","priority":"P1","action":"Nombrar owner y aprobar roadmap","due":"7 ago","duration":"60 min","done":"Owner y cadencia definidos"}
+  ],
+  "calendar": [
+    {"id":"CAL-01","title":"[AllUp] Aprobar preguntas RFP Alquería","date":"3 ago","time":"12:05–12:35","status":"Propuesto"},
+    {"id":"CAL-02","title":"[Sports Crowd] Go/No-Go lanzamiento y pagos","date":"3 ago","time":"12:40–1:25","status":"Propuesto"},
+    {"id":"CAL-03","title":"[AllUp] Aprobación comercial Surtigas/GDO","date":"4 ago","time":"8:30–9:15","status":"Propuesto"},
+    {"id":"CAL-04","title":"[AllUp] Comité de recuperación Riopaila","date":"5 ago","time":"8:30–9:15","status":"Propuesto"},
+    {"id":"CAL-06","title":"[Teky] Roadmap y sistema operativo","date":"6 ago","time":"1:30–2:30","status":"Propuesto"}
+  ],
+  "approval": {
+    "calendar":["CAL-01","CAL-02","CAL-03","CAL-04","CAL-05","CAL-06","CAL-07"],
+    "emails":["MAIL-01","MAIL-02","MAIL-03"],
+    "monday":["MON-01","MON-02","MON-03","MON-04","MON-05","MON-06","MON-07","MON-08","MON-09","MON-10"],
+    "decisions":["DEC-01","DEC-02","DEC-03","DEC-04","DEC-05"]
+  }
+}

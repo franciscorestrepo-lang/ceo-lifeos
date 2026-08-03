@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  command = "npm run build"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[scheduled.functions]]
+  name = "weekly-refresh"
+  schedule = "0 13 * * 1"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

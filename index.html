@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>CEO LifeOS</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">F</span><div><strong>CEO LifeOS</strong><small>Command Center</small></div></div>
+      <nav>
+        <button class="nav-item active" data-view="overview">Resumen</button>
+        <button class="nav-item" data-view="companies">Compañías</button>
+        <button class="nav-item" data-view="decisions">Decisiones</button>
+        <button class="nav-item" data-view="risks">Riesgos</button>
+        <button class="nav-item" data-view="calendar">Calendario</button>
+        <button class="nav-item" data-view="approval">Aprobación</button>
+      </nav>
+      <div class="sidebar-footer"><a href="admin.html">Actualizar datos</a><span id="last-update">—</span></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div><p class="eyebrow">REVISIÓN SEMANAL</p><h1 id="week-title">CEO LifeOS</h1><p id="week-status" class="muted"></p></div>
+        <div class="top-actions"><button id="refresh-btn" class="secondary">Actualizar</button><button id="install-btn" class="primary" hidden>Instalar</button></div>
+      </header>
+
+      <section id="overview" class="view active-view">
+        <div class="metric-grid">
+          <article class="metric-card"><span>Capacidad utilizada</span><strong id="capacity">—</strong><div class="progress"><i id="capacity-bar"></i></div></article>
+          <article class="metric-card"><span>Dispersión</span><strong id="dispersion">—</strong><small>Objetivo: baja o media</small></article>
+          <article class="metric-card"><span>Decisiones abiertas</span><strong id="decision-count">—</strong><small>Máximo recomendado: 3</small></article>
+          <article class="metric-card"><span>Riesgos críticos</span><strong id="critical-risk-count">—</strong><small>Requieren mitigación inmediata</small></article>
+        </div>
+
+        <div class="section-head"><div><p class="eyebrow">FOCO</p><h2>Resultados críticos de la semana</h2></div></div>
+        <div id="critical-outcomes" class="outcome-grid"></div>
+
+        <div class="two-col">
+          <section class="panel"><div class="section-head"><h2>Acciones de Francisco</h2><span class="pill">Máx. 7</span></div><div id="francisco-actions" class="list"></div></section>
+          <section class="panel"><div class="section-head"><h2>Próximos bloques</h2><span class="pill">Alta concentración</span></div><div id="calendar-preview" class="list"></div></section>
+        </div>
+      </section>
+
+      <section id="companies" class="view"><div class="section-head"><div><p class="eyebrow">PORTAFOLIO</p><h2>Estado por compañía</h2></div></div><div id="company-grid" class="company-grid"></div></section>
+      <section id="decisions" class="view"><div class="section-head"><div><p class="eyebrow">GOBIERNO</p><h2>Decisiones que requieren a Francisco</h2></div></div><div id="decision-table" class="table-wrap"></div></section>
+      <section id="risks" class="view"><div class="section-head"><div><p class="eyebrow">CONTROL</p><h2>Mapa de riesgos</h2></div></div><div id="risk-grid" class="risk-grid"></div></section>
+      <section id="calendar" class="view"><div class="section-head"><div><p class="eyebrow">TIEMPO</p><h2>Bloques propuestos</h2></div></div><div id="calendar-list" class="timeline"></div></section>
+      <section id="approval" class="view"><div class="section-head"><div><p class="eyebrow">FASE 2</p><h2>Panel de aprobación</h2></div></div><div id="approval-panel" class="approval-grid"></div><div class="command-box"><p>Comando recomendado</p><code id="approval-command">APROBAR TODO</code><button id="copy-command" class="primary">Copiar comando</button></div></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
