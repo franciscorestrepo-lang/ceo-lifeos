@@ -1,15 +1,1 @@
-{
-  "name": "ceo-lifeos",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "netlify dev",
-    "build": "echo 'Static site - no build step'"
-  },
-  "dependencies": {
-    "@netlify/blobs": "^8.1.0"
-  },
-  "devDependencies": {
-    "netlify-cli": "^17.37.0"
-  }
-}
+{"name":"ceo-lifeos","private":true,"version":"2.0.0","scripts":{"build":"echo 'Static LifeOS ready'"}}

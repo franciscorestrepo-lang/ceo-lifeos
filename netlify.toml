@@ -1,14 +1,5 @@
 [build]
   publish = "."
-  functions = "netlify/functions"
-  command = "npm run build"
-
-[functions]
-  node_bundler = "esbuild"
-
-[[scheduled.functions]]
-  name = "weekly-refresh"
-  schedule = "0 13 * * 1"
 
 [[headers]]
   for = "/*"

@@ -1,65 +1,74 @@
-# CEO LifeOS — Netlify
+# CEO LifeOS — Netlify flat project
 
-Dashboard semanal multicompañía para AllUp, Teky, Sports Crowd y Personal.
+Proyecto 100% plano: no contiene subcarpetas.
 
-## Qué incluye
+## Qué cambió
 
-- Dashboard responsive y PWA instalable.
-- Resumen, compañías, decisiones, riesgos, calendario y panel de aprobación.
-- Datos persistentes mediante Netlify Blobs.
-- Página `/admin.html` para actualizar el JSON sin redeploy.
-- Función programada semanal para actualización automática desde una fuente externa.
+- Monday queda fuera del flujo de ejecución.
+- Francisco ejecuta únicamente acciones propias mediante calendario.
+- La delegación se canaliza mediante borradores de correo.
+- Panel de aprobación interactivo con selección individual o por lote.
+- Calendario: genera archivos `.ics` importables en Outlook, Google Calendar, Apple Calendar, etc.
+- Correo: abre borradores con `mailto:` en el cliente configurado.
+- Integración opcional: puede enviar aprobaciones a un webhook de n8n, Make o una API propia.
+- Modo foco para ocultar ruido y ver solo resultados, calendario, correos y aprobación.
+- PWA instalable en móvil.
 
-## Despliegue rápido en Netlify
+## Despliegue en Netlify
 
-1. Descomprime el proyecto.
-2. Crea un repositorio nuevo en GitHub y sube todos los archivos.
-3. En Netlify: **Add new site → Import an existing project → GitHub**.
-4. Selecciona el repositorio.
-5. Configuración:
-   - Build command: `npm run build`
-   - Publish directory: `.`
-   - Functions directory: `netlify/functions`
-6. Pulsa **Deploy site**.
-7. En **Site configuration → Environment variables**, crea:
-   - `LIFEOS_ADMIN_TOKEN`: una clave larga y privada.
-8. Abre `https://TU-SITIO.netlify.app/admin.html`, pega el token y el JSON semanal.
+1. Descomprime el ZIP.
+2. Crea un repositorio GitHub vacío.
+3. Sube TODOS los archivos directamente a la raíz del repositorio.
+4. En Netlify: **Add new site → Import an existing project → GitHub**.
+5. Selecciona el repositorio.
+6. Build command: `npm run build` (opcional; el sitio es estático).
+7. Publish directory: `.`
+8. Deploy.
 
-## Actualización semanal automática
+No necesitas variables de entorno para el modo local.
 
-La función `weekly-refresh` se ejecuta cada lunes a las 8:00 a. m. de Colombia (13:00 UTC).
+## Actualizar cada semana
 
-Para activar el modo automático configura:
+La información visible vive en `data.js`.
 
-- `LIFEOS_SOURCE_URL`: URL HTTPS que devuelve el JSON semanal.
-- `LIFEOS_SOURCE_TOKEN` (opcional): bearer token de esa fuente.
+Reemplaza el objeto `window.LIFEOS_DATA` por el JSON/JS generado en la revisión semanal y haz commit. Netlify desplegará automáticamente.
 
-La fuente puede ser un webhook de Make, n8n, Zapier o una API propia. El flujo recomendado es:
+### Automatización recomendada
 
-1. El proceso semanal consulta correo, calendario, Teams, Read AI y Monday.
-2. Genera un JSON con el mismo esquema de `data/current.json`.
-3. Expone ese JSON en una URL protegida o lo envía directamente a:
-   `POST /.netlify/functions/update-dashboard`
-4. Incluye el header `x-admin-token` con `LIFEOS_ADMIN_TOKEN`.
+Usa n8n o Make para:
 
-## Realidad de la automatización
+1. Recibir el resultado estructurado de la revisión semanal.
+2. Generar/reemplazar `data.js` en GitHub usando la API de GitHub.
+3. Netlify detecta el commit y publica el LifeOS actualizado.
 
-Netlify no puede acceder directamente a las conexiones privadas de ChatGPT. Por eso hay dos niveles:
+Esta arquitectura mantiene el proyecto plano y evita funciones Netlify en subcarpetas.
 
-- **Disponible de inmediato:** la revisión semanal de ChatGPT se ejecuta cada lunes y el JSON se pega en `/admin.html`; el dashboard se actualiza sin redeploy.
-- **100 % automático:** Make/n8n debe conectarse a Microsoft 365, Teams, Monday y Read AI, producir el JSON y llamar el endpoint de actualización.
+## Panel de aprobación
 
-## Probar localmente
+### Modo local
 
-```bash
-npm install
-npx netlify dev
+- **Aprobar calendario:** descarga `.ics` por cada bloque seleccionado.
+- **Aprobar correos:** para un solo correo abre el borrador. Si seleccionas varios, quedan aprobados y debes abrirlos uno a uno para evitar bloqueos del navegador.
+- No envía correos automáticamente.
+- No agrega asistentes automáticamente.
+
+### Modo webhook
+
+En **Configurar integración** puedes indicar una URL de webhook.
+
+Al aprobar, el sitio hace POST con:
+
+```json
+{
+  "type": "lifeos_approval",
+  "approved_at": "ISO-8601",
+  "calendar": [],
+  "emails": []
+}
 ```
 
-Luego abre `http://localhost:8888`.
+En n8n/Make puedes conectar ese payload a Outlook/Gmail/Google Calendar/Microsoft Calendar para crear borradores y eventos reales.
 
 ## Seguridad
 
-- No publiques el token de administración en GitHub.
-- Usa variables de entorno de Netlify.
-- El dashboard no incluye datos sensibles por defecto; limita nombres, cifras y URLs según necesidad.
+No almacenes credenciales de Microsoft, Google ni secretos de API en `data.js` o GitHub. Si usas webhook, protege la automatización del lado del servidor.
