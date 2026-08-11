@@ -1,1 +1,0 @@
-import { fetchReadMeetings } from './lib/readai.mjs';export default async(req)=>{try{const u=new URL(req.url);const since=u.searchParams.get('since')||new Date(Date.now()-30*864e5).toISOString();return Response.json(await fetchReadMeetings({since}))}catch(e){return Response.json({error:e.message},{status:500})}}
