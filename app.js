@@ -28,15 +28,28 @@ async function fetchMicrosoft(){
 async function fetchRead(){const r=await fetch(`/api/read-ai?since=${encodeURIComponent(dminus(30))}`);if(!r.ok)throw new Error(await r.text());return r.json()}
 async function loadCurrent(){try{const r=await fetch(`/data/current.json?t=${Date.now()}`,{cache:'no-store'});state.data=await r.json();render()}catch(e){console.error(e)}}
 async function refresh(){
- const b=$('#refreshBtn');b.disabled=true;b.textContent='Sincronizando…';setSync('Sincronizando Outlook…');
+ const b=$('#refreshBtn');b.disabled=true;b.textContent='Actualizando…';
+ const ms=settings();
+ if(!ms.clientId){
+  setSync('Cargando la última revisión publicada por ChatGPT…');
+  await loadCurrent();
+  setSync(`LifeOS sincronizado · ${new Date().toLocaleString('es-CO')}`);
+  b.disabled=false;b.textContent='Actualizar';
+  return;
+ }
+ setSync('Sincronizando Outlook, Calendar y Teams…');
  const sourceHealth={};let microsoft=null,read=null;
  try{microsoft=await fetchMicrosoft();Object.assign(sourceHealth,microsoft.health)}catch(e){sourceHealth.microsoft=e.message}
- setSync('Analizando reuniones…');try{read=await fetchRead();sourceHealth.read='ok'}catch(e){sourceHealth.read=e.message;read={meetings:[]}}
+ setSync('Analizando reuniones de Read AI…');try{read=await fetchRead();sourceHealth.read='ok'}catch(e){sourceHealth.read=e.message;read={meetings:[]}}
  setSync('Generando análisis ejecutivo…');
  try{
   const previous=state.data;const r=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({now:new Date().toISOString(),microsoft,read,previous})});if(!r.ok)throw new Error(await r.text());const analysis=await r.json();analysis.source_health={...(analysis.source_health||{}),...sourceHealth};state.data=analysis;localStorage.setItem('lifeos_last_analysis',JSON.stringify(analysis));render();setSync('Guardando histórico…');
   const save=await fetch('/api/github-save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:analysis,reason:'manual'})});if(!save.ok)console.warn('GitHub save skipped/failed',await save.text());setSync(`Actualizado ${new Date().toLocaleString('es-CO')}`)
- }catch(e){console.error(e);setSync('Actualización parcial: '+e.message)}finally{b.disabled=false;b.textContent='Actualizar'}
+ }catch(e){
+  console.error(e);
+  await loadCurrent();
+  setSync('No fue posible ejecutar el análisis directo. Se cargó la última revisión publicada.');
+ }finally{b.disabled=false;b.textContent='Actualizar'}
 }
 function setSync(x){$('#syncStatus').textContent=x}
 function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
@@ -61,7 +74,7 @@ function render(){const d=state.data;if(!d)return;$('#weekLabel').textContent=d.
  $('#flagged').innerHTML=(d.flagged||[]).map(x=>item(x.subject,`${x.classification||''} · ${x.recommendation||''}`,statusBadge(x.classification||'FOLLOW_UP'))).join('');renderSourceHealth();renderAlerts();
 }
 function renderObjectives(){const list=state.data?.[state.objectiveMode]||[];$('#objectivesList').innerHTML=list.map(o=>`<article class="item"><div class="item-row"><div><div class="item-title">${esc(o.title||o.expected_result||'')}</div><div class="item-meta">${esc(o.company||'')} · ${esc(o.metric||'')} · ${esc(o.current??'')} / ${esc(o.target??'')}</div></div>${statusBadge(o.status||'AT_RISK')}</div><div class="objective-progress"><div class="tiny-progress"><span style="width:${Math.min(100,o.progress||0)}%"></span></div><strong>${Math.round(o.progress||0)}%</strong></div></article>`).join('')||item('Sin objetivos definidos','Agrega objetivos anuales/mensuales al histórico o permite que LifeOS los infiera para revisión.');}
-function renderSourceHealth(){const h=state.data?.source_health||{};$('#sourceStrip').innerHTML=Object.entries(h).map(([k,v])=>`<span class="source-pill ${v==='ok'?'ok':'warn'}">${esc(k)} · ${esc(v==='ok'?'OK':'PARTIAL')}</span>`).join('')||'<span class="source-pill warn">Fuentes · sin sincronizar</span>';$('#sourceHealth').innerHTML=Object.entries(h).map(([k,v])=>item(k,String(v))).join('')}
+function renderSourceHealth(){const h=state.data?.source_health||{};const label=v=>String(v).toUpperCase()==='OK'?'OK':String(v).toUpperCase()==='SNAPSHOT'?'SNAPSHOT':'PARTIAL';const cls=v=>['OK','SNAPSHOT'].includes(String(v).toUpperCase())?'ok':'warn';$('#sourceStrip').innerHTML=Object.entries(h).map(([k,v])=>`<span class="source-pill ${cls(v)}">${esc(k)} · ${label(v)}</span>`).join('')||'<span class="source-pill warn">Fuentes · sin sincronizar</span>';$('#sourceHealth').innerHTML=Object.entries(h).map(([k,v])=>item(k,label(v))).join('')}
 function renderAlerts(){const d=state.data||{};const alerts=[];for(const r of (d.risks||[]).filter(x=>['P0','P1'].includes(x.priority)).slice(0,3))alerts.push(`<span class="alert-chip ${r.priority==='P0'?'red':'amber'}">${esc(r.company)} · ${esc(r.risk)}</span>`);for(const f of (d.flagged||[]).filter(x=>x.classification==='CEO_DECISION').slice(0,2))alerts.push(`<span class="alert-chip red">Flagged · ${esc(f.subject)}</span>`);$('#quickAlerts').innerHTML=alerts.join('')}
 async function createCalendar(){const ids=selected('cal');if(!ids.length)return alert('Selecciona al menos un bloque.');for(const i of ids){const x=state.data.calendar_proposals[i];const conflicts=await getAll(`/me/calendarView?startDateTime=${encodeURIComponent(x.start)}&endDateTime=${encodeURIComponent(x.end)}&$top=10`,1);if(conflicts.length){alert(`Conflicto detectado para ${x.title}. No se creó.`);continue}await graph('/me/events',{method:'POST',body:JSON.stringify({subject:x.title,body:{contentType:'HTML',content:`<b>Resultado esperado:</b> ${esc(x.objective||'')}<br><br>${esc(x.description||'')}`},start:{dateTime:x.start,timeZone:'America/Bogota'},end:{dateTime:x.end,timeZone:'America/Bogota'},showAs:'busy'})})}alert('Proceso de calendario terminado.')}
 async function emailAction(send){const ids=selected('mail');if(!ids.length)return alert('Selecciona al menos un correo.');if(send&&!confirm(`¿Enviar ahora ${ids.length} correo(s) desde Outlook?`))return;for(const i of ids){const x=state.data.email_proposals[i];if(!(x.to||[]).length){alert(`Sin destinatario: ${x.subject}`);continue}const msg={subject:x.subject,body:{contentType:'HTML',content:esc(x.body||'').replace(/\n/g,'<br>')},toRecipients:x.to.map(a=>({emailAddress:{address:a}})),ccRecipients:(x.cc||[]).map(a=>({emailAddress:{address:a}}))};if(send)await graph('/me/sendMail',{method:'POST',body:JSON.stringify({message:msg,saveToSentItems:true})});else await graph('/me/messages',{method:'POST',body:JSON.stringify(msg)})}alert(send?'Correos enviados desde Outlook.':'Borradores creados en Outlook.')}
