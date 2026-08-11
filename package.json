@@ -1,1 +1,1 @@
-{"name":"ceo-lifeos","version":"2.1.0","private":true,"type":"module","scripts":{"build":"node scripts/validate.mjs && node scripts/test-refresh.mjs","validate":"node scripts/validate.mjs","test":"node scripts/test-refresh.mjs"},"dependencies":{"@netlify/functions":"^3.1.10"}}
+{"name":"ceo-lifeos","version":"5.0.0","private":true,"type":"module","scripts":{"build":"node scripts/validate.mjs","validate":"node scripts/validate.mjs","test":"node scripts/validate.mjs"}}
