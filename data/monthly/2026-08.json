@@ -1,9 +1,9 @@
 {
-  "meta":{"generated_at":"2026-08-10T19:43:00-05:00","period":"2026-W33","status":"AT_RISK","score":68},
+  "meta":{"generated_at":"2026-08-10T22:54:00-05:00","period":"2026-W33","status":"AT_RISK","score":66},
   "monthly":[
-    {"id":"ALLUP-2026-08","company":"AllUp","title":"Proteger caja y convertir pipeline prioritario","metric":"Caja + próximos pasos comerciales","target":5,"current":2,"progress":40,"status":"AT_RISK"},
-    {"id":"TEKY-2026-08","company":"Teky","title":"Fijar capital y roadmap de Fixi","metric":"Milestones definidos","target":3,"current":1,"progress":33,"status":"AT_RISK"},
-    {"id":"SC-2026-08","company":"Sports Crowd","title":"Estabilizar observabilidad y costo cloud","metric":"Controles cerrados","target":3,"current":1,"progress":33,"status":"AT_RISK"},
-    {"id":"CEO-2026-08","company":"Personal","title":"Reducir operación retenida por Francisco","metric":"% buffer ejecutivo","target":30,"current":16,"progress":53,"status":"OFF_TRACK"}
+    {"id":"ALLUP-2026-08","company":"AllUp","title":"Proteger caja y convertir pipeline prioritario","metric":"Caja + próximos pasos comerciales","target":5,"current":2,"progress":40,"status":"AT_RISK","focus":["Caja 10/15/30","Bioenergy","Fabricato","Lockton","Retail","TDM/Popsy"]},
+    {"id":"TEKY-2026-08","company":"Teky","title":"Fijar capital y roadmap de Fixi","metric":"Milestones definidos","target":3,"current":1,"progress":33,"status":"AT_RISK","focus":["Capital","3 milestones","Deck fondo impacto","Demo Popsy"]},
+    {"id":"SC-2026-08","company":"Sports Crowd","title":"Estabilizar observabilidad y costo cloud","metric":"Controles cerrados","target":3,"current":1,"progress":33,"status":"AT_RISK","focus":["AWS","Bedrock","Métricas","Evidencia operacional"]},
+    {"id":"CEO-2026-08","company":"Personal","title":"Reducir operación retenida por Francisco","metric":"% buffer ejecutivo","target":30,"current":13,"progress":43,"status":"OFF_TRACK","focus":["Eliminar solapamientos","Delegar seguimiento","Proteger deep work"]}
   ]
 }
