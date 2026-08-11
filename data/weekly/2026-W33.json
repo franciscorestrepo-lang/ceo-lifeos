@@ -1,94 +1,57 @@
 {
-  "meta": {
-    "generated_at": "2026-08-10T19:43:00-05:00",
-    "period": "2026-W33",
-    "mode": "latest_review_snapshot",
-    "status": "AT_RISK",
-    "score": 68,
-    "version": 2,
-    "executive_summary": "Semana con foco en caja, conversión comercial, Fixi y control operativo. La carga ejecutiva está alta y requiere sacar seguimiento y coordinación de Francisco."
-  },
-  "annual": [
-    {"id":"ALLUP-2026-01","company":"AllUp","title":"Crecimiento rentable y predecible","metric":"Facturación / margen / caja","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
-    {"id":"TEKY-2026-01","company":"Teky","title":"Convertir Fixi y Flow en productos repetibles","metric":"ARR / clientes / adopción","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
-    {"id":"SC-2026-01","company":"Sports Crowd","title":"Escalar revenue con operación estable","metric":"Revenue / clubes / estabilidad","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
-    {"id":"CEO-2026-01","company":"Personal","title":"Aumentar foco y delegación ejecutiva","metric":"Capacidad CEO / delegación","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"}
+  "meta":{"generated_at":"2026-08-10T22:54:00-05:00","period":"2026-W33","status":"AT_RISK","score":66,"mode":"chatgpt_connector_refresh"},
+  "executive_summary":"Semana 10–16 de agosto: proteger caja/Bioenergy, convertir Fabricato/Lockton/retail, cerrar capital y tres milestones Fixi, aprobar la demo Popsy y cerrar Bedrock/AWS. Riesgo transversal: agenda de Francisco sobrecargada y con solapamientos materiales.",
+  "critical_outcomes":[
+    {"id":"CO-01","company":"AllUp","priority":"P0","title":"Cerrar caja 10/15/30 y Bioenergy","expected_result":"Caja mínima, pagos y excepciones definidas","metric":"Decisión financiera cerrada"},
+    {"id":"CO-02","company":"AllUp","priority":"P1","title":"Cerrar siguientes pasos de Fabricato, Lockton y retail","expected_result":"Sponsor, dolor y próximo hito por cuenta","metric":"3 oportunidades con next step"},
+    {"id":"CO-03","company":"Teky","priority":"P1","title":"Definir capital y roadmap Fixi a 30 días","expected_result":"Capital + tres milestones + narrativa de fondo de impacto","metric":"3 milestones cerrados"},
+    {"id":"CO-04","company":"AllUp/Teky","priority":"P1","title":"Aprobar demo Popsy compras + SAP","expected_result":"Demo end-to-end validada antes del 19 de agosto","metric":"Go interno de demo"},
+    {"id":"CO-05","company":"Sports Crowd","priority":"P1","title":"Cerrar Bedrock/AWS y evidencia operativa","expected_result":"Caso de uso listo y criterios AWS claros","metric":"Pendientes críticos cerrados"}
   ],
-  "monthly": [
-    {"id":"ALLUP-2026-08","annual_objective_id":"ALLUP-2026-01","company":"AllUp","title":"Proteger caja y convertir pipeline prioritario","metric":"Caja + próximos pasos comerciales","target":5,"current":2,"progress":40,"status":"AT_RISK"},
-    {"id":"TEKY-2026-08","annual_objective_id":"TEKY-2026-01","company":"Teky","title":"Fijar capital y roadmap de Fixi","metric":"Milestones definidos","target":3,"current":1,"progress":33,"status":"AT_RISK"},
-    {"id":"SC-2026-08","annual_objective_id":"SC-2026-01","company":"Sports Crowd","title":"Estabilizar observabilidad y costo cloud","metric":"Controles cerrados","target":3,"current":1,"progress":33,"status":"AT_RISK"},
-    {"id":"CEO-2026-08","annual_objective_id":"CEO-2026-01","company":"Personal","title":"Reducir operación retenida por Francisco","metric":"% buffer ejecutivo","target":30,"current":16,"progress":53,"status":"OFF_TRACK"}
+  "decisions":[
+    {"id":"D-01","company":"AllUp","priority":"P0","decision":"Aprobar escenario de pagos 10/15/30, caja mínima y excepciones Bioenergy","deadline":"2026-08-12","recommendation":"Finanzas prepara; Francisco decide prioridades y excepciones."},
+    {"id":"D-02","company":"AllUp","priority":"P1","decision":"Cerrar tesis retail + IA después de Fabricato y Lockton","deadline":"2026-08-11","recommendation":"Máximo tres dolores y tres ofertas repetibles."},
+    {"id":"D-03","company":"Teky","priority":"P1","decision":"Definir capital, uso de fondos y tres milestones Fixi","deadline":"2026-08-14","recommendation":"Financiar resultados verificables a 30 días y cerrar deck para siguiente fondo."},
+    {"id":"D-04","company":"AllUp/Teky","priority":"P1","decision":"Definir alcance de entrada TDM/Popsy y criterio de go para demo","deadline":"2026-08-12","recommendation":"Separar alcance inicial del roadmap y proteger margen."},
+    {"id":"D-05","company":"Sports Crowd","priority":"P1","decision":"Condicionar cualquier cambio de facturación AWS a documentación, soporte, acceso y costo efectivo","deadline":"2026-08-14","recommendation":"No migrar solo por beneficio tributario; cerrar condiciones y caso Bedrock."}
   ],
-  "weekly": [
-    {"id":"W33-01","company":"AllUp","priority":"P0","title":"Aprobar caja y pagos 10/15/30","expected_result":"Pagos aprobados, diferidos y caja mínima definida","metric":"Decisión financiera cerrada","deadline":"2026-08-11","status":"AT_RISK","confidence":0.9},
-    {"id":"W33-02","company":"AllUp","priority":"P1","title":"Convertir Fabricato, Lockton y retail en siguientes pasos","expected_result":"Oportunidades con sponsor y siguiente hito","metric":"3 siguientes pasos","deadline":"2026-08-14","status":"AT_RISK","confidence":0.75},
-    {"id":"W33-03","company":"Teky","priority":"P1","title":"Definir capital y 3 milestones Fixi","expected_result":"Monto, uso y roadmap 30 días","metric":"3 milestones","deadline":"2026-08-14","status":"AT_RISK","confidence":0.8},
-    {"id":"W33-04","company":"AllUp/Teky","priority":"P1","title":"Dejar lista demo Popsy compras + SAP","expected_result":"Flujo end-to-end probado","metric":"Demo lista","deadline":"2026-08-14","status":"AT_RISK","confidence":0.7},
-    {"id":"W33-05","company":"Sports Crowd","priority":"P1","title":"Reconciliar métricas, AWS cost y gestión documental","expected_result":"Evidencia y acciones correctivas","metric":"3 controles cerrados","deadline":"2026-08-14","status":"AT_RISK","confidence":0.65}
+  "my_actions":[
+    {"id":"F-01","company":"AllUp","priority":"P1","action":"Fabricato: cerrar dolor, sponsor y siguiente paso","deadline":"2026-08-11","estimated_minutes":30},
+    {"id":"F-02","company":"AllUp","priority":"P1","action":"Lockton: validar un caso BPO/automatización cuantificable","deadline":"2026-08-11","estimated_minutes":30},
+    {"id":"F-03","company":"AllUp","priority":"P1","action":"Cerrar narrativa retail + IA en Estrategia AllUp","deadline":"2026-08-11","estimated_minutes":45},
+    {"id":"F-04","company":"AllUp","priority":"P0","action":"Aprobar plan financiero y excepciones Bioenergy","deadline":"2026-08-12","estimated_minutes":45},
+    {"id":"F-05","company":"AllUp/Teky","priority":"P1","action":"Gate de alcance y margen TDM/Popsy","deadline":"2026-08-12","estimated_minutes":45},
+    {"id":"F-06","company":"Teky","priority":"P1","action":"Cerrar capital y tres milestones Fixi","deadline":"2026-08-14","estimated_minutes":60},
+    {"id":"F-07","company":"Sports Crowd","priority":"P1","action":"Aprobar decisión AWS/Bedrock con evidencia","deadline":"2026-08-14","estimated_minutes":30}
   ],
-  "companies": [
-    {"name":"AllUp","status":"AT_RISK","progress":55,"main_objective":"Caja + pipeline enterprise","main_risk":"Dispersión comercial y margen","weekly_result":"Caja y siguientes pasos comerciales cerrados"},
-    {"name":"Teky","status":"AT_RISK","progress":42,"main_objective":"Productización de Fixi","main_risk":"Roadmap disperso","weekly_result":"Capital + 3 milestones de producto"},
-    {"name":"Sports Crowd","status":"AT_RISK","progress":48,"main_objective":"Estabilidad y revenue operativo","main_risk":"Métricas y cloud cost","weekly_result":"Observabilidad confiable y costo controlado"},
-    {"name":"Personal","status":"OFF_TRACK","progress":35,"main_objective":"Proteger foco y delegar","main_risk":"Context switching","weekly_result":"Eliminar operación y reuniones redundantes"}
+  "delegated_actions":[
+    {"id":"DEL-01","company":"AllUp","priority":"P0","responsible":"Alonso + Juliana","activity":"Consolidar caja 10/15/30 y Bioenergy: factura, auditoría y costo/margen","deadline":"2026-08-12","definition_of_done":"Paquete único de decisión con excepciones claras"},
+    {"id":"DEL-02","company":"AllUp","priority":"P1","responsible":"Carolina + Nathalia","activity":"Convertir Fabricato, Lockton y retail en pipeline y oferta paquetizada","deadline":"2026-08-12","definition_of_done":"Tres cuentas con dolor, sponsor, oferta y next step"},
+    {"id":"DEL-03","company":"AllUp/Teky","priority":"P1","responsible":"Carolina + Mauricio + Daniel","activity":"Preparar demo Popsy compras + SAP","deadline":"2026-08-14","definition_of_done":"Flujo end-to-end probado, límites y fallback definidos"},
+    {"id":"DEL-04","company":"Teky","priority":"P1","responsible":"Nathalia","activity":"Cerrar deck Fixi con feedback del fondo y evidencia del premio","deadline":"2026-08-12","definition_of_done":"Deck final consistente y reutilizable"},
+    {"id":"DEL-05","company":"Sports Crowd","priority":"P1","responsible":"Mauricio","activity":"Preparar caso de uso Bedrock y hoja de evidencia de métricas/costo AWS","deadline":"2026-08-13","definition_of_done":"Caso Bedrock + evidencia operacional lista para aprobación"},
+    {"id":"DEL-06","company":"AllUp","priority":"P1","responsible":"Daniel + Sebastián","activity":"Confirmar estabilidad posterior al incidente de tasas/TRM y protocolo de alerta","deadline":"2026-08-12","definition_of_done":"Prueba estable + protocolo documentado"}
   ],
-  "critical_outcomes": [
-    {"company":"AllUp","priority":"P0","title":"Aprobar caja y pagos del 10, 15 y 30","expected_result":"Caja mínima y pagos definidos","metric":"Decisión cerrada"},
-    {"company":"AllUp","priority":"P1","title":"Cerrar siguientes pasos de Fabricato, Lockton y retail","expected_result":"Sponsor, problema y siguiente hito","metric":"3 oportunidades con next step"},
-    {"company":"Teky","priority":"P1","title":"Definir capital y roadmap Fixi a 30 días","expected_result":"Monto, uso y 3 milestones","metric":"3 milestones"},
-    {"company":"AllUp/Teky","priority":"P1","title":"Dejar lista demo Popsy compras + SAP","expected_result":"Demo end-to-end validada","metric":"Demo aprobada"},
-    {"company":"Sports Crowd","priority":"P1","title":"Cerrar métricas, AWS cost y gestión documental","expected_result":"Control operativo verificable","metric":"3 controles en verde"}
+  "calendar_proposals":[
+    {"id":"CAL-01","company":"AllUp/Teky","priority":"P1","title":"[CEO] Gate TDM + Popsy","start":"2026-08-12T08:30:00-05:00","end":"2026-08-12T09:15:00-05:00","objective":"Proteger alcance y margen"},
+    {"id":"CAL-02","company":"Sports Crowd","priority":"P1","title":"[Sports Crowd] AWS + Bedrock decision","start":"2026-08-14T09:30:00-05:00","end":"2026-08-14T10:00:00-05:00","objective":"Cerrar decisión AWS y caso Bedrock"}
   ],
-  "decisions": [
-    {"company":"AllUp","priority":"P0","decision":"Aprobar escenario de pagos y caja mínima","deadline":"2026-08-11","recommendation":"Decidir sobre escenario preparado por Finanzas; no reconstruir el flujo."},
-    {"company":"AllUp","priority":"P1","decision":"Cerrar tesis de entrada retail + IA","deadline":"2026-08-11","recommendation":"Máximo 3 dolores y 3 ofertas paquetizadas."},
-    {"company":"AllUp","priority":"P1","decision":"Definir contrato de entrada para TDM","deadline":"2026-08-12","recommendation":"Separar modernización SAP, soporte e IA para proteger margen."},
-    {"company":"Teky","priority":"P1","decision":"Definir capital y prioridades Fixi","deadline":"2026-08-14","recommendation":"Monto, runway y 3 milestones financiables."},
-    {"company":"Sports Crowd","priority":"P1","decision":"Condiciones para AWS/Bedrock y control cloud","deadline":"2026-08-14","recommendation":"Aprobar solo con evidencia de costo, métricas y continuidad."}
+  "email_proposals":[
+    {"id":"MAIL-01","company":"AllUp","priority":"P0","to":["alonso.vasquez@allup.com.co","juliana.rueda@allup.com.co"],"subject":"Bioenergy + caja | paquete único de decisión","objective":"Delegar preparación financiera y económica"},
+    {"id":"MAIL-02","company":"AllUp","priority":"P1","to":["carolina.castillo@allup.com.co","nathalia.tobar@allup.com.co"],"subject":"Fabricato + Lockton + retail | próximos pasos y oferta","objective":"Delegar seguimiento comercial estructurado"},
+    {"id":"MAIL-03","company":"AllUp/Teky","priority":"P1","to":["carolina.castillo@allup.com.co","mauricio.sanchez@allup.com.co","daniel.daza@allup.com.co"],"subject":"Popsy | gate demo compras + SAP","objective":"Delegar preparación end-to-end"},
+    {"id":"MAIL-04","company":"Teky","priority":"P1","to":["nathalia.tobar@allup.com.co"],"subject":"Fixi | deck final para siguiente fondo","objective":"Cerrar material de fundraising"},
+    {"id":"MAIL-05","company":"Sports Crowd","priority":"P1","to":["mauricio.sanchez@allup.com.co"],"subject":"AWS / Bedrock | caso de uso y evidencia para decisión","objective":"Delegar preparación del insumo técnico"}
   ],
-  "my_actions": [
-    {"company":"AllUp","priority":"P0","action":"Aprobar plan financiero 10/15/30","deadline":"2026-08-11","estimated_minutes":45},
-    {"company":"AllUp","priority":"P1","action":"Definir narrativa retail + IA","deadline":"2026-08-11","estimated_minutes":45},
-    {"company":"AllUp","priority":"P1","action":"Conducir Fabricato a siguiente paso","deadline":"2026-08-11","estimated_minutes":30},
-    {"company":"AllUp","priority":"P1","action":"Validar caso BPO cuantificable con Lockton","deadline":"2026-08-11","estimated_minutes":30},
-    {"company":"AllUp/Teky","priority":"P1","action":"Gate de alcance y margen TDM/Popsy","deadline":"2026-08-12","estimated_minutes":45},
-    {"company":"Teky","priority":"P1","action":"Definir capital y roadmap Fixi","deadline":"2026-08-14","estimated_minutes":60},
-    {"company":"Sports Crowd","priority":"P1","action":"Revisión ejecutiva de métricas/AWS","deadline":"2026-08-14","estimated_minutes":30}
+  "risks":[
+    {"id":"R-01","company":"AllUp","priority":"P0","risk":"Caja/Bioenergy puede afectar liquidez y margen","probability":"HIGH","impact":"CRITICAL"},
+    {"id":"R-02","company":"Personal","priority":"P0","risk":"Martes con solapamientos entre deep work, comercial, finanzas y sprint","probability":"CERTAIN","impact":"HIGH"},
+    {"id":"R-03","company":"AllUp/Teky","priority":"P1","risk":"Scope creep TDM/Popsy","probability":"HIGH","impact":"HIGH"},
+    {"id":"R-04","company":"Teky","priority":"P1","risk":"Fixi disperso entre producto, fundraising, pilotos y premio","probability":"HIGH","impact":"HIGH"},
+    {"id":"R-05","company":"Sports Crowd","priority":"P1","risk":"AWS/Bedrock puede avanzar sin condiciones y evidencia suficientes","probability":"MEDIUM","impact":"HIGH"},
+    {"id":"R-06","company":"AllUp","priority":"P1","risk":"Incidente de tasas/TRM requiere evidencia de estabilidad","probability":"MEDIUM","impact":"HIGH"}
   ],
-  "delegated_actions": [
-    {"company":"AllUp","priority":"P1","responsible":"Carolina + Nathalia","activity":"Construir propuesta retail + IA","deadline":"2026-08-11","definition_of_done":"3 dolores, 3 ofertas, casos y pricing orientativo"},
-    {"company":"AllUp","priority":"P0","responsible":"Alonso + Juliana","activity":"Resolver Bioenergy: factura, auditoría y costo/margen","deadline":"2026-08-11","definition_of_done":"Asuntos resueltos o excepción económica escalada"},
-    {"company":"AllUp/Teky","priority":"P1","responsible":"Carolina + Mauricio + Daniel","activity":"Preparar demo Popsy compras + SAP","deadline":"2026-08-14","definition_of_done":"Flujo end-to-end ensayado y fallback definido"},
-    {"company":"Teky","priority":"P1","responsible":"Nathalia","activity":"Cerrar deck Fixi para fondo de impacto","deadline":"2026-08-12","definition_of_done":"Deck final con evidencia y narrativa consistente"},
-    {"company":"Sports Crowd","priority":"P1","responsible":"Mauricio","activity":"Reconciliar AIDER, descargas y costo AWS","deadline":"2026-08-13","definition_of_done":"Problema → causa → acción → evidencia → estado"}
-  ],
-  "calendar_proposals": [
-    {"company":"AllUp","priority":"P0","title":"[AllUp] Aprobar caja 10/15/30","start":"2026-08-11T13:00:00","end":"2026-08-11T13:45:00","objective":"Definir pagos, diferimientos y caja mínima","description":"Revisar escenario ya preparado por Finanzas y tomar decisiones."},
-    {"company":"AllUp","priority":"P1","title":"[AllUp] Estrategia retail + IA","start":"2026-08-11T14:00:00","end":"2026-08-11T14:45:00","objective":"Cerrar 3 dolores y 3 ofertas paquetizadas","description":"Salir con tesis comercial lista para ejecución."},
-    {"company":"AllUp/Teky","priority":"P1","title":"[CEO] Gate TDM + Popsy","start":"2026-08-12T10:00:00","end":"2026-08-12T10:45:00","objective":"Proteger alcance y margen","description":"Aprobar oferta de entrada y límites."},
-    {"company":"Teky","priority":"P1","title":"[Teky] Capital + roadmap Fixi","start":"2026-08-13T13:00:00","end":"2026-08-13T14:00:00","objective":"Definir capital, runway y 3 milestones","description":"No abrir nuevas funcionalidades durante este bloque."},
-    {"company":"Sports Crowd","priority":"P1","title":"[Sports Crowd] Revisión ejecutiva métricas/AWS","start":"2026-08-14T08:30:00","end":"2026-08-14T09:00:00","objective":"Cerrar evidencia de métricas, costo y gestión documental","description":"Revisión basada solo en evidencia."}
-  ],
-  "email_proposals": [
-    {"company":"AllUp","priority":"P0","to":[],"cc":[],"subject":"Bioenergy | factura, auditoría y cierre económico","objective":"Delegar cierre integral a Finanzas/Operación","body":"Equipo, necesito que consolidemos en un solo frente la factura pendiente, el requerimiento de auditoría y el costo/margen real del servicio a Bioenergy. Por favor dejen resuelto el asunto o escálenme únicamente la decisión económica o contractual que requiera aprobación. Incluyan responsable, siguiente paso y fecha de cierre."},
-    {"company":"AllUp","priority":"P1","to":[],"cc":[],"subject":"Retail | propuesta cerrada para ejecución","objective":"Delegar preparación de la propuesta retail","body":"Carolina, Nathalia: necesito una versión cerrada de la propuesta retail + IA con máximo tres dolores recurrentes, tres ofertas paquetizadas, casos aplicables, pricing orientativo y criterios para descartar prospectos. Quiero revisar una propuesta terminada, no construirla en reunión."},
-    {"company":"AllUp/Teky","priority":"P1","to":[],"cc":[],"subject":"Popsy | demo compras + SAP lista","objective":"Delegar preparación técnica/comercial","body":"Equipo, para Popsy necesito el flujo end-to-end de compras + Fixi + SAP completamente validado antes de la demo. Incluyan datos de entrada/salida, límites de integración, responsables de cada tramo, fallback y criterio de terminado. Escálenme solo decisiones de alcance o margen."},
-    {"company":"Teky","priority":"P1","to":[],"cc":[],"subject":"Fixi | versión final deck fondo de impacto","objective":"Cerrar el deck sin otro ciclo abierto de brainstorming","body":"Nathalia, por favor consolida la versión final del deck de Fixi incorporando el feedback recibido y dejando consistentes clientes, usuarios, impacto, evidencia y narrativa de inversión. Quiero revisar una versión final lista para decidir, no un nuevo borrador abierto."}
-  ],
-  "risks": [
-    {"company":"AllUp","priority":"P0","risk":"Caja y pagos compiten con demasiados frentes ejecutivos","probability":"HIGH","impact":"CRITICAL","mitigation":"Finanzas prepara; Francisco decide en 45 minutos."},
-    {"company":"AllUp","priority":"P1","risk":"Scope creep en TDM/Popsy puede erosionar margen","probability":"HIGH","impact":"HIGH","mitigation":"Oferta de entrada cerrada y exclusiones explícitas."},
-    {"company":"Teky","priority":"P1","risk":"Fixi disperso entre producto, pilotos, fundraising y premios","probability":"HIGH","impact":"HIGH","mitigation":"Tres milestones de 30 días y owner claro."},
-    {"company":"Sports Crowd","priority":"P1","risk":"Métricas no confiables y costo cloud sin control suficiente","probability":"HIGH","impact":"HIGH","mitigation":"Reconciliación y evidencia antes de nuevas decisiones."},
-    {"company":"Personal","priority":"P0","risk":"Sobrecarga y context switching reducen capacidad ejecutiva","probability":"HIGH","impact":"HIGH","mitigation":"Delegar seguimiento y preservar 30% de buffer."}
-  ],
-  "flagged": [
-    {"subject":"Bioenergy — Factura ALLIA 935","classification":"DELEGATE","recommendation":"Delegar a Finanzas/Operación y mantener bandera solo hasta confirmar cierre."},
-    {"subject":"Bioenergy — requerimiento de auditoría/licenciamiento","classification":"DELEGATE","recommendation":"Resolver con checklist y escalar solo decisión."},
-    {"subject":"Brandbook AllUp","classification":"CLOSE_FLAG","recommendation":"Cerrar bandera si la entrega y pago ya están confirmados."}
-  ],
-  "capacity": {"calendar_hours":40,"meeting_hours":21.5,"proposed_ceo_hours":4.25,"buffer_hours":6.25,"status":"AT_RISK"},
-  "source_health": {"outlook":"SNAPSHOT","flagged":"SNAPSHOT","calendar":"SNAPSHOT","teams":"SNAPSHOT","read":"SNAPSHOT"},
-  "evolution": {"new":["Retail + IA como foco comercial","Control cloud Sports Crowd"],"improved":["Popsy con siguiente hito definido"],"worsened":["Capacidad ejecutiva"],"unchanged":["Necesidad de productización Fixi"],"closed":[]}
+  "capacity":{"calendar_hours":27,"meeting_hours":21,"proposed_ceo_hours":4,"buffer_hours":5,"status":"AT_RISK"},
+  "source_health":{"mail":"OK","flagged":"PARTIAL","calendar":"OK","teams":"OK","read":"OK"},
+  "evolution":{"new":["Pendiente explícito: caso de uso Bedrock para créditos AWS","Evidencia del premio refuerza la narrativa de tracción de Fixi"],"improved":["Santa Anita ya recibió material comercial","Juliana ya preparó pagos del 10 y proyecciones 15/30"],"worsened":["Agenda del martes tiene múltiples conflictos","Buffer ejecutivo por debajo del objetivo"],"unchanged":["Bioenergy requiere cierre delegado","Popsy requiere demo probada","Fixi requiere tres milestones"],"closed":["Ficha AllUp para Arelia respondida"]}
 }
