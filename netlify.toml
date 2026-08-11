@@ -6,9 +6,6 @@
 [functions]
   node_bundler = "esbuild"
 
-[functions."scheduled-refresh"]
-  schedule = "0 13 * * 1"
-
 [[headers]]
   for = "/*"
   [headers.values]
