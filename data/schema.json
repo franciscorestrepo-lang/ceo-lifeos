@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEO LifeOS current state",
+  "type": "object",
+  "required": ["meta", "annual", "monthly", "weekly", "companies", "critical_outcomes", "decisions", "my_actions", "delegated_actions", "calendar_proposals", "email_proposals", "risks", "flagged", "capacity", "source_health"],
+  "properties": {
+    "critical_outcomes": {"type":"array","maxItems":5},
+    "decisions": {"type":"array","maxItems":5},
+    "my_actions": {"type":"array","maxItems":7}
+  }
+}
