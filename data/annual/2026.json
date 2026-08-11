@@ -1,9 +1,9 @@
 {
-  "meta":{"generated_at":"2026-08-10T19:43:00-05:00","period":"2026-W33","status":"AT_RISK","score":68},
+  "meta":{"generated_at":"2026-08-10T22:54:00-05:00","period":"2026-W33","status":"AT_RISK","score":66},
   "annual":[
-    {"id":"ALLUP-2026-01","company":"AllUp","title":"Crecimiento rentable y predecible","metric":"Facturación / margen / caja","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
-    {"id":"TEKY-2026-01","company":"Teky","title":"Convertir Fixi y Flow en productos repetibles","metric":"ARR / clientes / adopción","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
-    {"id":"SC-2026-01","company":"Sports Crowd","title":"Escalar revenue con operación estable","metric":"Revenue / clubes / estabilidad","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
-    {"id":"CEO-2026-01","company":"Personal","title":"Aumentar foco y delegación ejecutiva","metric":"Capacidad CEO / delegación","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"}
+    {"id":"ALLUP-2026-01","company":"AllUp","title":"Crecimiento rentable y predecible","metric":"Facturación / margen / caja","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31","notes":"Esta semana el foco sigue siendo caja, pipeline enterprise y margen. Las metas numéricas anuales no están confirmadas en las fuentes revisadas."},
+    {"id":"TEKY-2026-01","company":"Teky","title":"Convertir Fixi y Flow en productos repetibles","metric":"ARR / clientes / adopción","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31","notes":"Read AI aporta evidencia de tracción de Fixi y una aspiración presentada de 200 clientes/ARR USD 8M en tres años; no se toma como meta anual 2026 sin aprobación explícita."},
+    {"id":"SC-2026-01","company":"Sports Crowd","title":"Escalar revenue con operación estable","metric":"Revenue / clubes / estabilidad","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31","notes":"Prioridad actual: AWS/Bedrock, control operativo y evidencia de métricas."},
+    {"id":"CEO-2026-01","company":"Personal","title":"Aumentar foco y delegación ejecutiva","metric":"Capacidad CEO / delegación","target":"30% buffer ejecutivo","current":"Agenda con solapamientos","progress":40,"status":"OFF_TRACK","deadline":"2026-12-31","notes":"La agenda de esta semana confirma una brecha material frente al buffer objetivo."}
   ]
 }
