@@ -1,0 +1,15 @@
+{
+  "status": "READY",
+  "generated_at": "2026-08-10T20:05:00-05:00",
+  "period": "2026-W33",
+  "engine": "ChatGPT connectors",
+  "source_health": {
+    "mail": "OK",
+    "flagged": "OK",
+    "calendar": "OK",
+    "teams": "OK",
+    "read": "OK"
+  },
+  "commit_sha": "pending-next-refresh",
+  "note": "La PWA es read-only. ChatGPT actualiza current.json e históricos en GitHub."
+}
