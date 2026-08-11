@@ -1,81 +1,97 @@
-# CEO LifeOS
+# CEO LifeOS v5
 
-PWA ejecutiva para Francisco: objetivos anuales/mensuales/semanales, foco, decisiones, delegación, riesgos y capacidad ejecutiva.
-
-## Qué hace
-
-- Lee Outlook Inbox/Sent de los últimos 30 días y consulta correos con bandera por separado.
-- Lee Calendar de -30/+30 días y detecta carga/conflictos.
-- Lee Teams según permisos disponibles.
-- Lee Read AI mediante Netlify Function.
-- Analiza con OpenAI o Anthropic Claude.
-- Mantiene `data/current.json` e histórico semanal/mensual/anual en GitHub.
-- Crea bloques aprobados directamente en Outlook Calendar.
-- Crea borradores o envía correos desde Outlook previa aprobación.
-- No usa n8n, Make, Zapier ni Monday.
+PWA ejecutiva para Francisco. Netlify es únicamente la capa de visualización. GitHub es el datastore/histórico. ChatGPT es el motor de ingestión, análisis y ejecución porque allí ya están conectados Outlook, Calendar, Teams, Read AI y GitHub.
 
 ## Arquitectura
 
-PWA (Netlify) → Microsoft Graph + Read AI → OpenAI/Claude → JSON estructurado → GitHub → Netlify redeploy.
+```text
+Outlook + Flagged + Calendar + Teams + Read AI
+                    ↓
+             ChatGPT connectors
+                    ↓
+           Chief of Staff analysis
+                    ↓
+                GitHub main
+   data/current.json + históricos + status
+                    ↓
+              Netlify static PWA
+```
 
-El botón **Actualizar** usa OAuth/PKCE interactivo para Microsoft 365. El refresh programado de los lunes requiere credenciales de aplicación de Microsoft guardadas solo en Netlify.
+No hay MSAL, Microsoft Graph, Read AI API, OpenAI API ni secretos de fuentes en la PWA o en Netlify.
 
-## Variables Netlify
+## Actualización automática
 
-AI:
+La automatización de ChatGPT `CEO LifeOS Weekly Sync` se ejecuta cada lunes a las 8:00 a. m. America/Bogota. Revisa 30 días de Outlook/Teams/Read AI, calendario -30/+30, correos con bandera, genera la revisión ejecutiva y actualiza:
 
-- `AI_PROVIDER=openai` o `anthropic`
-- `OPENAI_API_KEY`
-- `OPENAI_MODEL`
-- `ANTHROPIC_API_KEY`
-- `ANTHROPIC_MODEL`
+- `data/current.json`
+- `data/status.json`
+- `data/weekly/YYYY-Www.json`
+- `data/monthly/YYYY-MM.json`
+- `data/annual/YYYY.json`
 
-Read AI:
+Cada commit en `main` provoca el deploy automático de Netlify.
 
-- `READ_AI_API_KEY`
+## Actualización a demanda
 
-GitHub:
+El botón **Actualizar con ChatGPT**:
 
-- `GITHUB_TOKEN`
-- `GITHUB_OWNER=franciscorestrepo-lang`
-- `GITHUB_REPO=ceo-lifeos`
-- `GITHUB_BRANCH=main`
+1. copia el comando maestro de revisión;
+2. abre ChatGPT;
+3. Francisco pega/envía el comando en su CEO Command Center;
+4. ChatGPT usa los conectores ya autorizados y actualiza GitHub;
+5. LifeOS consulta `raw.githubusercontent.com` cada 15 segundos y detecta el nuevo `generated_at`;
+6. al volver a la PWA el tablero se refresca automáticamente.
 
-Refresh semanal Microsoft (opcional):
+La limitación deliberada es que una web externa no puede disparar silenciosamente un agente interno de ChatGPT sin un webhook/API. Por seguridad y para evitar duplicar credenciales, el envío del comando requiere una interacción en ChatGPT.
 
-- `MICROSOFT_TENANT_ID`
-- `MICROSOFT_CLIENT_ID`
-- `MICROSOFT_CLIENT_SECRET`
-- `MICROSOFT_USER_ID`
+## Aprobaciones
 
-## Microsoft Entra
+La PWA no escribe directamente en Outlook. En Foco y Delegar se seleccionan propuestas y se pulsa **Aprobar seleccionados**. LifeOS copia un comando de aprobación y abre ChatGPT:
 
-Registrar una SPA con redirect `https://TU-SITIO.netlify.app` y permisos delegados:
+- calendario: ChatGPT verifica disponibilidad y crea solo los eventos aprobados;
+- correo: ChatGPT crea borradores en Outlook; nunca envía por defecto.
 
-`User.Read`, `Mail.Read`, `Mail.ReadWrite`, `Mail.Send`, `Calendars.Read`, `Calendars.ReadWrite`, `Chat.Read`, `Team.ReadBasic.All`, `Channel.ReadBasic.All`, `ChannelMessage.Read.All`.
+## Fuente de datos
 
-En la app, doble clic en **Microsoft 365** para guardar Client ID y Tenant ID localmente.
+La PWA intenta primero:
 
-## Deploy Netlify
+`https://raw.githubusercontent.com/franciscorestrepo-lang/ceo-lifeos/main/data/current.json`
 
-Conecta este repo en Netlify. `netlify.toml` ya define build, publish, functions, redirects y cron de lunes 13:00 UTC (8:00 Colombia).
+con fallback al archivo incluido en el deploy de Netlify. Así puede ver una actualización de GitHub incluso antes de que termine un nuevo deploy.
 
-## Seguridad
+## Pruebas automáticas
 
-OpenAI/Claude/Read/GitHub secrets viven solo en Netlify. Microsoft manual usa MSAL + PKCE. El secreto de Microsoft para refresh autónomo nunca llega al navegador.
+`npm run build` ejecuta `scripts/validate.mjs` y bloquea el deploy si:
 
-## Operación
+- `current.json` queda vacío en resultados, decisiones o acciones;
+- `status.json` no contiene estado/fecha/periodo;
+- reaparece una integración directa a Microsoft, Read AI u OpenAI;
+- el botón no contiene el comando de ChatGPT;
+- desaparecen las acciones de aprobación;
+- Netlify vuelve a tener Functions/API;
+- el Service Worker no invalida versiones anteriores.
 
-- Máximo 5 resultados críticos.
+## Despliegue
+
+Netlify está conectado a `franciscorestrepo-lang/ceo-lifeos`, rama `main`.
+
+Build:
+
+```bash
+npm run build
+```
+
+Publish directory: `.`
+
+No se requieren variables de entorno para operar LifeOS v5.
+
+## Principios
+
+- Máximo 5 resultados críticos semanales.
 - Máximo 5 decisiones.
 - Máximo 7 acciones personales.
 - 30% de buffer ejecutivo.
-- Trabajo propio → calendario.
-- Trabajo operativo → delegación por correo.
-- Flagged mail → CEO_DECISION / DELEGATE / WAITING / FOLLOW_UP / CLOSE_FLAG.
-
-## Validación local
-
-`npm install && npm run validate`
-
-Para desarrollo con Functions: `npx netlify dev`.
+- AllUp, Teky y Sports Crowd siempre separados.
+- Trabajo CEO -> decisión/calendario.
+- Trabajo operativo -> delegación/correo.
+- GitHub conserva el histórico; la PWA nunca inventa datos.
