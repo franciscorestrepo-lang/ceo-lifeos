@@ -1,74 +1,81 @@
-# CEO LifeOS — Netlify flat project
+# CEO LifeOS
 
-Proyecto 100% plano: no contiene subcarpetas.
+PWA ejecutiva para Francisco: objetivos anuales/mensuales/semanales, foco, decisiones, delegación, riesgos y capacidad ejecutiva.
 
-## Qué cambió
+## Qué hace
 
-- Monday queda fuera del flujo de ejecución.
-- Francisco ejecuta únicamente acciones propias mediante calendario.
-- La delegación se canaliza mediante borradores de correo.
-- Panel de aprobación interactivo con selección individual o por lote.
-- Calendario: genera archivos `.ics` importables en Outlook, Google Calendar, Apple Calendar, etc.
-- Correo: abre borradores con `mailto:` en el cliente configurado.
-- Integración opcional: puede enviar aprobaciones a un webhook de n8n, Make o una API propia.
-- Modo foco para ocultar ruido y ver solo resultados, calendario, correos y aprobación.
-- PWA instalable en móvil.
+- Lee Outlook Inbox/Sent de los últimos 30 días y consulta correos con bandera por separado.
+- Lee Calendar de -30/+30 días y detecta carga/conflictos.
+- Lee Teams según permisos disponibles.
+- Lee Read AI mediante Netlify Function.
+- Analiza con OpenAI o Anthropic Claude.
+- Mantiene `data/current.json` e histórico semanal/mensual/anual en GitHub.
+- Crea bloques aprobados directamente en Outlook Calendar.
+- Crea borradores o envía correos desde Outlook previa aprobación.
+- No usa n8n, Make, Zapier ni Monday.
 
-## Despliegue en Netlify
+## Arquitectura
 
-1. Descomprime el ZIP.
-2. Crea un repositorio GitHub vacío.
-3. Sube TODOS los archivos directamente a la raíz del repositorio.
-4. En Netlify: **Add new site → Import an existing project → GitHub**.
-5. Selecciona el repositorio.
-6. Build command: `npm run build` (opcional; el sitio es estático).
-7. Publish directory: `.`
-8. Deploy.
+PWA (Netlify) → Microsoft Graph + Read AI → OpenAI/Claude → JSON estructurado → GitHub → Netlify redeploy.
 
-No necesitas variables de entorno para el modo local.
+El botón **Actualizar** usa OAuth/PKCE interactivo para Microsoft 365. El refresh programado de los lunes requiere credenciales de aplicación de Microsoft guardadas solo en Netlify.
 
-## Actualizar cada semana
+## Variables Netlify
 
-La información visible vive en `data.js`.
+AI:
 
-Reemplaza el objeto `window.LIFEOS_DATA` por el JSON/JS generado en la revisión semanal y haz commit. Netlify desplegará automáticamente.
+- `AI_PROVIDER=openai` o `anthropic`
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL`
 
-### Automatización recomendada
+Read AI:
 
-Usa n8n o Make para:
+- `READ_AI_API_KEY`
 
-1. Recibir el resultado estructurado de la revisión semanal.
-2. Generar/reemplazar `data.js` en GitHub usando la API de GitHub.
-3. Netlify detecta el commit y publica el LifeOS actualizado.
+GitHub:
 
-Esta arquitectura mantiene el proyecto plano y evita funciones Netlify en subcarpetas.
+- `GITHUB_TOKEN`
+- `GITHUB_OWNER=franciscorestrepo-lang`
+- `GITHUB_REPO=ceo-lifeos`
+- `GITHUB_BRANCH=main`
 
-## Panel de aprobación
+Refresh semanal Microsoft (opcional):
 
-### Modo local
+- `MICROSOFT_TENANT_ID`
+- `MICROSOFT_CLIENT_ID`
+- `MICROSOFT_CLIENT_SECRET`
+- `MICROSOFT_USER_ID`
 
-- **Aprobar calendario:** descarga `.ics` por cada bloque seleccionado.
-- **Aprobar correos:** para un solo correo abre el borrador. Si seleccionas varios, quedan aprobados y debes abrirlos uno a uno para evitar bloqueos del navegador.
-- No envía correos automáticamente.
-- No agrega asistentes automáticamente.
+## Microsoft Entra
 
-### Modo webhook
+Registrar una SPA con redirect `https://TU-SITIO.netlify.app` y permisos delegados:
 
-En **Configurar integración** puedes indicar una URL de webhook.
+`User.Read`, `Mail.Read`, `Mail.ReadWrite`, `Mail.Send`, `Calendars.Read`, `Calendars.ReadWrite`, `Chat.Read`, `Team.ReadBasic.All`, `Channel.ReadBasic.All`, `ChannelMessage.Read.All`.
 
-Al aprobar, el sitio hace POST con:
+En la app, doble clic en **Microsoft 365** para guardar Client ID y Tenant ID localmente.
 
-```json
-{
-  "type": "lifeos_approval",
-  "approved_at": "ISO-8601",
-  "calendar": [],
-  "emails": []
-}
-```
+## Deploy Netlify
 
-En n8n/Make puedes conectar ese payload a Outlook/Gmail/Google Calendar/Microsoft Calendar para crear borradores y eventos reales.
+Conecta este repo en Netlify. `netlify.toml` ya define build, publish, functions, redirects y cron de lunes 13:00 UTC (8:00 Colombia).
 
 ## Seguridad
 
-No almacenes credenciales de Microsoft, Google ni secretos de API en `data.js` o GitHub. Si usas webhook, protege la automatización del lado del servidor.
+OpenAI/Claude/Read/GitHub secrets viven solo en Netlify. Microsoft manual usa MSAL + PKCE. El secreto de Microsoft para refresh autónomo nunca llega al navegador.
+
+## Operación
+
+- Máximo 5 resultados críticos.
+- Máximo 5 decisiones.
+- Máximo 7 acciones personales.
+- 30% de buffer ejecutivo.
+- Trabajo propio → calendario.
+- Trabajo operativo → delegación por correo.
+- Flagged mail → CEO_DECISION / DELEGATE / WAITING / FOLLOW_UP / CLOSE_FLAG.
+
+## Validación local
+
+`npm install && npm run validate`
+
+Para desarrollo con Functions: `npx netlify dev`.

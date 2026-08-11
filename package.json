@@ -1,1 +1,1 @@
-{"name":"ceo-lifeos","private":true,"version":"2.0.0","scripts":{"build":"echo 'Static LifeOS ready'"}}
+{"name":"ceo-lifeos","version":"2.0.0","private":true,"type":"module","scripts":{"build":"node scripts/validate.mjs","validate":"node scripts/validate.mjs"},"dependencies":{"@netlify/functions":"^3.1.10"}}

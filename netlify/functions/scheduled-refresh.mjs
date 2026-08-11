@@ -1,0 +1,1 @@
+export default async(req,context)=>{const site=context?.site?.url||process.env.URL||process.env.DEPLOY_PRIME_URL;if(!site)return;const r=await fetch(`${site}/api/refresh-background`,{method:'POST',headers:{'x-lifeos-scheduled':'1'}});console.log('Triggered background refresh',r.status)};export const config={schedule:'0 13 * * 1'};

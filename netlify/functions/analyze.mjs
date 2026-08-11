@@ -1,0 +1,1 @@
+import { analyzeExecutiveContext } from './lib/analyze-core.mjs';export default async(req)=>{if(req.method!=='POST')return new Response('Method not allowed',{status:405});try{return Response.json(await analyzeExecutiveContext({...await req.json(),mode:'manual'}))}catch(e){return Response.json({error:e.message},{status:500})}}

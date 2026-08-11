@@ -3,186 +3,116 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>CEO LifeOS</title>
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://alcdn.msauth.net/browser/2.39.0/js/msal-browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <header class="topbar">
     <div>
       <div class="eyebrow">CEO COMMAND CENTER</div>
-      <h1>LifeOS semanal</h1>
-      <p id="weekLabel" class="muted"></p>
+      <h1>LifeOS</h1>
+      <div class="meta-line"><span id="syncStatus">Sin sincronizar</span><span>•</span><span id="weekLabel">Semana actual</span></div>
     </div>
-    <div class="top-actions">
-      <button id="refreshBtn" class="ghost">Actualizar</button>
-      <button id="focusModeBtn" class="ghost">Modo foco</button>
+    <div class="header-actions">
+      <button id="installBtn" class="btn ghost hidden">Instalar</button>
+      <button id="connectBtn" class="btn ghost">Microsoft 365</button>
+      <button id="refreshBtn" class="btn primary">Actualizar</button>
     </div>
   </header>
 
-  <main class="shell">
+  <main>
+    <section class="source-strip" id="sourceStrip"></section>
+
     <section class="hero-grid">
-      <article class="card score-card">
-        <span class="label">Carga Francisco</span>
-        <strong id="loadScore">—</strong>
-        <small id="loadHint"></small>
-      </article>
-      <article class="card score-card">
-        <span class="label">Decisiones críticas</span>
-        <strong id="decisionCount">—</strong>
-        <small>Máximo recomendado: 3 activas</small>
-      </article>
-      <article class="card score-card">
-        <span class="label">Horas de foco propuestas</span>
-        <strong id="focusHours">—</strong>
-        <small>Solo trabajo propio de alto impacto</small>
-      </article>
-      <article class="card score-card">
-        <span class="label">Delegaciones por correo</span>
-        <strong id="emailCount">—</strong>
-        <small>Seguimiento operativo fuera de Francisco</small>
-      </article>
-    </section>
-
-    <section class="card">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">LECTURA EJECUTIVA</span>
-          <h2>5 resultados de la semana</h2>
-        </div>
-        <span id="weekStatus" class="pill">—</span>
-      </div>
-      <div id="outcomes" class="outcomes"></div>
-    </section>
-
-    <section>
-      <div class="section-head standalone">
-        <div>
-          <span class="eyebrow">PORTAFOLIO</span>
-          <h2>Estado por compañía</h2>
-        </div>
-      </div>
-      <div id="companyGrid" class="company-grid"></div>
-    </section>
-
-    <section class="two-col">
-      <article class="card">
-        <div class="section-head">
+      <article class="hero card">
+        <div class="eyebrow">ESTADO EJECUTIVO</div>
+        <div class="hero-row">
           <div>
-            <span class="eyebrow">DECIDIR</span>
-            <h2>Decisiones de Francisco</h2>
+            <h2 id="lifeosStatus">NEEDS SYNC</h2>
+            <p id="executiveSummary" class="lead">Conecta Microsoft 365 y actualiza para generar el panorama ejecutivo.</p>
           </div>
-          <span class="pill danger" id="decisionBadge"></span>
+          <div class="score"><span id="lifeosScore">—</span><small>/100</small></div>
         </div>
-        <div id="decisions"></div>
+        <div class="metric-grid" id="headlineMetrics"></div>
       </article>
-
-      <article class="card">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">RIESGO</span>
-            <h2>Radar semanal</h2>
-          </div>
-        </div>
-        <div id="risks"></div>
+      <article class="card month-card">
+        <div class="eyebrow">MES</div>
+        <h3 id="monthHeadline">Objetivos del mes</h3>
+        <p id="monthSummary" class="lead">Pendiente de sincronización.</p>
+        <div class="progress-shell"><div id="monthProgress" class="progress-bar"></div></div>
+        <div class="month-kpis" id="monthKpis"></div>
       </article>
     </section>
 
-    <section class="card">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">EJECUCIÓN PERSONAL</span>
-          <h2>Calendario recomendado</h2>
-          <p class="muted">Solo decisiones, preparación, relaciones clave y deep work.</p>
-        </div>
-        <div class="mini-actions">
-          <button id="selectAllCalendar" class="ghost small">Seleccionar todo</button>
-          <button id="clearCalendar" class="ghost small">Limpiar</button>
-        </div>
+    <section class="quick-alerts" id="quickAlerts"></section>
+
+    <nav class="tabs" aria-label="Navegación principal">
+      <button class="tab active" data-view="home">Home</button>
+      <button class="tab" data-view="objectives">Objetivos</button>
+      <button class="tab" data-view="focus">Foco</button>
+      <button class="tab" data-view="delegate">Delegar</button>
+      <button class="tab" data-view="more">Más</button>
+    </nav>
+
+    <section id="home" class="view active">
+      <div class="section-head"><div><div class="eyebrow">MÁXIMO 5</div><h3>Resultados críticos</h3></div></div>
+      <div id="criticalOutcomes" class="stack"></div>
+      <div class="two-col">
+        <div><div class="section-head"><h3>Compañías</h3></div><div id="companyCards" class="company-grid"></div></div>
+        <div><div class="section-head"><h3>Próxima decisión</h3></div><div id="nextDecision"></div><div class="section-head"><h3>Carga ejecutiva</h3></div><div id="capacityCard"></div></div>
       </div>
-      <div id="calendarActions" class="action-list"></div>
     </section>
 
-    <section class="card">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">DELEGACIÓN</span>
-          <h2>Correos para mover la operación</h2>
-          <p class="muted">Borradores listos para delegar, destrabar o confirmar siguientes pasos.</p>
-        </div>
-        <div class="mini-actions">
-          <button id="selectAllEmail" class="ghost small">Seleccionar todo</button>
-          <button id="clearEmail" class="ghost small">Limpiar</button>
-        </div>
-      </div>
-      <div id="emailActions" class="action-list"></div>
+    <section id="objectives" class="view">
+      <div class="segmented"><button class="segment active" data-objective="annual">Año</button><button class="segment" data-objective="monthly">Mes</button><button class="segment" data-objective="weekly">Semana</button></div>
+      <div id="objectivesList" class="stack"></div>
     </section>
 
-    <section class="approval card sticky-approval">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">PANEL DE APROBACIÓN</span>
-          <h2>Revisar → aprobar → ejecutar</h2>
-        </div>
-        <span class="pill success" id="approvalState">Sin cambios ejecutados</span>
+    <section id="focus" class="view">
+      <div class="two-col">
+        <div><div class="section-head"><div><div class="eyebrow">SOLO CEO</div><h3>Mis acciones</h3></div></div><div id="myActions" class="stack"></div></div>
+        <div><div class="section-head"><div><div class="eyebrow">DECIDIR</div><h3>Decisiones</h3></div></div><div id="decisions" class="stack"></div></div>
       </div>
+      <div class="section-head"><div><div class="eyebrow">OUTLOOK</div><h3>Bloques de calendario propuestos</h3></div><button id="createCalendarBtn" class="btn primary">Crear seleccionados en Outlook</button></div>
+      <div id="calendarProposals" class="stack"></div>
+    </section>
 
-      <div class="approval-summary">
-        <div><span>Calendario seleccionado</span><strong id="selectedCalendarCount">0</strong></div>
-        <div><span>Correos seleccionados</span><strong id="selectedEmailCount">0</strong></div>
-        <div><span>Tiempo protegido</span><strong id="selectedMinutes">0 min</strong></div>
+    <section id="delegate" class="view">
+      <div class="section-head"><div><div class="eyebrow">SACAR DE MI CABEZA</div><h3>Delegaciones</h3></div></div></div>
+      <div id="delegatedActions" class="stack"></div>
+      <div class="section-head"><div><div class="eyebrow">OUTLOOK</div><h3>Correos listos</h3></div><div class="button-row"><button id="draftEmailsBtn" class="btn ghost">Crear borradores</button><button id="sendEmailsBtn" class="btn danger">Enviar seleccionados</button></div></div>
+      <div class="notice">Borrador es la acción predeterminada. Enviar requiere confirmación adicional.</div>
+      <div id="emailProposals" class="stack"></div>
+    </section>
+
+    <section id="more" class="view">
+      <div class="search-box"><input id="globalSearch" type="search" placeholder="Buscar Popsy, Bioenergy, Fixi…"/><button id="searchBtn" class="btn ghost">Buscar</button></div>
+      <div id="searchResults" class="stack"></div>
+      <div class="two-col">
+        <div><div class="section-head"><h3>Riesgos</h3></div><div id="risks" class="stack"></div></div>
+        <div><div class="section-head"><h3>Correos con bandera</h3></div><div id="flagged" class="stack"></div></div>
       </div>
-
-      <div class="approval-controls">
-        <button id="approveCalendarBtn" class="primary">Aprobar calendario</button>
-        <button id="approveEmailsBtn" class="primary">Aprobar correos</button>
-        <button id="approveAllBtn" class="primary strong">Aprobar seleccionados</button>
-        <button id="resetApprovalBtn" class="ghost">Reiniciar selección</button>
-      </div>
-
-      <div class="execution-panel">
-        <div class="execution-copy">
-          <h3>Modo de ejecución</h3>
-          <p id="executionModeText">Local: calendario genera archivos .ics y correo abre borradores con mailto.</p>
-        </div>
-        <button id="settingsBtn" class="ghost">Configurar integración</button>
-      </div>
-
-      <div id="executionLog" class="execution-log"></div>
+      <div class="section-head"><h3>Salud de fuentes</h3></div><div id="sourceHealth" class="stack"></div>
     </section>
   </main>
 
-  <dialog id="detailDialog">
-    <div class="dialog-head">
-      <div>
-        <span class="eyebrow" id="dialogType"></span>
-        <h2 id="dialogTitle"></h2>
-      </div>
-      <button id="closeDialog" class="ghost">Cerrar</button>
-    </div>
-    <div id="dialogBody"></div>
-  </dialog>
-
   <dialog id="settingsDialog">
-    <div class="dialog-head">
-      <div>
-        <span class="eyebrow">INTEGRACIÓN OPCIONAL</span>
-        <h2>n8n / Make / API propia</h2>
-      </div>
-      <button id="closeSettings" class="ghost">Cerrar</button>
-    </div>
-    <p class="muted">Si configuras un webhook, los aprobados se enviarán como JSON. Sin webhook, el LifeOS funciona 100% local con .ics y mailto.</p>
-    <label>Webhook URL<input id="webhookUrl" type="url" placeholder="https://..." /></label>
-    <label>Token opcional<input id="webhookToken" type="password" placeholder="No recomendado para secretos sensibles en sitios públicos" /></label>
-    <div class="dialog-actions">
-      <button id="testWebhook" class="ghost">Probar conexión</button>
-      <button id="saveSettings" class="primary">Guardar</button>
-    </div>
-    <p class="warning">Para producción, protege el webhook del lado de n8n/Make con allowlist, firma o autenticación. No uses credenciales de Microsoft/Google directamente en el navegador.</p>
+    <form method="dialog" class="dialog-card">
+      <div class="eyebrow">CONFIGURACIÓN</div>
+      <h3>Microsoft 365</h3>
+      <label>Application (Client) ID<input id="clientIdInput" /></label>
+      <label>Tenant ID<input id="tenantIdInput" placeholder="organizations o GUID del tenant" /></label>
+      <p class="muted">Las claves de OpenAI/Claude, Read AI y GitHub se configuran como variables privadas en Netlify.</p>
+      <div class="button-row"><button class="btn ghost" value="cancel">Cancelar</button><button id="saveSettingsBtn" class="btn primary" value="default">Guardar</button></div>
+    </form>
   </dialog>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>

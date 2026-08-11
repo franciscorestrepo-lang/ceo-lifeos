@@ -1,11 +1,1 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "CEO LifeOS current state",
-  "type": "object",
-  "required": ["meta", "annual", "monthly", "weekly", "companies", "critical_outcomes", "decisions", "my_actions", "delegated_actions", "calendar_proposals", "email_proposals", "risks", "flagged", "capacity", "source_health"],
-  "properties": {
-    "critical_outcomes": {"type":"array","maxItems":5},
-    "decisions": {"type":"array","maxItems":5},
-    "my_actions": {"type":"array","maxItems":7}
-  }
-}
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"CEO LifeOS current.json","type":"object","required":["meta","annual","monthly","weekly","companies","critical_outcomes","decisions","my_actions","delegated_actions","calendar_proposals","email_proposals","risks","flagged","capacity","source_health","evolution"],"properties":{"meta":{"type":"object"},"annual":{"type":"array"},"monthly":{"type":"array"},"weekly":{"type":"array"},"companies":{"type":"array"},"critical_outcomes":{"type":"array","maxItems":5},"decisions":{"type":"array","maxItems":5},"my_actions":{"type":"array","maxItems":7},"delegated_actions":{"type":"array"},"calendar_proposals":{"type":"array"},"email_proposals":{"type":"array"},"risks":{"type":"array"},"flagged":{"type":"array"},"capacity":{"type":"object"},"source_health":{"type":"object"},"evolution":{"type":"object"}}}

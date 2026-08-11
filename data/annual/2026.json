@@ -1,6 +1,9 @@
 {
-  "year": 2026,
-  "objectives": [],
-  "updated_at": null,
-  "status": "NEEDS_DEFINITION"
+  "meta":{"generated_at":"2026-08-10T19:43:00-05:00","period":"2026-W33","status":"AT_RISK","score":68},
+  "annual":[
+    {"id":"ALLUP-2026-01","company":"AllUp","title":"Crecimiento rentable y predecible","metric":"Facturación / margen / caja","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
+    {"id":"TEKY-2026-01","company":"Teky","title":"Convertir Fixi y Flow en productos repetibles","metric":"ARR / clientes / adopción","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
+    {"id":"SC-2026-01","company":"Sports Crowd","title":"Escalar revenue con operación estable","metric":"Revenue / clubes / estabilidad","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"},
+    {"id":"CEO-2026-01","company":"Personal","title":"Aumentar foco y delegación ejecutiva","metric":"Capacidad CEO / delegación","target":"POR DEFINIR","current":"POR DEFINIR","progress":0,"status":"AT_RISK","deadline":"2026-12-31"}
+  ]
 }
