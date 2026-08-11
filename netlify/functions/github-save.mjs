@@ -1,1 +1,0 @@
-import { saveLifeOS } from './lib/github.mjs';export default async(req)=>{if(req.method!=='POST')return new Response('Method not allowed',{status:405});try{const {data,reason='manual'}=await req.json();return Response.json(await saveLifeOS(data,{reason}))}catch(e){return Response.json({error:e.message},{status:500})}}
