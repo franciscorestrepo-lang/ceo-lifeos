@@ -9,20 +9,18 @@
   <title>CEO LifeOS</title>
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="stylesheet" href="/styles.css" />
-  <script src="https://alcdn.msauth.net/browser/2.39.0/js/msal-browser.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <header class="topbar">
     <div>
       <div class="eyebrow">CEO COMMAND CENTER</div>
       <h1>LifeOS</h1>
-      <div class="meta-line"><span id="syncStatus">Sin sincronizar</span><span>•</span><span id="weekLabel">Semana actual</span></div>
+      <div class="meta-line"><span id="syncStatus">Cargando última revisión…</span><span>•</span><span id="weekLabel">Semana actual</span></div>
     </div>
     <div class="header-actions">
       <button id="installBtn" class="btn ghost hidden">Instalar</button>
-      <button id="connectBtn" class="btn ghost">Microsoft 365</button>
-      <button id="refreshBtn" class="btn primary">Actualizar</button>
+      <button id="checkBtn" class="btn ghost">Verificar</button>
+      <button id="refreshBtn" class="btn primary">Actualizar con ChatGPT</button>
     </div>
   </header>
 
@@ -34,8 +32,8 @@
         <div class="eyebrow">ESTADO EJECUTIVO</div>
         <div class="hero-row">
           <div>
-            <h2 id="lifeosStatus">NEEDS SYNC</h2>
-            <p id="executiveSummary" class="lead">Conecta Microsoft 365 y actualiza para generar el panorama ejecutivo.</p>
+            <h2 id="lifeosStatus">CARGANDO</h2>
+            <p id="executiveSummary" class="lead">Leyendo la última revisión publicada desde GitHub.</p>
           </div>
           <div class="score"><span id="lifeosScore">—</span><small>/100</small></div>
         </div>
@@ -44,7 +42,7 @@
       <article class="card month-card">
         <div class="eyebrow">MES</div>
         <h3 id="monthHeadline">Objetivos del mes</h3>
-        <p id="monthSummary" class="lead">Pendiente de sincronización.</p>
+        <p id="monthSummary" class="lead">Cargando.</p>
         <div class="progress-shell"><div id="monthProgress" class="progress-bar"></div></div>
         <div class="month-kpis" id="monthKpis"></div>
       </article>
@@ -79,15 +77,15 @@
         <div><div class="section-head"><div><div class="eyebrow">SOLO CEO</div><h3>Mis acciones</h3></div></div><div id="myActions" class="stack"></div></div>
         <div><div class="section-head"><div><div class="eyebrow">DECIDIR</div><h3>Decisiones</h3></div></div><div id="decisions" class="stack"></div></div>
       </div>
-      <div class="section-head"><div><div class="eyebrow">OUTLOOK</div><h3>Bloques de calendario propuestos</h3></div><button id="createCalendarBtn" class="btn primary">Crear seleccionados en Outlook</button></div>
+      <div class="section-head"><div><div class="eyebrow">APROBAR EN CHATGPT</div><h3>Bloques de calendario propuestos</h3></div><button id="approveCalendarBtn" class="btn primary">Aprobar seleccionados</button></div>
       <div id="calendarProposals" class="stack"></div>
     </section>
 
     <section id="delegate" class="view">
       <div class="section-head"><div><div class="eyebrow">SACAR DE MI CABEZA</div><h3>Delegaciones</h3></div></div></div>
       <div id="delegatedActions" class="stack"></div>
-      <div class="section-head"><div><div class="eyebrow">OUTLOOK</div><h3>Correos listos</h3></div><div class="button-row"><button id="draftEmailsBtn" class="btn ghost">Crear borradores</button><button id="sendEmailsBtn" class="btn danger">Enviar seleccionados</button></div></div>
-      <div class="notice">Borrador es la acción predeterminada. Enviar requiere confirmación adicional.</div>
+      <div class="section-head"><div><div class="eyebrow">APROBAR EN CHATGPT</div><h3>Correos listos para borrador</h3></div><button id="approveEmailsBtn" class="btn primary">Aprobar seleccionados</button></div>
+      <div class="notice">LifeOS no vuelve a autenticarse contra Microsoft o Read AI. Al aprobar, abre ChatGPT con el comando exacto; ChatGPT usa los conectores ya autorizados y crea los borradores o eventos.</div>
       <div id="emailProposals" class="stack"></div>
     </section>
 
@@ -99,22 +97,20 @@
         <div><div class="section-head"><h3>Correos con bandera</h3></div><div id="flagged" class="stack"></div></div>
       </div>
       <div class="section-head"><h3>Salud de fuentes</h3></div><div id="sourceHealth" class="stack"></div>
+      <div class="section-head"><h3>Estado de publicación</h3></div><div id="publishStatus" class="stack"></div>
     </section>
   </main>
 
-  <dialog id="settingsDialog">
+  <dialog id="chatgptDialog">
     <form method="dialog" class="dialog-card">
-      <div class="eyebrow">CONFIGURACIÓN</div>
-      <h3>Microsoft 365</h3>
-      <label>Application (Client) ID<input id="clientIdInput" /></label>
-      <label>Tenant ID<input id="tenantIdInput" placeholder="organizations o GUID del tenant" /></label>
-      <p class="muted">Las claves de OpenAI/Claude, Read AI y GitHub se configuran como variables privadas en Netlify.</p>
-      <div class="button-row"><button class="btn ghost" value="cancel">Cancelar</button><button id="saveSettingsBtn" class="btn primary" value="default">Guardar</button></div>
+      <div class="eyebrow">ACTUALIZACIÓN A DEMANDA</div>
+      <h3>ChatGPT ejecuta la revisión</h3>
+      <p class="lead">El comando ya quedó copiado. Abre ChatGPT, pégalo y envíalo. Cuando termine, vuelve a LifeOS: el tablero detectará automáticamente el nuevo <code>current.json</code> publicado en GitHub.</p>
+      <textarea id="commandPreview" rows="9" readonly></textarea>
+      <div class="button-row"><button class="btn ghost" value="cancel">Cerrar</button><button id="openChatGPTBtn" class="btn primary" value="default">Abrir ChatGPT</button></div>
     </form>
   </dialog>
 
-  <script type="module" src="/bootstrap.js"></script>
   <script type="module" src="/app.js"></script>
-  <script type="module" src="/refresh-v2.js"></script>
 </body>
 </html>
