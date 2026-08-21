@@ -1,0 +1,35 @@
+{
+  "meta":{"generated_at":"2026-08-20T23:20:00-05:00","period":"2026-W34","status":"AT_RISK","score":58},
+  "critical_outcomes":[
+    {"id":"CO-01","company":"AllUp","priority":"P0","trend":"WORSENED","title":"Convertir delivery en caja: Scrap + Bioenergy","metric":"COP 25M con ruta de cobro + gate UAT cerrado","deadline":"2026-08-24"},
+    {"id":"CO-02","company":"AllUp","priority":"P1","trend":"IMPROVED","title":"Convertir momentum comercial en contratos","metric":"3 oportunidades con next step","deadline":"2026-08-24"},
+    {"id":"CO-03","company":"Teky","priority":"P1","trend":"IMPROVED","title":"Productizar Fixi compras + SAP","metric":"1 paquete repetible + demo independiente","deadline":"2026-08-24"},
+    {"id":"CO-04","company":"Sports Crowd","priority":"P0","trend":"WORSENED","title":"Eliminar riesgos técnicos y operativos inmediatos","metric":"5 riesgos con owner/fecha/evidencia","deadline":"2026-08-24"},
+    {"id":"CO-05","company":"Personal/CEO","priority":"P0","trend":"WORSENED","title":"Recuperar 30% de buffer ejecutivo","metric":"2 bloques CEO protegidos + 1 pack semanal","deadline":"2026-08-28"}
+  ],
+  "decisions":[
+    {"id":"D-01","company":"AllUp","priority":"P0","trend":"NEW","decision":"Definir ruta de aceptación/facturación de Scrap","deadline":"2026-08-21"},
+    {"id":"D-02","company":"AllUp","priority":"P0","trend":"IMPROVED","decision":"Mantener gate no negociable de Bioenergy antes de salida productiva","deadline":"2026-08-24"},
+    {"id":"D-03","company":"AllUp/Teky","priority":"P1","trend":"NEW","decision":"Estandarizar Popsy/TDM como paquete Fixi compras + SAP + opción PM","deadline":"2026-08-24"},
+    {"id":"D-04","company":"Sports Crowd","priority":"P0","trend":"NEW","decision":"Gestionar AWS/Cortex/D-Pass por un único risk pack, no por tickets CEO","deadline":"2026-08-24"},
+    {"id":"D-05","company":"Personal/CEO","priority":"P0","trend":"UNCHANGED","decision":"Salir de Dailies y status de sprint salvo decisión CEO explícita","deadline":"2026-08-21"}
+  ],
+  "my_actions":[
+    {"id":"F-01","company":"AllUp","priority":"P0","action":"Aprobar ruta de aceptación/facturación de Scrap","deadline":"2026-08-21","estimated_minutes":30},
+    {"id":"F-02","company":"AllUp","priority":"P0","action":"Aprobar gate Bioenergy para upgrade/Unicode","deadline":"2026-08-24","estimated_minutes":20},
+    {"id":"F-03","company":"AllUp/Teky","priority":"P1","action":"Aprobar paquete comercial estándar Popsy/TDM","deadline":"2026-08-24","estimated_minutes":30},
+    {"id":"F-04","company":"AllUp","priority":"P0","action":"Revisar paquete único de rentabilidad julio, caja y banca","deadline":"2026-08-24","estimated_minutes":30},
+    {"id":"F-05","company":"AllUp","priority":"P1","action":"Definir tratamiento de factura ALLIA 935 con evidencia","deadline":"2026-08-24","estimated_minutes":20},
+    {"id":"F-06","company":"Sports Crowd","priority":"P0","action":"Aprobar plan agregado AWS/Cortex/D-Pass","deadline":"2026-08-24","estimated_minutes":30},
+    {"id":"F-07","company":"Personal/CEO","priority":"P0","action":"Delegar Dailies/status sprint y definir weekly decision pack","deadline":"2026-08-21","estimated_minutes":20}
+  ],
+  "comparison":[
+    {"company":"AllUp/Teky","item":"Demo Popsy","trend":"CLOSED"},
+    {"company":"AllUp","item":"Momentum comercial","trend":"IMPROVED"},
+    {"company":"Teky","item":"Flujo Fixi repetible","trend":"IMPROVED"},
+    {"company":"AllUp","item":"Caja + delivery Bioenergy/Scrap","trend":"WORSENED"},
+    {"company":"Sports Crowd","item":"Estabilidad cloud/operación","trend":"WORSENED"},
+    {"company":"Personal/CEO","item":"Buffer ejecutivo","trend":"WORSENED"},
+    {"company":"AllUp","item":"Incidente TRM/festivo","trend":"CLOSED"}
+  ]
+}
