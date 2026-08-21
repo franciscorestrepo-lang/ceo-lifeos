@@ -1,15 +1,17 @@
 {
   "status":"READY",
-  "generated_at":"2026-08-10T22:54:00-05:00",
-  "period":"2026-W33",
+  "generated_at":"2026-08-20T23:20:00-05:00",
+  "period":"2026-W34",
   "engine":"ChatGPT connectors",
   "source_health":{
-    "mail":"OK",
-    "flagged":"PARTIAL",
-    "calendar":"OK",
+    "outlook_received":"OK",
+    "outlook_sent":"OK",
+    "outlook_flagged":"OK",
+    "calendar_past":"OK",
+    "calendar_future":"OK",
     "teams":"OK",
     "read":"OK"
   },
-  "commit_sha":"adfe064bef839107613776c2aa8bf08ab88cd68b",
-  "note":"Revisión semanal ejecutada con Outlook, Calendar, Teams y Read AI. La consulta específica de banderas no está expuesta por el conector usado en esta ejecución; se conservaron como carry-over los asuntos previamente identificados y se marcó flagged=PARTIAL."
+  "commit_sha":"7e3142b72d30862580356db341d15b653e2c9c75",
+  "note":"Fase 1 ejecutada sobre la ventana 2026-07-21 a 2026-08-20 para Outlook/Teams/Read AI/Calendar y 2026-08-21 a 2026-09-20 para calendario futuro. Se revisaron recibidos, enviados y correos con bandera mediante filtro Graph. Se deduplicaron compromisos entre fuentes. No se enviaron correos, no se crearon eventos y no se modificó código de la PWA. commit_sha referencia el último commit del snapshot de datos antes de este commit de estado."
 }
