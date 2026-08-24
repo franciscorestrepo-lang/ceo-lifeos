@@ -1,9 +1,9 @@
 {
-  "meta":{"generated_at":"2026-08-20T23:20:00-05:00","period":"2026-W34","status":"AT_RISK","score":58},
+  "meta":{"generated_at":"2026-08-23T20:01:00-05:00","period":"2026-W34","status":"AT_RISK","score":54},
   "monthly":[
-    {"id":"ALLUP-2026-08","company":"AllUp","title":"Convertir delivery en caja y pipeline en contratos","metric":"Caja + hitos facturables + próximos pasos comerciales","target":5,"current":3,"progress":60,"status":"AT_RISK","trend":"IMPROVED","focus":["Scrap facturación","Bioenergy gate","Popsy/TDM","Bast","Rivercon","Rentabilidad julio"]},
-    {"id":"TEKY-2026-08","company":"Teky","title":"Productizar Fixi y cerrar ruta comercial","metric":"Flujo repetible + milestones definidos","target":3,"current":2,"progress":67,"status":"AT_RISK","trend":"IMPROVED","focus":["Fixi compras + SAP","Demo independiente","Pricing/paquete","Capital/milestones aún abiertos"]},
-    {"id":"SC-2026-08","company":"Sports Crowd","title":"Eliminar riesgos operativos críticos","metric":"Riesgos críticos cerrados","target":4,"current":1,"progress":25,"status":"AT_RISK","trend":"WORSENED","focus":["Fargate","Persistencia imágenes","D-Pass polling","Facturación","Branding/tótems"]},
-    {"id":"CEO-2026-08","company":"Personal/CEO","title":"Reducir operación retenida por Francisco","metric":"% buffer ejecutivo","target":30,"current":10,"progress":33,"status":"OFF_TRACK","trend":"WORSENED","focus":["Salir de Dailies","Weekly decision pack","Proteger bloques CEO","Eliminar seguimiento por chat"]}
+    {"id":"ALLUP-2026-08","company":"AllUp","title":"Convertir delivery en caja y pipeline en contratos","metric":"Caja + hitos facturables + próximos pasos comerciales","target":5,"current":3,"progress":55,"status":"AT_RISK","trend":"WORSENED","focus":["MQA facturas 903/879","Scrap acta + 50%","Bioenergy recovery plan","Popsy/Corona/Alquería/TDM","Bast/ASUGCOL/Rivercon","Rentabilidad julio"]},
+    {"id":"TEKY-2026-08","company":"Teky","title":"Productizar Fixi y cerrar ruta comercial","metric":"Flujo repetible + milestones definidos","target":3,"current":2,"progress":72,"status":"AT_RISK","trend":"IMPROVED","focus":["Prototipo Fixiagro","Repo producto","Demo 15 minutos","Backlog reutilizable","Milestones/economía"]},
+    {"id":"SC-2026-08","company":"Sports Crowd","title":"Eliminar riesgos operativos críticos","metric":"Riesgos críticos cerrados","target":4,"current":1,"progress":25,"status":"AT_RISK","trend":"UNCHANGED","focus":["AWS/Fargate","Cortex","D-Pass polling","Facturación operativa","Evidencia de cierre"]},
+    {"id":"CEO-2026-08","company":"Personal/CEO","title":"Reducir operación retenida por Francisco","metric":"% buffer ejecutivo","target":30,"current":8,"progress":27,"status":"OFF_TRACK","trend":"WORSENED","focus":["Salir de Dailies","Eliminar status de sprint","Resolver solapamientos","Weekly decision pack","Deep work para decisiones"]}
   ]
 }
