@@ -1,0 +1,35 @@
+{
+  "meta":{"generated_at":"2026-08-30T19:33:00-05:00","period":"2026-W35","planning_period":"2026-W36","status":"AT_RISK","score":52},
+  "critical_outcomes":[
+    {"id":"CO-01","company":"AllUp","priority":"P0","trend":"WORSENED","title":"Recuperar caja y recaudo","metric":"100% cartera P0 con owner/fecha/acción","deadline":"2026-09-02"},
+    {"id":"CO-02","company":"AllUp","priority":"P0","trend":"WORSENED","title":"Recuperar Bioenergy sin nueva extensión abierta","metric":"1 recovery pack aprobado","deadline":"2026-09-03"},
+    {"id":"CO-03","company":"Teky","priority":"P1","trend":"IMPROVED","title":"Cerrar paquete estándar Fixi","metric":"1 paquete repetible + 2 siguientes pasos comerciales","deadline":"2026-09-04"},
+    {"id":"CO-04","company":"Sports Crowd","priority":"P0","trend":"WORSENED","title":"Eliminar riesgo AWS inmediato","metric":"3 riesgos AWS con owner/fecha/evidencia","deadline":"2026-09-03"},
+    {"id":"CO-05","company":"Personal/CEO","priority":"P0","trend":"WORSENED","title":"Recuperar capacidad ejecutiva","metric":">=30% buffer ejecutivo","deadline":"2026-09-04"}
+  ],
+  "decisions":[
+    {"id":"D-01","company":"AllUp","priority":"P0","trend":"WORSENED","decision":"Definir escalación de caja y cartera P0 para inicio de septiembre","deadline":"2026-08-31"},
+    {"id":"D-02","company":"AllUp","priority":"P0","trend":"WORSENED","decision":"Aprobar criterio go/no-go y contingencia del upgrade Bioenergy","deadline":"2026-09-01"},
+    {"id":"D-03","company":"Teky","priority":"P1","trend":"IMPROVED","decision":"Aprobar qué entra al core de Fixi después de Popsy y antes de Corona","deadline":"2026-08-31"},
+    {"id":"D-04","company":"Sports Crowd","priority":"P0","trend":"NEW","decision":"Aprobar plan urgente AWS: MariaDB, Fargate y sobrecosto","deadline":"2026-08-31"},
+    {"id":"D-05","company":"Personal/CEO","priority":"P0","trend":"UNCHANGED","decision":"Salir de Dailies y sesiones opcionales que no requieran decisión CEO","deadline":"2026-08-31"}
+  ],
+  "my_actions":[
+    {"id":"F-01","company":"AllUp","priority":"P0","action":"Aprobar paquete de caja y escalaciones de cartera P0","deadline":"2026-08-31","estimated_minutes":30},
+    {"id":"F-02","company":"AllUp","priority":"P1","action":"Aprobar oferta final de Alquería y límites de observabilidad/precio","deadline":"2026-08-31","estimated_minutes":30},
+    {"id":"F-03","company":"AllUp","priority":"P0","action":"Aprobar recovery/go-no-go Bioenergy","deadline":"2026-09-01","estimated_minutes":30},
+    {"id":"F-04","company":"Teky","priority":"P1","action":"Aprobar paquete Fixi y límites core/no-core antes de Corona/Popsy","deadline":"2026-08-31","estimated_minutes":45},
+    {"id":"F-05","company":"Sports Crowd","priority":"P0","action":"Aprobar plan de remediación AWS y umbral de costo","deadline":"2026-08-31","estimated_minutes":30},
+    {"id":"F-06","company":"AllUp/Teky","priority":"P1","action":"Conducir reunión Corona hacia problema, sponsor y siguiente paso pagado","deadline":"2026-08-31","estimated_minutes":60},
+    {"id":"F-07","company":"Personal/CEO","priority":"P0","action":"Eliminar Dailies/status y resolver solapamientos de W36","deadline":"2026-08-31","estimated_minutes":20}
+  ],
+  "comparison":[
+    {"company":"AllUp","item":"Scrap — hito de facturación 50%","trend":"CLOSED"},
+    {"company":"AllUp","item":"MQA — recuperación económica","trend":"IMPROVED"},
+    {"company":"AllUp","item":"Bioenergy","trend":"WORSENED"},
+    {"company":"Teky","item":"Fixi baseline/backlog","trend":"IMPROVED"},
+    {"company":"Sports Crowd","item":"Atlético Nacional renovación","trend":"CLOSED"},
+    {"company":"Sports Crowd","item":"AWS estabilidad/costo","trend":"WORSENED"},
+    {"company":"Personal/CEO","item":"Buffer ejecutivo","trend":"WORSENED"}
+  ]
+}
