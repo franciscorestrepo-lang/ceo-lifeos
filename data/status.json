@@ -1,16 +1,20 @@
 {
   "status":"READY",
-  "generated_at":"2026-08-23T20:01:00-05:00",
-  "period":"2026-W34",
+  "generated_at":"2026-08-30T19:33:00-05:00",
+  "period":"2026-W35",
+  "planning_period":"2026-W36",
   "engine":"ChatGPT connectors",
   "source_health":{
     "outlook_received":"OK",
     "outlook_sent":"OK",
     "outlook_flagged":"OK",
+    "gmail_received":"OK",
+    "gmail_sent":"OK",
+    "gmail_important":"OK",
     "calendar_past":"OK",
     "calendar_future":"OK",
     "teams":"OK",
-    "read":"OK"
+    "read_ai":"OK"
   },
   "validation":{
     "critical_outcomes":5,
@@ -22,6 +26,6 @@
     "events_created":0,
     "pwa_code_changed":false
   },
-  "commit_sha":"0c84a9c3fd4cd30831a2443853074a9e29be504a",
-  "note":"Revisión CEO LifeOS ejecutada el 23 de agosto de 2026. Ventana Outlook/Teams/Read AI: últimos 30 días, con filtro Graph independiente para mensajes marcados con bandera. Calendario retrospectivo y próximos 30 días revisados. Se deduplicaron compromisos entre fuentes y se separaron AllUp, Teky, Sports Crowd y Personal/CEO. No se enviaron correos ni se crearon eventos. commit_sha referencia el último commit de datos previo a este commit de estado."
+  "commit_sha":"53d863098988edb0c00d1ad0d3b68b725bcac940",
+  "note":"Revisión CEO LifeOS ejecutada el 30 de agosto de 2026. Ventana de 120 días consultada en Outlook, Gmail, Teams, Read AI y Calendar; Outlook flagged revisado con filtro independiente. Próximos 30 días de calendario revisados. Se deduplicaron compromisos entre fuentes y se separaron AllUp, Teky, Sports Crowd y Personal/CEO. No se enviaron correos, no se crearon eventos y no se modificó código de la PWA. commit_sha referencia el último commit de datos previo a este commit de estado."
 }
