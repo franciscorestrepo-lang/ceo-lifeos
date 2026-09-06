@@ -1,0 +1,38 @@
+{
+  "meta":{"generated_at":"2026-09-06T16:39:00-05:00","period":"2026-W36","planning_period":"2026-W37","status":"AT_RISK","score":49},
+  "critical_outcomes":[
+    {"id":"CO-01","company":"AllUp","priority":"P0","trend":"UNCHANGED","title":"Convertir cartera P0 en caja","metric":"100% cartera P0 con owner/fecha/acción","deadline":"2026-09-09"},
+    {"id":"CO-02","company":"AllUp","priority":"P0","trend":"WORSENED","title":"Cerrar Bioenergy sin exposición abierta","metric":"1 closure/recovery pack aprobado","deadline":"2026-09-09"},
+    {"id":"CO-03","company":"Teky","priority":"P1","trend":"IMPROVED","title":"Convertir FIXI en producto repetible y negocio","metric":"1 paquete repetible + 2 siguientes pasos comerciales","deadline":"2026-09-11"},
+    {"id":"CO-04","company":"Sports Crowd","priority":"P0","trend":"WORSENED","title":"Cerrar continuidad y costo AWS","metric":"100% riesgos AWS P0 con owner/fecha/evidencia","deadline":"2026-09-10"},
+    {"id":"CO-05","company":"Personal/CEO","priority":"P0","trend":"WORSENED","title":"Recuperar capacidad ejecutiva W37","metric":">=30% buffer ejecutivo","deadline":"2026-09-11"}
+  ],
+  "decisions":[
+    {"id":"D-01","company":"AllUp","priority":"P0","trend":"UNCHANGED","decision":"Definir postura económica y escalación de MQA Guatemala dentro del paquete de caja","deadline":"2026-09-07"},
+    {"id":"D-02","company":"AllUp","priority":"P0","trend":"WORSENED","decision":"Aprobar cierre Bioenergy: soporte vs upgrade, EHP8 go/no-go y mensaje cliente","deadline":"2026-09-07"},
+    {"id":"D-03","company":"Teky","priority":"P1","trend":"IMPROVED","decision":"Aprobar límites de core, arquitectura y economía de FIXI/Aura antes de nuevos compromisos","deadline":"2026-09-09"},
+    {"id":"D-04","company":"Sports Crowd","priority":"P0","trend":"WORSENED","decision":"Aprobar plan AWS y umbral de costo antes del retiro Fargate del 11-Sep","deadline":"2026-09-07"},
+    {"id":"D-05","company":"Personal/CEO","priority":"P0","trend":"UNCHANGED","decision":"Aplicar política de asistencia W37: Francisco solo entra donde haya decisión, cliente estratégico o desbloqueo","deadline":"2026-09-07"}
+  ],
+  "my_actions":[
+    {"id":"F-01","company":"AllUp","priority":"P0","action":"Definir postura MQA Guatemala usando el paquete ya delegado","deadline":"2026-09-07","estimated_minutes":15,"dedupe":"REUSE_EXISTING_EVENT"},
+    {"id":"F-02","company":"AllUp","priority":"P0","action":"Decidir alivio Bancolombia con criterio de caja y costo financiero","deadline":"2026-09-07","estimated_minutes":30,"dedupe":"REUSE_EXISTING_EVENT_AND_DRAFT"},
+    {"id":"F-03","company":"AllUp","priority":"P0","action":"Aprobar cierre/recovery Bioenergy y mensaje cliente","deadline":"2026-09-07","estimated_minutes":30,"dedupe":"REUSE_EXISTING_EVENT_AND_DRAFT"},
+    {"id":"F-04","company":"Teky","priority":"P1","action":"Aprobar core, métricas y próximo sprint de FIXI","deadline":"2026-09-07","estimated_minutes":30,"dedupe":"REUSE_EXISTING_EVENT_AND_DRAFT"},
+    {"id":"F-05","company":"Sports Crowd","priority":"P0","action":"Aprobar AWS continuidad/costo y reglas de productividad DEV","deadline":"2026-09-07","estimated_minutes":60,"dedupe":"REUSE_TWO_EXISTING_EVENTS_AND_DRAFTS"},
+    {"id":"F-06","company":"AllUp","priority":"P1","action":"Aprobar posicionamiento TI Films y participación PwC/CINTEL","deadline":"2026-09-07","estimated_minutes":30,"dedupe":"REUSE_EXISTING_EVENT_AND_DRAFTS"},
+    {"id":"F-07","company":"Personal/CEO","priority":"P0","action":"Aplicar limpieza de agenda W37 y delegar Dailies/sesiones opcionales","deadline":"2026-09-07","estimated_minutes":20,"dedupe":"NO_NEW_EVENT_REQUIRED"}
+  ],
+  "comparison":[
+    {"company":"AllUp","item":"Caja y cartera P0","trend":"UNCHANGED"},
+    {"company":"AllUp","item":"MQA Guatemala","trend":"UNCHANGED"},
+    {"company":"AllUp","item":"Bioenergy","trend":"WORSENED"},
+    {"company":"AllUp","item":"Scrap — facturación","trend":"CLOSED"},
+    {"company":"Teky","item":"FIXI baseline/core","trend":"IMPROVED"},
+    {"company":"Sports Crowd","item":"SIESA sandbox","trend":"CLOSED"},
+    {"company":"Sports Crowd","item":"Atlético Nacional renovación","trend":"IMPROVED"},
+    {"company":"Sports Crowd","item":"AWS estabilidad/costo","trend":"WORSENED"},
+    {"company":"Personal/CEO","item":"Buffer ejecutivo","trend":"WORSENED"}
+  ],
+  "deduplication":{"drafts_created_during_phase1":0,"events_created_during_phase1":0,"rule":"Reuse existing drafts/events/threads before proposing new artifacts"}
+}
