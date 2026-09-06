@@ -3,7 +3,61 @@ const RAW='https://raw.githubusercontent.com/franciscorestrepo-lang/ceo-lifeos/m
 const state={data:null,status:null,objectiveMode:'annual',lastGeneratedAt:null,pollTimer:null};
 let deferredPrompt=null;
 
-const REFRESH_COMMAND=`Ejecuta AHORA la revisión CEO LifeOS en Fase 1 usando los conectores ya autorizados en ChatGPT. Analiza como mínimo los últimos 30 días de Outlook (recibidos, enviados y todos los correos con bandera relevantes), Microsoft Teams, Read AI y Calendar; revisa además los próximos 30 días del calendario. Separa estrictamente AllUp, Teky, Sports Crowd y Personal/CEO. Deduplica compromisos entre fuentes. Prioriza caja, margen, cliente, producto, delivery, riesgo, delegación y capacidad real. Genera máximo 5 resultados críticos, 5 decisiones y 7 acciones personales. Trabajo propio de Francisco -> propuestas de calendario. Trabajo operativo -> delegación y propuestas de correo. NO envíes correos y NO crees eventos durante esta revisión. Compara con el estado anterior y marca NEW, IMPROVED, WORSENED, UNCHANGED o CLOSED. Actualiza directamente en GitHub el repositorio franciscorestrepo-lang/ceo-lifeos rama main: data/current.json, data/status.json, data/weekly/YYYY-Www.json, data/monthly/YYYY-MM.json y data/annual/YYYY.json. data/status.json debe terminar en READY e incluir generated_at, period, source_health y commit_sha. No cambies el código de la PWA. Verifica que current.json tenga contenido no vacío en critical_outcomes, decisions, my_actions y source_health. Al terminar confirma el commit y el deploy de Netlify.`;
+const REFRESH_COMMAND=`Ejecuta AHORA la revisión CEO LifeOS completa usando los conectores ya autorizados en ChatGPT y ejecuta también la capa operativa posterior a la revisión.
+
+FUENTES Y VENTANA
+- Analiza como mínimo los últimos 60 días de Outlook Email y Gmail: recibidos, enviados, pendientes relevantes y TODOS los correos con bandera/flag, prioridad, important o starred que puedan requerir decisión, seguimiento o respuesta.
+- Analiza los últimos 60 días de Microsoft Teams y Read AI.
+- Analiza los últimos 60 días de Outlook Calendar y Google Calendar y revisa además los próximos 30 días de ambos calendarios.
+- Usa Outlook como cuenta principal de AllUp/Teky y Gmail/Google Calendar como cuenta principal de Sports Crowd. Personal/CEO debe consolidarse sin duplicar actividades entre calendarios.
+
+CRITERIO EJECUTIVO
+- Separa estrictamente AllUp, Teky, Sports Crowd y Personal/CEO.
+- Deduplica compromisos entre email, Teams, Read AI y calendarios.
+- Antes de crear cualquier borrador o evento revisa los borradores y eventos ya existentes y REUTILIZA los existentes cuando cubran la misma acción. No recrees ni dupliques trabajo ya preparado.
+- Prioriza caja, margen, cliente, producto, delivery, riesgo, delegación y capacidad real.
+- Si una iniciativa no mueve caja, margen, cliente, producto o ejecución, cuestiona su prioridad.
+- Si algo no tiene responsable, fecha o métrica, márcalo como INCOMPLETO.
+- Compara con el estado anterior y marca cada frente relevante como NEW, IMPROVED, WORSENED, UNCHANGED o CLOSED.
+
+OUTPUT LIFEOS
+- Genera máximo 5 resultados críticos, 5 decisiones y 7 acciones personales de Francisco.
+- Para cada resultado/decisión/acción incluye compañía, prioridad, owner, fecha, métrica/DoD y tendencia.
+- Mantén explícita la separación entre trabajo propio de Francisco y trabajo operativo/delegable.
+
+EJECUCIÓN OPERATIVA
+1. TRABAJO OPERATIVO / DELEGACIÓN
+- Crea borradores de correo, NO envíes correos.
+- AllUp/Teky: crea los borradores en Outlook Email, preferiblemente respondiendo dentro del hilo existente cuando corresponda.
+- Sports Crowd: crea los borradores en Gmail, preferiblemente respondiendo dentro del hilo existente cuando corresponda.
+- El tono debe ser amable, ejecutivo y claro, con objetivo, acciones, responsable, fecha límite y resultado esperado.
+- Pon especial atención a correos con bandera/prioridad y pendientes de respuesta.
+- No crees un borrador si ya existe uno equivalente; reutilízalo y solo crea uno nuevo cuando falte realmente.
+
+2. TRABAJO PROPIO DE FRANCISCO
+- Crea directamente los eventos de calendario necesarios para sus acciones propias, después de verificar disponibilidad y conflictos en Outlook Calendar y Google Calendar.
+- AllUp/Teky y Personal/CEO: usa Outlook Calendar salvo que el compromiso ya exista en Google Calendar o sea claramente de Sports Crowd.
+- Sports Crowd: usa Google Calendar salvo que el compromiso ya exista en Outlook Calendar.
+- No dupliques eventos entre calendarios. Si ya existe un bloque equivalente, reutilízalo.
+- Cada evento debe tener título ejecutivo y una descripción con: objetivo, contexto mínimo, checklist de lo que Francisco debe revisar/decidir, resultado esperado/DoD y documentos/borradores que debe abrir si aplica.
+- Agenda solo trabajo que realmente requiera a Francisco; todo lo demás debe quedar delegado.
+
+ACTUALIZACIÓN DE DATOS
+- Actualiza directamente en GitHub el repositorio franciscorestrepo-lang/ceo-lifeos rama main:
+  data/current.json
+  data/status.json
+  data/weekly/YYYY-Www.json
+  data/monthly/YYYY-MM.json
+  data/annual/YYYY.json
+- No cambies el código de la PWA durante la revisión.
+- data/status.json debe terminar en READY e incluir generated_at, period, planning_period, source_health y commit_sha.
+- Incluye en status/validation el número de borradores creados, borradores reutilizados, eventos creados y eventos reutilizados.
+- Verifica que current.json tenga contenido no vacío en critical_outcomes, decisions, my_actions y source_health.
+- Refleja en current.json las delegaciones, borradores y eventos finalmente creados/reutilizados, no solo propuestas abstractas.
+
+CIERRE
+- No envíes ningún correo.
+- Confirma al final: resumen ejecutivo, cambios vs. semana anterior, 5 resultados, 5 decisiones, 7 acciones, borradores creados/reutilizados por cuenta, eventos creados/reutilizados por calendario, commit final de GitHub y deploy de Netlify en estado ready.`;
 
 function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function badge(v='P2'){return `<span class="badge ${String(v).toLowerCase()}">${esc(v)}</span>`}
