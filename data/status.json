@@ -1,8 +1,8 @@
 {
   "status":"READY",
-  "generated_at":"2026-08-30T19:33:00-05:00",
-  "period":"2026-W35",
-  "planning_period":"2026-W36",
+  "generated_at":"2026-09-06T16:39:00-05:00",
+  "period":"2026-W36",
+  "planning_period":"2026-W37",
   "engine":"ChatGPT connectors",
   "source_health":{
     "outlook_received":"OK",
@@ -23,9 +23,11 @@
     "source_health_non_empty":true,
     "phase":"PHASE_1",
     "emails_sent":0,
+    "drafts_created":0,
     "events_created":0,
-    "pwa_code_changed":false
+    "pwa_code_changed":false,
+    "deduplicated_existing_artifacts":true
   },
-  "commit_sha":"53d863098988edb0c00d1ad0d3b68b725bcac940",
-  "note":"Revisión CEO LifeOS ejecutada el 30 de agosto de 2026. Ventana de 120 días consultada en Outlook, Gmail, Teams, Read AI y Calendar; Outlook flagged revisado con filtro independiente. Próximos 30 días de calendario revisados. Se deduplicaron compromisos entre fuentes y se separaron AllUp, Teky, Sports Crowd y Personal/CEO. No se enviaron correos, no se crearon eventos y no se modificó código de la PWA. commit_sha referencia el último commit de datos previo a este commit de estado."
+  "commit_sha":"9b469e7f5beda362aa2366343483488ae8914500",
+  "note":"Revisión CEO LifeOS ejecutada el 6 de septiembre de 2026. Ventana mínima de 120 días consultada en Outlook, Gmail, Teams, Read AI y Calendar; Outlook flagged se revisó con filtro independiente. Próximos 30 días de calendario revisados. Se deduplicaron compromisos y artefactos entre fuentes, reutilizando borradores y eventos existentes en lugar de recrearlos. Se separaron AllUp, Teky, Sports Crowd y Personal/CEO. Durante esta Fase 1 no se enviaron correos, no se crearon borradores, no se crearon eventos y no se modificó código de la PWA. commit_sha referencia el último commit de datos previo a este commit de estado."
 }
