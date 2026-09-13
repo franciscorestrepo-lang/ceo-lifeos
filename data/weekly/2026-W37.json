@@ -1,0 +1,20 @@
+{
+  "meta":{"generated_at":"2026-09-13T17:45:00-05:00","period":"2026-W37","planning_period":"2026-W38","status":"AT_RISK","score":58},
+  "close_summary":"W37 mejora frente a W36 por avance Bioenergy QAS, nueva sustentación Alquería y decisión de avanzar con Reckoner; siguen abiertos caja/cartera, continuidad AWS y capacidad CEO.",
+  "critical_outcomes":[
+    {"id":"CO-01","company":"AllUp","priority":"P0","owner":"Juliana Rueda / Alonso Vasquez / Carolina Castillo","trend":"UNCHANGED","title":"Convertir caja y cartera material en control de 13 semanas","metric":"100% saldos materiales con owner+fecha; decisión Bancolombia","deadline":"2026-09-14"},
+    {"id":"CO-02","company":"AllUp","priority":"P0","owner":"Carolina Castillo / Andrés Arcila; Francisco decisión","trend":"NEW","title":"Ganar la siguiente decisión en Alquería","metric":"Siguiente paso comercial explícito con owner y fecha","deadline":"2026-09-16"},
+    {"id":"CO-03","company":"Teky","priority":"P1","owner":"Nathalia Tobar / equipo producto; Francisco decisión","trend":"IMPROVED","title":"Convertir FIXI/Corona en producto repetible y negocio","metric":"1 paid next step o no-go explícito","deadline":"2026-09-17"},
+    {"id":"CO-04","company":"Sports Crowd","priority":"P0","owner":"Mauricio Sanchez / Tatiana Minnig; Francisco decisión","trend":"WORSENED","title":"Cerrar continuidad AWS y onboarding Reckoner","metric":"0 P0 sin owner/fecha/evidencia + fecha efectiva reseller","deadline":"2026-09-18"},
+    {"id":"CO-05","company":"Personal/CEO","priority":"P0","owner":"Francisco Restrepo","trend":"UNCHANGED","title":"Recuperar capacidad ejecutiva W38","metric":">=30% buffer ejecutivo","deadline":"2026-09-18"}
+  ],
+  "changes_vs_previous":[
+    {"front":"AllUp caja/cartera","trend":"UNCHANGED","note":"Hay más información financiera y simulaciones, pero no evidencia suficiente de recaudo material cerrado."},
+    {"front":"Bioenergy","trend":"IMPROVED","note":"Paquete de cierre fue entregado y QAS EHP8 terminó exitosamente; aún falta cierre de pruebas/comunicación."},
+    {"front":"Alquería","trend":"NEW","note":"AllUp/ITS fue convocado a sustentación el 16-Sep."},
+    {"front":"FIXI","trend":"IMPROVED","note":"Corona está en evaluación comparativa; prioridad es monetizar sin romper core."},
+    {"front":"Sports Crowd AWS","trend":"WORSENED","note":"Reckoner mejora la capa comercial, pero el deadline de continuidad cloud es inmediato."},
+    {"front":"CEO capacity","trend":"UNCHANGED","note":"La agenda sigue cargada; se crean solo bloques de decisión y se mantiene política de delegación."}
+  ],
+  "execution":{"emails_sent":0,"drafts_created":{"outlook":2,"gmail":1},"drafts_reused":{"outlook":0,"gmail":3},"events_created":{"outlook":3,"google":1},"events_reused":{"outlook":1,"google":0}}
+}
