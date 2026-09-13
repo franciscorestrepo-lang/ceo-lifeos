@@ -1,33 +1,41 @@
 {
   "status":"READY",
-  "generated_at":"2026-09-06T16:39:00-05:00",
-  "period":"2026-W36",
-  "planning_period":"2026-W37",
+  "generated_at":"2026-09-13T17:45:00-05:00",
+  "period":"2026-W37",
+  "planning_period":"2026-W38",
   "engine":"ChatGPT connectors",
   "source_health":{
     "outlook_received":"OK",
     "outlook_sent":"OK",
     "outlook_flagged":"OK",
+    "outlook_drafts":"OK",
     "gmail_received":"OK",
     "gmail_sent":"OK",
-    "gmail_important":"OK",
-    "calendar_past":"OK",
-    "calendar_future":"OK",
+    "gmail_important_starred":"OK",
+    "gmail_drafts":"OK",
     "teams":"OK",
-    "read_ai":"OK"
+    "read_ai":"OK",
+    "outlook_calendar_past_60d":"OK",
+    "outlook_calendar_future_30d":"OK",
+    "google_calendar_past_60d":"OK",
+    "google_calendar_future_30d":"OK"
   },
   "validation":{
     "critical_outcomes":5,
     "decisions":5,
     "my_actions":7,
     "source_health_non_empty":true,
-    "phase":"PHASE_1",
+    "phase":"FULL_REVIEW_PLUS_OPERATIONAL_LAYER",
     "emails_sent":0,
-    "drafts_created":0,
-    "events_created":0,
+    "drafts_created":{"outlook":2,"gmail":1,"total":3},
+    "drafts_reused":{"outlook":0,"gmail":3,"total":3},
+    "events_created":{"outlook":3,"google":1,"total":4},
+    "events_reused":{"outlook":1,"google":0,"total":1},
     "pwa_code_changed":false,
-    "deduplicated_existing_artifacts":true
+    "deduplicated_existing_artifacts":true,
+    "review_window_days":60,
+    "calendar_forward_days":30
   },
-  "commit_sha":"9b469e7f5beda362aa2366343483488ae8914500",
-  "note":"Revisión CEO LifeOS ejecutada el 6 de septiembre de 2026. Ventana mínima de 120 días consultada en Outlook, Gmail, Teams, Read AI y Calendar; Outlook flagged se revisó con filtro independiente. Próximos 30 días de calendario revisados. Se deduplicaron compromisos y artefactos entre fuentes, reutilizando borradores y eventos existentes en lugar de recrearlos. Se separaron AllUp, Teky, Sports Crowd y Personal/CEO. Durante esta Fase 1 no se enviaron correos, no se crearon borradores, no se crearon eventos y no se modificó código de la PWA. commit_sha referencia el último commit de datos previo a este commit de estado."
+  "commit_sha":"54d2ddc06c0a00a8d25ecb92be4bb033a15cff21",
+  "note":"Revisión CEO LifeOS completa ejecutada el 13-Sep-2026. Se consultaron ventanas de 60 días en Outlook, Gmail, Teams, Read AI y calendarios, con revisión separada de correos marcados/prioritarios y próximos 30 días de Outlook/Google Calendar. Se deduplicaron borradores y eventos. No se envió ningún correo. Se crearon 3 borradores y se reutilizaron 3; se crearon 4 eventos ejecutivos y se reutilizó 1. El código de la PWA no fue modificado. commit_sha referencia el último commit de datos previo a este commit de estado."
 }
