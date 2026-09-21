@@ -1,9 +1,103 @@
 {
-  "meta":{"generated_at":"2026-09-13T17:45:00-05:00","period":"2026-W37","planning_period":"2026-W38","month":"2026-09","status":"AT_RISK","score":58},
-  "monthly":[
-    {"id":"ALLUP-2026-09","company":"AllUp","title":"Convertir cartera y delivery en caja sin erosionar margen","metric":"Caja + recaudo material + riesgos contractuales cerrados","target":5,"current":2,"progress":40,"status":"AT_RISK","trend":"IMPROVED","focus":["Caja 13 semanas","MQA/Riopaila","Bancolombia","Bioenergy","Alquería"],"evidence":["Estados financieros agosto recibidos","Simulaciones Bancolombia disponibles","Paquete Bioenergy entregado y QAS EHP8 finalizado","Sustentación Alquería 16-Sep"]},
-    {"id":"TEKY-2026-09","company":"Teky","title":"Productizar FIXI/Aura y convertir validación en negocio repetible","metric":"Core aprobado + siguientes pasos pagados","target":4,"current":2,"progress":50,"status":"AT_RISK","trend":"IMPROVED","focus":["FIXI core/no-core","Corona","Economía/arquitectura","Aura business case"],"evidence":["Evaluación FIXI vs SAP Service and Asset Manager en Corona","Baseline/core vigente","Sesiones Aura semana 3 calendarizadas"]},
-    {"id":"SC-2026-09","company":"Sports Crowd","title":"Cerrar riesgos cloud e integraciones sin frenar revenue","metric":"Riesgos críticos cerrados + integraciones/renovaciones ejecutadas","target":4,"current":2,"progress":50,"status":"AT_RISK","trend":"UNCHANGED","focus":["AWS continuidad","Reckoner onboarding","DIM/Bepass","SIESA/renovaciones"],"evidence":["Decisión de avanzar con Reckoner preparada en borrador","Riesgo AWS continúa P0","Borradores DIM existentes reutilizados"]},
-    {"id":"CEO-2026-09","company":"Personal/CEO","title":"Operar por decisiones y recuperar buffer ejecutivo","metric":"% buffer ejecutivo","target":30,"current":15,"progress":50,"status":"OFF_TRACK","trend":"UNCHANGED","focus":["Decision packs","Clientes estratégicos","Declinar status","Evitar doble agenda Outlook/Google"],"evidence":["Se verificaron ambos calendarios antes de agendar","Solo cuatro nuevos bloques ejecutivos creados y un evento estratégico reutilizado"]}
+  "meta": {
+    "generated_at": "2026-09-21T09:30:00-05:00",
+    "period": "2026-W38",
+    "planning_period": "2026-W39",
+    "month": "2026-09",
+    "status": "AT_RISK",
+    "score": 66
+  },
+  "monthly": [
+    {
+      "id": "ALLUP-2026-09",
+      "company": "AllUp",
+      "title": "Convertir cartera y delivery en caja sin erosionar margen",
+      "metric": "Caja + recaudo material + riesgos contractuales cerrados",
+      "target": 5,
+      "current": 3,
+      "progress": 60,
+      "status": "AT_RISK",
+      "trend": "IMPROVED",
+      "focus": [
+        "Caja 13 semanas",
+        "Rentabilidad agosto",
+        "Bioenergy",
+        "Alquería follow-up",
+        "Grupo Éxito"
+      ],
+      "evidence": [
+        "Riopaila: dos facturas recaudadas",
+        "Crédito avanza a firma/desembolso",
+        "Alquería sustentada",
+        "Bioenergy con novedades QAS y presión de margen"
+      ]
+    },
+    {
+      "id": "TEKY-2026-09",
+      "company": "Teky",
+      "title": "Productizar FIXI/Aura y convertir validación en negocio repetible",
+      "metric": "Core aprobado + siguientes pasos pagados",
+      "target": 4,
+      "current": 2.5,
+      "progress": 63,
+      "status": "AT_RISK",
+      "trend": "IMPROVED",
+      "focus": [
+        "FIXI baseline",
+        "Corona siguiente decisión",
+        "Core/no-core",
+        "Fixi Agro"
+      ],
+      "evidence": [
+        "Propuesta Corona ajustada enviada",
+        "Baseline FIXI pendiente",
+        "Menú lateral listo; avisos pendiente"
+      ]
+    },
+    {
+      "id": "SC-2026-09",
+      "company": "Sports Crowd",
+      "title": "Cerrar riesgos cloud e integraciones sin frenar revenue",
+      "metric": "Riesgos críticos cerrados + integraciones/renovaciones ejecutadas",
+      "target": 4,
+      "current": 2.5,
+      "progress": 63,
+      "status": "AT_RISK",
+      "trend": "WORSENED",
+      "focus": [
+        "DIM biometría",
+        "Deuda técnica",
+        "Reckoner onboarding",
+        "Sisukas"
+      ],
+      "evidence": [
+        "Reckoner listo para firma/onboarding",
+        "DIM reveló brecha de validación",
+        "10/13 repos con soporte vencido/próximo",
+        "Sisukas 71% general/80% Tech"
+      ]
+    },
+    {
+      "id": "CEO-2026-09",
+      "company": "Personal/CEO",
+      "title": "Operar por decisiones y recuperar buffer ejecutivo",
+      "metric": "% buffer ejecutivo",
+      "target": 30,
+      "current": "INCOMPLETE",
+      "progress": 50,
+      "status": "OFF_TRACK",
+      "trend": "UNCHANGED",
+      "focus": [
+        "Decision packs",
+        "Clientes estratégicos",
+        "Declinar status",
+        "Evitar doble agenda Outlook/Google"
+      ],
+      "evidence": [
+        "Deep Work ya existe",
+        "Solo dos nuevos bloques de decisión",
+        "Persisten reuniones recurrentes/mirroring"
+      ]
+    }
   ]
 }
