@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "generated_at": "2026-09-21T09:30:00-05:00",
+    "period": "2026-W38",
+    "planning_period": "2026-W39",
+    "status": "AT_RISK",
+    "score": 66
+  },
+  "close_summary": "W38 mejora en caja/recaudo, Alquería ejecutada, Corona con propuesta ajustada y AWS/Reckoner acordado. Empeoran Bioenergy por volumen de novedades y margen, y Sports Crowd por brecha biométrica DIM y deuda de versiones. Capacidad CEO sigue OFF_TRACK.",
+  "critical_outcomes": [
+    {
+      "id": "CO-01",
+      "company": "AllUp",
+      "priority": "P0",
+      "owner": "Juliana/Carolina/Mario; Francisco decisión",
+      "trend": "IMPROVED",
+      "title": "Caja controlada + margen accionable",
+      "metric": "Forecast 13 semanas + crédito fechado + top 5 desviaciones",
+      "deadline": "2026-09-25"
+    },
+    {
+      "id": "CO-02",
+      "company": "AllUp",
+      "priority": "P0",
+      "owner": "Angela/Alonso/Mario; Francisco decisión",
+      "trend": "WORSENED",
+      "title": "Cerrar Bioenergy sin erosionar margen",
+      "metric": "100% novedades owner/fecha + go/no-go + límite esfuerzo",
+      "deadline": "2026-09-25"
+    },
+    {
+      "id": "CO-03",
+      "company": "Teky",
+      "priority": "P1",
+      "owner": "Carolina/Nathalia/producto; Francisco decisión",
+      "trend": "IMPROVED",
+      "title": "FIXI/Corona a decisión comercial preservando core",
+      "metric": "Siguiente paso/fecha + baseline FIXI",
+      "deadline": "2026-09-25"
+    },
+    {
+      "id": "CO-04",
+      "company": "Sports Crowd",
+      "priority": "P0",
+      "owner": "Mauricio/Tatiana/Adriana/Luz; Francisco decisión",
+      "trend": "WORSENED",
+      "title": "Deuda técnica + DIM + onboarding AWS",
+      "metric": "Alias/versiones decididos + DIM evidencia + onboarding fechado",
+      "deadline": "2026-09-25"
+    },
+    {
+      "id": "CO-05",
+      "company": "Personal/CEO",
+      "priority": "P0",
+      "owner": "Francisco Restrepo",
+      "trend": "UNCHANGED",
+      "title": "Recuperar capacidad ejecutiva",
+      "metric": ">=30% buffer; cero status operativo asumido",
+      "deadline": "2026-09-25"
+    }
+  ],
+  "changes_vs_previous": [
+    {
+      "front": "AllUp caja/cartera",
+      "trend": "IMPROVED",
+      "note": "Riopaila confirmó recaudo de dos facturas; crédito avanza a firma/desembolso."
+    },
+    {
+      "front": "Bioenergy",
+      "trend": "WORSENED",
+      "note": "QAS sigue en pruebas con múltiples novedades; cliente propone sesiones exprés y rentabilidad reporta sobre-ejecución de costos."
+    },
+    {
+      "front": "Alquería",
+      "trend": "IMPROVED",
+      "note": "Sustentación ejecutada; ahora debe convertirse en siguiente decisión comercial."
+    },
+    {
+      "front": "FIXI/Corona",
+      "trend": "IMPROVED",
+      "note": "Propuesta comercial ajustada enviada; falta fecha de decisión y baseline."
+    },
+    {
+      "front": "Sports Crowd AWS",
+      "trend": "IMPROVED",
+      "note": "Reckoner incorporó condiciones; falta firma/documentos/onboarding."
+    },
+    {
+      "front": "Sports Crowd DIM",
+      "trend": "WORSENED",
+      "note": "Pruebas revelaron brecha identidad/rostro/documento; textos corregidos, control técnico pendiente."
+    },
+    {
+      "front": "Sports Crowd deuda técnica",
+      "trend": "NEW",
+      "note": "10/13 repos fuera de soporte o próximos y 40/84 alias sin tráfico."
+    },
+    {
+      "front": "CEO capacity",
+      "trend": "UNCHANGED",
+      "note": "Deep Work reutilizado; solo dos bloques nuevos de decisión."
+    }
+  ],
+  "execution": {
+    "emails_sent": 0,
+    "drafts_created": {
+      "outlook": 7,
+      "gmail": 1,
+      "total": 8
+    },
+    "drafts_reused": {
+      "outlook": 0,
+      "gmail": 4,
+      "total": 4
+    },
+    "events_created": {
+      "outlook": 1,
+      "google": 1,
+      "total": 2
+    },
+    "events_reused": {
+      "outlook": 3,
+      "google": 0,
+      "total": 3
+    }
+  }
+}
