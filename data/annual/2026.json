@@ -1,9 +1,63 @@
 {
-  "meta":{"generated_at":"2026-09-13T17:45:00-05:00","period":"2026-W37","planning_period":"2026-W38","status":"AT_RISK","score":58},
-  "annual":[
-    {"id":"ALLUP-2026-01","company":"AllUp","title":"Crecimiento rentable y predecible","metric":"Facturación / margen / caja","target":"POR DEFINIR","current":"Caja y cartera continúan como restricción; Alquería entra a sustentación y Bioenergy QAS EHP8 fue entregado para pruebas","progress":48,"status":"AT_RISK","trend":"IMPROVED","deadline":"2026-12-31","notes":"Mejora comercial y técnica, pero la mejora anual no será estructural hasta convertir cartera en caja y cerrar Bioenergy sin exposición."},
-    {"id":"TEKY-2026-01","company":"Teky","title":"Convertir Fixi y Flow en productos repetibles","metric":"ARR / clientes / adopción","target":"POR DEFINIR","current":"FIXI mantiene baseline/core; Corona está en evaluación frente a SAP Service and Asset Manager","progress":71,"status":"AT_RISK","trend":"IMPROVED","deadline":"2026-12-31","notes":"El siguiente cuello de botella es monetización repetible y disciplina de customización."},
-    {"id":"SC-2026-01","company":"Sports Crowd","title":"Escalar revenue con operación estable","metric":"Revenue / clubes / estabilidad","target":"POR DEFINIR","current":"Reckoner avanza como reseller AWS; continuidad cloud y DIM siguen como riesgos operativos inmediatos","progress":51,"status":"AT_RISK","trend":"IMPROVED","deadline":"2026-12-31","notes":"La capa comercial AWS mejora, pero continuidad y cumplimiento deben cerrarse antes de aumentar exposición."},
-    {"id":"CEO-2026-01","company":"Personal/CEO","title":"Aumentar foco y delegación ejecutiva","metric":"Capacidad CEO / delegación","target":"30% buffer ejecutivo","current":"Se protege más trabajo de decisión, pero la agenda aún conserva carga operativa y status","progress":24,"status":"OFF_TRACK","trend":"UNCHANGED","deadline":"2026-12-31","notes":"Mantener política: Francisco solo decide caja, riesgos P0, producto/margen y clientes estratégicos; status y ejecución se delegan."}
+  "meta": {
+    "generated_at": "2026-09-21T09:30:00-05:00",
+    "period": "2026-W38",
+    "planning_period": "2026-W39",
+    "status": "AT_RISK",
+    "score": 66
+  },
+  "annual": [
+    {
+      "id": "ALLUP-2026-01",
+      "company": "AllUp",
+      "title": "Crecimiento rentable y predecible",
+      "metric": "Facturación / margen / caja",
+      "target": "POR DEFINIR",
+      "current": "Recaudo Riopaila mejora caja; Alquería sustentada; Bioenergy abierto con presión de margen",
+      "progress": 55,
+      "status": "AT_RISK",
+      "trend": "IMPROVED",
+      "deadline": "2026-12-31",
+      "notes": "Mejora comercial y técnica, pero la mejora anual no será estructural hasta convertir cartera en caja y cerrar Bioenergy sin exposición."
+    },
+    {
+      "id": "TEKY-2026-01",
+      "company": "Teky",
+      "title": "Convertir Fixi y Flow en productos repetibles",
+      "metric": "ARR / clientes / adopción",
+      "target": "POR DEFINIR",
+      "current": "Corona recibió propuesta FIXI ajustada; baseline/core requiere cierre",
+      "progress": 74,
+      "status": "AT_RISK",
+      "trend": "IMPROVED",
+      "deadline": "2026-12-31",
+      "notes": "El siguiente cuello de botella es monetización repetible y disciplina de customización."
+    },
+    {
+      "id": "SC-2026-01",
+      "company": "Sports Crowd",
+      "title": "Escalar revenue con operación estable",
+      "metric": "Revenue / clubes / estabilidad",
+      "target": "POR DEFINIR",
+      "current": "Reckoner avanza; DIM y deuda de versiones elevan riesgo técnico/compliance",
+      "progress": 55,
+      "status": "AT_RISK",
+      "trend": "UNCHANGED",
+      "deadline": "2026-12-31",
+      "notes": "La capa comercial AWS mejora, pero continuidad y cumplimiento deben cerrarse antes de aumentar exposición."
+    },
+    {
+      "id": "CEO-2026-01",
+      "company": "Personal/CEO",
+      "title": "Aumentar foco y delegación ejecutiva",
+      "metric": "Capacidad CEO / delegación",
+      "target": "30% buffer ejecutivo",
+      "current": "Deep work existe, pero agenda recurrente sigue fragmentada",
+      "progress": 25,
+      "status": "OFF_TRACK",
+      "trend": "UNCHANGED",
+      "deadline": "2026-12-31",
+      "notes": "Mantener política: Francisco solo decide caja, riesgos P0, producto/margen y clientes estratégicos; status y ejecución se delegan."
+    }
   ]
 }
