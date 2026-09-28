@@ -1,103 +1,58 @@
 {
   "meta": {
-    "generated_at": "2026-09-21T09:30:00-05:00",
-    "period": "2026-W38",
-    "planning_period": "2026-W39",
-    "month": "2026-09",
+    "generated_at": "2026-09-28T08:55:00-05:00",
+    "period": "2026-09",
     "status": "AT_RISK",
-    "score": 66
+    "score": 63
   },
-  "monthly": [
+  "summary": "Septiembre cierra con mejor pipeline/FIXI y acceso a financiacion, pero caja, margen y capacidad CEO exigen disciplina.",
+  "outcomes": [
     {
-      "id": "ALLUP-2026-09",
       "company": "AllUp",
-      "title": "Convertir cartera y delivery en caja sin erosionar margen",
-      "metric": "Caja + recaudo material + riesgos contractuales cerrados",
-      "target": 5,
-      "current": 3,
-      "progress": 60,
-      "status": "AT_RISK",
       "trend": "IMPROVED",
-      "focus": [
-        "Caja 13 semanas",
-        "Rentabilidad agosto",
-        "Bioenergy",
-        "Alquería follow-up",
-        "Grupo Éxito"
-      ],
-      "evidence": [
-        "Riopaila: dos facturas recaudadas",
-        "Crédito avanza a firma/desembolso",
-        "Alquería sustentada",
-        "Bioenergy con novedades QAS y presión de margen"
-      ]
+      "result": "Credito $170M en desembolso; Alqueria con buen feedback; Bioenergy avanza pero margen en riesgo."
     },
     {
-      "id": "TEKY-2026-09",
       "company": "Teky",
-      "title": "Productizar FIXI/Aura y convertir validación en negocio repetible",
-      "metric": "Core aprobado + siguientes pasos pagados",
-      "target": 4,
-      "current": 2.5,
-      "progress": 63,
-      "status": "AT_RISK",
       "trend": "IMPROVED",
-      "focus": [
-        "FIXI baseline",
-        "Corona siguiente decisión",
-        "Core/no-core",
-        "Fixi Agro"
-      ],
-      "evidence": [
-        "Propuesta Corona ajustada enviada",
-        "Baseline FIXI pendiente",
-        "Menú lateral listo; avisos pendiente"
-      ]
+      "result": "FIXI suma Bodytech/Popsy/Corona y Focus Lab Batch 1."
     },
     {
-      "id": "SC-2026-09",
       "company": "Sports Crowd",
-      "title": "Cerrar riesgos cloud e integraciones sin frenar revenue",
-      "metric": "Riesgos críticos cerrados + integraciones/renovaciones ejecutadas",
-      "target": 4,
-      "current": 2.5,
-      "progress": 63,
-      "status": "AT_RISK",
-      "trend": "WORSENED",
-      "focus": [
-        "DIM biometría",
-        "Deuda técnica",
-        "Reckoner onboarding",
-        "Sisukas"
-      ],
-      "evidence": [
-        "Reckoner listo para firma/onboarding",
-        "DIM reveló brecha de validación",
-        "10/13 repos con soporte vencido/próximo",
-        "Sisukas 71% general/80% Tech"
-      ]
+      "trend": "UNCHANGED",
+      "result": "AWS/Reckoner y DIM/Bepass siguen como riesgos materiales."
     },
     {
-      "id": "CEO-2026-09",
       "company": "Personal/CEO",
-      "title": "Operar por decisiones y recuperar buffer ejecutivo",
-      "metric": "% buffer ejecutivo",
-      "target": 30,
-      "current": "INCOMPLETE",
-      "progress": 50,
-      "status": "OFF_TRACK",
-      "trend": "UNCHANGED",
-      "focus": [
-        "Decision packs",
-        "Clientes estratégicos",
-        "Declinar status",
-        "Evitar doble agenda Outlook/Google"
-      ],
-      "evidence": [
-        "Deep Work ya existe",
-        "Solo dos nuevos bloques de decisión",
-        "Persisten reuniones recurrentes/mirroring"
-      ]
+      "trend": "WORSENED",
+      "result": "Duplicacion/choques de agenda; buffer ejecutivo insuficiente."
+    }
+  ],
+  "risks": [
+    {
+      "company": "AllUp",
+      "level": "HIGH",
+      "risk": "Caja/recaudos sin fecha firme al cierre de mes"
+    },
+    {
+      "company": "AllUp",
+      "level": "HIGH",
+      "risk": "Bioenergy: erosion de margen por horas/esfuerzo"
+    },
+    {
+      "company": "Teky",
+      "level": "MEDIUM",
+      "risk": "Customizaciones FIXI sin economics"
+    },
+    {
+      "company": "Sports Crowd",
+      "level": "HIGH",
+      "risk": "AWS/Bepass/Meta/permisos cloud"
+    },
+    {
+      "company": "Personal/CEO",
+      "level": "HIGH",
+      "risk": "Sobrecarga y duplicacion de agenda"
     }
   ]
 }
