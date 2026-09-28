@@ -11,9 +11,10 @@
     "outlook_calendar": "OK",
     "google_calendar": "OK",
     "github": "OK",
-    "netlify": "PENDING_POST_COMMIT_VERIFY"
+    "netlify": "READY"
   },
-  "commit_sha": "PENDING_FINAL_STATUS_COMMIT",
+  "commit_sha": "2dc0989c1fc093e3d506b85d72edff67ee50cddf",
+  "deploy_id": "6aba72004920fc00083d774c",
   "validation": {
     "drafts_created": {
       "outlook": 11,
@@ -46,6 +47,6 @@
   },
   "protocol_update": {
     "required": false,
-    "reason": "El prompt refuerza practicas ya incorporadas: 60d, todos flagged/important/starred, dedup antes de drafts/eventos, radar y conteos de reutilizacion. No se requirio cambio de codigo PWA."
+    "reason": "El prompt refuerza practicas ya incorporadas; no se requirio cambio de codigo PWA."
   }
 }
