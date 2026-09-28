@@ -1,63 +1,34 @@
 {
   "meta": {
-    "generated_at": "2026-09-21T09:30:00-05:00",
-    "period": "2026-W38",
-    "planning_period": "2026-W39",
+    "generated_at": "2026-09-28T08:55:00-05:00",
+    "period": "2026",
     "status": "AT_RISK",
-    "score": 66
+    "score": 63
   },
-  "annual": [
-    {
-      "id": "ALLUP-2026-01",
-      "company": "AllUp",
-      "title": "Crecimiento rentable y predecible",
-      "metric": "Facturación / margen / caja",
-      "target": "POR DEFINIR",
-      "current": "Recaudo Riopaila mejora caja; Alquería sustentada; Bioenergy abierto con presión de margen",
-      "progress": 55,
+  "summary": "Convertir crecimiento comercial/producto en caja y margen, manteniendo a Francisco fuera de operacion repetitiva.",
+  "companies": {
+    "AllUp": {
       "status": "AT_RISK",
-      "trend": "IMPROVED",
-      "deadline": "2026-12-31",
-      "notes": "Mejora comercial y técnica, pero la mejora anual no será estructural hasta convertir cartera en caja y cerrar Bioenergy sin exposición."
+      "focus": "Caja, margen, conversion comercial, delivery"
     },
-    {
-      "id": "TEKY-2026-01",
-      "company": "Teky",
-      "title": "Convertir Fixi y Flow en productos repetibles",
-      "metric": "ARR / clientes / adopción",
-      "target": "POR DEFINIR",
-      "current": "Corona recibió propuesta FIXI ajustada; baseline/core requiere cierre",
-      "progress": 74,
+    "Teky": {
+      "status": "WATCH",
+      "focus": "FIXI repeatable product + economics"
+    },
+    "Sports_Crowd": {
       "status": "AT_RISK",
-      "trend": "IMPROVED",
-      "deadline": "2026-12-31",
-      "notes": "El siguiente cuello de botella es monetización repetible y disciplina de customización."
+      "focus": "AWS, biometria y unit economics"
     },
-    {
-      "id": "SC-2026-01",
-      "company": "Sports Crowd",
-      "title": "Escalar revenue con operación estable",
-      "metric": "Revenue / clubes / estabilidad",
-      "target": "POR DEFINIR",
-      "current": "Reckoner avanza; DIM y deuda de versiones elevan riesgo técnico/compliance",
-      "progress": 55,
-      "status": "AT_RISK",
-      "trend": "UNCHANGED",
-      "deadline": "2026-12-31",
-      "notes": "La capa comercial AWS mejora, pero continuidad y cumplimiento deben cerrarse antes de aumentar exposición."
-    },
-    {
-      "id": "CEO-2026-01",
-      "company": "Personal/CEO",
-      "title": "Aumentar foco y delegación ejecutiva",
-      "metric": "Capacidad CEO / delegación",
-      "target": "30% buffer ejecutivo",
-      "current": "Deep work existe, pero agenda recurrente sigue fragmentada",
-      "progress": 25,
+    "Personal_CEO": {
       "status": "OFF_TRACK",
-      "trend": "UNCHANGED",
-      "deadline": "2026-12-31",
-      "notes": "Mantener política: Francisco solo decide caja, riesgos P0, producto/margen y clientes estratégicos; status y ejecución se delegan."
+      "focus": "Capacidad ejecutiva, agenda y delegacion"
     }
+  },
+  "current_quarter_focus": [
+    "Cerrar caja y credito con disciplina de uso",
+    "Convertir FIXI sin customizacion gratuita",
+    "Proteger margen Bioenergy",
+    "Resolver solo riesgos materiales Sports Crowd",
+    "Recuperar buffer ejecutivo"
   ]
 }
