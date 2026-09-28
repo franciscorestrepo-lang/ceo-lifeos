@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "generated_at": "2026-09-28T08:55:00-05:00",
+    "period": "2026-W39",
+    "planning_period": "2026-W40",
+    "status": "AT_RISK",
+    "score": 63,
+    "previous_score": 58
+  },
+  "close_summary": "W39 mejora en financiacion y conversion FIXI; Bioenergy mejora tecnicamente pero mantiene riesgo de margen; Sports Crowd sigue con riesgos materiales; capacidad CEO empeora por duplicacion/choques de agenda.",
+  "changes_vs_previous": [
+    {
+      "front": "AllUp caja/credito",
+      "trend": "IMPROVED",
+      "note": "Banco de Occidente paso a documentos de desembolso por $170M."
+    },
+    {
+      "front": "FIXI",
+      "trend": "NEW",
+      "note": "Focus Lab invito a FIXI a primera reunion Batch 1; Popsy pidio condiciones concretas."
+    },
+    {
+      "front": "Bioenergy",
+      "trend": "IMPROVED",
+      "note": "Avance tecnico, pero horas/esfuerzo deben cerrarse economicamente."
+    },
+    {
+      "front": "Sports Crowd",
+      "trend": "UNCHANGED",
+      "note": "AWS/Bepass/Meta siguen requiriendo decisiones materiales, no operacion CEO."
+    },
+    {
+      "front": "Personal/CEO",
+      "trend": "WORSENED",
+      "note": "Se detectaron duplicados recurrentes y choques entre calendarios."
+    }
+  ],
+  "critical_outcomes": [
+    {
+      "company": "AllUp",
+      "priority": "P0",
+      "owner": "Francisco + Juliana",
+      "date": "2026-09-30",
+      "metric": "Forecast 13 semanas + pagos + desembolso $170M + max 3 escalaciones",
+      "trend": "IMPROVED",
+      "title": "Liquidez controlada"
+    },
+    {
+      "company": "Teky",
+      "priority": "P0",
+      "owner": "Francisco + Carolina + Nathalia",
+      "date": "2026-10-02",
+      "metric": "Bodytech/Popsy/Corona a decision + Focus Lab + 1 prioridad CORE",
+      "trend": "IMPROVED",
+      "title": "FIXI a conversion"
+    },
+    {
+      "company": "AllUp",
+      "priority": "P0",
+      "owner": "Francisco + Alonso + Angela",
+      "date": "2026-09-30",
+      "metric": "Soporte/upgrade separados + go/no-go + extra autorizado",
+      "trend": "IMPROVED",
+      "title": "Bioenergy sin fuga de margen"
+    },
+    {
+      "company": "Sports Crowd",
+      "priority": "P0",
+      "owner": "Francisco + Mauricio",
+      "date": "2026-10-02",
+      "metric": "AWS/Reckoner + Bepass + cloud minimo privilegio",
+      "trend": "UNCHANGED",
+      "title": "Riesgos materiales SC"
+    },
+    {
+      "company": "Personal/CEO",
+      "priority": "P1",
+      "owner": "Francisco",
+      "date": "2026-10-02",
+      "metric": "Choques resueltos + >=2 deep work + max 7 acciones",
+      "trend": "WORSENED",
+      "title": "Capacidad ejecutiva"
+    }
+  ],
+  "decisions": [
+    {
+      "company": "AllUp",
+      "priority": "P0",
+      "owner": "Francisco",
+      "date": "2026-09-30",
+      "metric": "Condiciones + fecha + uso liquidez",
+      "trend": "IMPROVED",
+      "title": "Desembolso $170M"
+    },
+    {
+      "company": "AllUp",
+      "priority": "P0",
+      "owner": "Francisco",
+      "date": "2026-09-28",
+      "metric": "Go/no-go y regla consumo",
+      "trend": "IMPROVED",
+      "title": "Bioenergy horas/alcance"
+    },
+    {
+      "company": "Teky",
+      "priority": "P0",
+      "owner": "Francisco",
+      "date": "2026-10-02",
+      "metric": "1 hito + economics + siguiente paso",
+      "trend": "NEW",
+      "title": "Siguiente hito FIXI"
+    },
+    {
+      "company": "Sports Crowd",
+      "priority": "P0",
+      "owner": "Francisco",
+      "date": "2026-10-02",
+      "metric": "Max 3 decisiones",
+      "trend": "UNCHANGED",
+      "title": "AWS/Bepass/Meta"
+    },
+    {
+      "company": "Personal/CEO",
+      "priority": "P1",
+      "owner": "Francisco + Ops",
+      "date": "2026-10-02",
+      "metric": "Sin duplicados relevantes",
+      "trend": "NEW",
+      "title": "Calendarios"
+    }
+  ],
+  "my_actions": [
+    {
+      "company": "AllUp",
+      "title": "Decidir Bioenergy",
+      "date": "2026-09-28",
+      "event_status": "REUSED"
+    },
+    {
+      "company": "Sports Crowd",
+      "title": "Decidir Meta WhatsApp",
+      "date": "2026-09-29",
+      "event_status": "REUSED"
+    },
+    {
+      "company": "Teky",
+      "title": "Demo Bodytech",
+      "date": "2026-09-29",
+      "event_status": "REUSED"
+    },
+    {
+      "company": "AllUp",
+      "title": "Cierre mes caja/credito/margen",
+      "date": "2026-09-30",
+      "event_status": "CREATED"
+    },
+    {
+      "company": "Teky",
+      "title": "FIXI conversion + Focus Lab",
+      "date": "2026-10-02",
+      "event_status": "CREATED"
+    },
+    {
+      "company": "Sports Crowd",
+      "title": "AWS/Bepass riesgos",
+      "date": "2026-10-02",
+      "event_status": "CREATED"
+    },
+    {
+      "company": "Personal/CEO",
+      "title": "Resolver duplicados agenda",
+      "date": "2026-10-02",
+      "event_status": "NO_NEW_EVENT"
+    }
+  ],
+  "allup_focus_reviews": {
+    "reviewed": [
+      "Carolina Castillo",
+      "Alonso Vasquez",
+      "Juliana Rueda",
+      "Daniel",
+      "Angela Zuluaga",
+      "Nathalia Tobar"
+    ],
+    "missing_or_late": [
+      "Mario Zuluaga W39"
+    ],
+    "reply_drafts_created": 7
+  },
+  "operational_execution": {
+    "drafts_created": {
+      "outlook": 11,
+      "gmail": 2,
+      "total": 13
+    },
+    "drafts_reused": {
+      "outlook": 2,
+      "gmail": 0,
+      "total": 2
+    },
+    "events_created": {
+      "outlook": 2,
+      "google": 1,
+      "total": 3
+    },
+    "events_reused": {
+      "outlook": 2,
+      "google": 1,
+      "total": 3
+    },
+    "emails_sent": 0,
+    "dedup": true
+  }
+}
