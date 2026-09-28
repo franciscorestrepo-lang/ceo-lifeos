@@ -1,58 +1,51 @@
 {
   "status": "READY",
-  "generated_at": "2026-09-21T09:30:00-05:00",
-  "period": "2026-W38",
-  "planning_period": "2026-W39",
-  "engine": "ChatGPT connectors",
+  "generated_at": "2026-09-28T08:55:00-05:00",
+  "period": "2026-W39",
+  "planning_period": "2026-W40",
   "source_health": {
-    "outlook_received": "OK",
-    "outlook_sent": "OK",
-    "outlook_flagged": "OK",
-    "outlook_priority": "OK",
-    "outlook_drafts": "OK",
-    "gmail_received": "OK",
-    "gmail_sent": "OK",
-    "gmail_important_starred": "OK",
-    "gmail_drafts": "OK",
-    "teams": "OK",
+    "outlook_email": "OK",
+    "gmail": "OK",
+    "teams": "PARTIAL_INDEXING",
     "read_ai": "OK",
-    "outlook_calendar_past_60d": "OK",
-    "outlook_calendar_future_30d": "OK",
-    "google_calendar_past_60d": "OK",
-    "google_calendar_future_30d": "OK"
+    "outlook_calendar": "OK",
+    "google_calendar": "OK",
+    "github": "OK",
+    "netlify": "PENDING_POST_COMMIT_VERIFY"
   },
+  "commit_sha": "PENDING_FINAL_STATUS_COMMIT",
   "validation": {
-    "critical_outcomes": 5,
-    "decisions": 5,
-    "my_actions": 7,
-    "source_health_non_empty": true,
-    "phase": "FULL_REVIEW_PLUS_OPERATIONAL_LAYER",
-    "emails_sent": 0,
     "drafts_created": {
-      "outlook": 7,
-      "gmail": 1,
-      "total": 8
+      "outlook": 11,
+      "gmail": 2,
+      "total": 13
     },
     "drafts_reused": {
-      "outlook": 0,
-      "gmail": 4,
-      "total": 4
-    },
-    "events_created": {
-      "outlook": 1,
-      "google": 1,
+      "outlook": 2,
+      "gmail": 0,
       "total": 2
     },
-    "events_reused": {
-      "outlook": 3,
-      "google": 0,
+    "events_created": {
+      "outlook": 2,
+      "google": 1,
       "total": 3
     },
-    "pwa_code_changed": false,
+    "events_reused": {
+      "outlook": 2,
+      "google": 1,
+      "total": 3
+    },
+    "emails_sent": 0,
     "dedup": true,
-    "review_window_days": 60,
-    "calendar_forward_days": 30
+    "current_non_empty": {
+      "critical_outcomes": true,
+      "decisions": true,
+      "my_actions": true,
+      "source_health": true
+    }
   },
-  "commit_sha": "e88766430c89bbcee7decc51df0e27f6a56d20f6",
-  "note": "Revisión completa W38→W39. Sin correos enviados. Foco nuevo: Bioenergy/margen, deuda técnica Sports Crowd y brecha DIM. Se reutilizaron Deep Work y borradores DIM existentes; solo se crearon dos bloques ejecutivos nuevos. No hubo cambio de código PWA: las nuevas prácticas ya caben en el esquema de datos/protocolo existente."
+  "protocol_update": {
+    "required": false,
+    "reason": "El prompt refuerza practicas ya incorporadas: 60d, todos flagged/important/starred, dedup antes de drafts/eventos, radar y conteos de reutilizacion. No se requirio cambio de codigo PWA."
+  }
 }
