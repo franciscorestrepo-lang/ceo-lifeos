@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "generated_at": "2026-10-04T09:45:00-05:00",
+    "period": "2026-W40",
+    "planning_period": "2026-W41",
+    "status": "AT_RISK",
+    "score": 67,
+    "previous_score": 63
+  },
+  "close_summary": "W40 mejora por crédito desembolsado, Popsy/Focus/UE y avances de delivery. Bioenergy empeora en economics: costos +22% vs presupuesto y ~5 puntos menos de rentabilidad esperada mientras MyAgri/HCM siguen abiertos. DIM/Bepass cambia de piloto a decisión contractual/económica.",
+  "changes_vs_previous": [
+    {
+      "front": "AllUp caja",
+      "trend": "IMPROVED",
+      "note": "Banco de Occidente desembolsó y los recursos se usaron en obligaciones priorizadas; FINAGRO cerrado."
+    },
+    {
+      "front": "AllUp Bioenergy",
+      "trend": "WORSENED",
+      "note": "No hay go/no-go; MyAgri/HCM siguen abiertos y rentabilidad reporta costos +22% vs presupuesto y ~5 puntos menos de margen esperado."
+    },
+    {
+      "front": "Teky FIXI",
+      "trend": "IMPROVED",
+      "note": "Popsy recibió propuesta actualizada; Focus Batch 1 confirmado; UE abrió Copernicus/D4D/Tecnalia."
+    },
+    {
+      "front": "Sports Crowd DIM",
+      "trend": "IMPROVED",
+      "note": "Pilotos evolucionan a contrato/business case/readiness; DIM-SIESA reveló cambio material de alcance."
+    },
+    {
+      "front": "Personal/CEO",
+      "trend": "UNCHANGED",
+      "note": "Se reutilizan bloques, pero persisten duplicados estructurales entre Outlook/Google."
+    }
+  ],
+  "focus_weekly": {
+    "received_closures": [
+      "Juliana Rueda",
+      "Angela Zuluaga",
+      "Alonso Vasquez",
+      "Daniel Daza"
+    ],
+    "missing_closures": [
+      "Carolina Castillo",
+      "Nathalia Tobar",
+      "Mario Zuluaga",
+      "Sebastian Perez",
+      "Mauricio Sanchez"
+    ],
+    "status": "INCOMPLETE",
+    "reply_drafts_created": 4,
+    "regularization_draft_created": 1
+  },
+  "operational_execution": {
+    "drafts_created": {
+      "outlook": 8,
+      "gmail": 2,
+      "total": 10
+    },
+    "drafts_reused": {
+      "outlook": 1,
+      "gmail": 3,
+      "total": 4
+    },
+    "events_created": {
+      "outlook": 0,
+      "google": 0,
+      "total": 0
+    },
+    "events_reused": {
+      "outlook": 3,
+      "google": 3,
+      "total": 6
+    },
+    "emails_sent": 0,
+    "dedup": true
+  },
+  "key_facts": [
+    "Popsy propuesta comercial actualizada enviada 2-Oct.",
+    "Focus Batch 1 reunión 5-Oct.",
+    "UE recomienda incorporar tecnología/datos europeos y explorar D4D/Tecnalia; Copernicus es oportunidad concreta.",
+    "CLIC Connector cierra 9-Oct.",
+    "Comfandi PILA inicia con estimación 64 horas facturables.",
+    "Perceptio-AllUp define economics preliminares por cuentas nombradas; faltan markup y reglas finales.",
+    "DIM-Bepass busca firma 7-Oct y readiness 17-Oct; no conviene tercer piloto sin contrato.",
+    "DIM-SIESA cambia a web services nativos, JSON->XML y servicios adicionales posibles."
+  ]
+}
