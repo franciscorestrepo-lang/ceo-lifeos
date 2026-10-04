@@ -1,40 +1,39 @@
 {
   "status": "READY",
-  "generated_at": "2026-09-28T08:55:00-05:00",
-  "period": "2026-W39",
-  "planning_period": "2026-W40",
+  "generated_at": "2026-10-04T09:45:00-05:00",
+  "period": "2026-W40",
+  "planning_period": "2026-W41",
   "source_health": {
     "outlook_email": "OK",
     "gmail": "OK",
-    "teams": "PARTIAL_INDEXING",
-    "read_ai": "OK",
+    "teams": "PARTIAL_NO_USEFUL_HITS",
+    "read_ai": "OK_LIST_EXPAND; KB_SEARCH_UNAVAILABLE",
     "outlook_calendar": "OK",
     "google_calendar": "OK",
     "github": "OK",
-    "netlify": "READY"
+    "netlify": "PENDING_POST_COMMIT_VERIFY"
   },
-  "commit_sha": "2dc0989c1fc093e3d506b85d72edff67ee50cddf",
-  "deploy_id": "6aba72004920fc00083d774c",
+  "commit_sha": "6249ecdb914805028842671fbebb5e6b4f033dde",
   "validation": {
     "drafts_created": {
-      "outlook": 11,
+      "outlook": 8,
       "gmail": 2,
-      "total": 13
+      "total": 10
     },
     "drafts_reused": {
-      "outlook": 2,
-      "gmail": 0,
-      "total": 2
+      "outlook": 1,
+      "gmail": 3,
+      "total": 4
     },
     "events_created": {
-      "outlook": 2,
-      "google": 1,
-      "total": 3
+      "outlook": 0,
+      "google": 0,
+      "total": 0
     },
     "events_reused": {
-      "outlook": 2,
-      "google": 1,
-      "total": 3
+      "outlook": 3,
+      "google": 3,
+      "total": 6
     },
     "emails_sent": 0,
     "dedup": true,
@@ -43,10 +42,15 @@
       "decisions": true,
       "my_actions": true,
       "source_health": true
+    },
+    "focus_weekly": {
+      "closures_received": 4,
+      "closures_missing": 5,
+      "status": "INCOMPLETE"
     }
   },
   "protocol_update": {
     "required": false,
-    "reason": "El prompt refuerza practicas ya incorporadas; no se requirio cambio de codigo PWA."
+    "reason": "El prompt no introduce una práctica nueva frente al protocolo ya persistido: 60d, flagged/important/starred, dedup previo, radar, foco individual, conteos created/reused y no envío ya están incorporados. No se modifica código PWA."
   }
 }
