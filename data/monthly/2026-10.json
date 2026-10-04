@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "generated_at": "2026-10-04T09:45:00-05:00",
+    "period": "2026-10",
+    "status": "AT_RISK",
+    "score": 67
+  },
+  "summary": "Octubre inicia con mejor liquidez y pipeline, pero con margen Bioenergy y conversión DIM a operación comercial como riesgos P0.",
+  "priorities": [
+    {
+      "company": "AllUp",
+      "focus": "Caja sostenible + margen + Bioenergy",
+      "metric": "Recaudo/fechas + top 3 desviaciones + go/no-go Bioenergy"
+    },
+    {
+      "company": "Teky",
+      "focus": "FIXI conversion + capital/UE",
+      "metric": "Popsy/Focus/Copernicus/CLIC a decisiones"
+    },
+    {
+      "company": "Sports Crowd",
+      "focus": "DIM contrato/economics + SIESA change request",
+      "metric": "Firma/readiness + alcance/fecha"
+    },
+    {
+      "company": "Personal/CEO",
+      "focus": "Capacidad ejecutiva",
+      "metric": "Reutilizar bloques y cero status nuevos"
+    }
+  ],
+  "risks": [
+    {
+      "company": "AllUp",
+      "level": "HIGH",
+      "risk": "Bioenergy costos +22% vs presupuesto y cierre técnico pendiente"
+    },
+    {
+      "company": "AllUp",
+      "level": "HIGH",
+      "risk": "Cartera Taghleef/Riopaila/MQA sin fechas firmes"
+    },
+    {
+      "company": "Teky",
+      "level": "MEDIUM",
+      "risk": "Multiplicar programas/iniciativas FIXI sin conversión/economics"
+    },
+    {
+      "company": "Sports Crowd",
+      "level": "HIGH",
+      "risk": "Invertir DIM/Bepass antes de contrato/business case/readiness"
+    },
+    {
+      "company": "Sports Crowd",
+      "level": "HIGH",
+      "risk": "Absorber cambio de alcance DIM-SIESA sin change request"
+    },
+    {
+      "company": "Personal/CEO",
+      "level": "MEDIUM",
+      "risk": "Duplicados estructurales de agenda"
+    }
+  ]
+}
