@@ -11,9 +11,10 @@
     "outlook_calendar": "OK",
     "google_calendar": "OK",
     "github": "OK",
-    "netlify": "PENDING_POST_COMMIT_VERIFY"
+    "netlify": "READY"
   },
   "commit_sha": "6249ecdb914805028842671fbebb5e6b4f033dde",
+  "deploy_id": "6ac274535604920008682336",
   "validation": {
     "drafts_created": {
       "outlook": 8,
@@ -51,6 +52,6 @@
   },
   "protocol_update": {
     "required": false,
-    "reason": "El prompt no introduce una práctica nueva frente al protocolo ya persistido: 60d, flagged/important/starred, dedup previo, radar, foco individual, conteos created/reused y no envío ya están incorporados. No se modifica código PWA."
+    "reason": "No hay práctica nueva que requiera cambio de PWA/protocolo; las reglas ya están incorporadas."
   }
 }
