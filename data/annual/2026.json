@@ -1,34 +1,34 @@
 {
   "meta": {
-    "generated_at": "2026-09-28T08:55:00-05:00",
+    "generated_at": "2026-10-04T09:45:00-05:00",
     "period": "2026",
     "status": "AT_RISK",
-    "score": 63
+    "score": 67
   },
-  "summary": "Convertir crecimiento comercial/producto en caja y margen, manteniendo a Francisco fuera de operacion repetitiva.",
+  "summary": "Q4 debe convertir pipeline y producto en caja/margen, y convertir Sports Crowd de pilotos a contratos/economics repetibles sin llevar a Francisco a la operación.",
   "companies": {
     "AllUp": {
       "status": "AT_RISK",
-      "focus": "Caja, margen, conversion comercial, delivery"
+      "focus": "Caja, margen Bioenergy, conversión comercial y delivery"
     },
     "Teky": {
       "status": "WATCH",
-      "focus": "FIXI repeatable product + economics"
+      "focus": "FIXI repeatable product + Popsy/UE/Focus/Copernicus"
     },
     "Sports_Crowd": {
       "status": "AT_RISK",
-      "focus": "AWS, biometria y unit economics"
+      "focus": "DIM contrato/economics, SIESA scope, AWS continuity"
     },
     "Personal_CEO": {
       "status": "OFF_TRACK",
-      "focus": "Capacidad ejecutiva, agenda y delegacion"
+      "focus": "Capacidad ejecutiva y deduplicación de agenda"
     }
   },
   "current_quarter_focus": [
-    "Cerrar caja y credito con disciplina de uso",
-    "Convertir FIXI sin customizacion gratuita",
-    "Proteger margen Bioenergy",
-    "Resolver solo riesgos materiales Sports Crowd",
-    "Recuperar buffer ejecutivo"
+    "Recaudo y forecast 13 semanas",
+    "Cerrar Bioenergy con control de margen/horas",
+    "Convertir FIXI sin dispersión ni customización gratuita",
+    "Firmar/economizar DIM antes de invertir",
+    "Proteger buffer CEO y delegación"
   ]
 }
