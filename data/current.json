@@ -1,58 +1,58 @@
 {
   "meta": {
-    "generated_at": "2026-09-28T08:55:00-05:00",
-    "period": "2026-W39",
-    "planning_period": "2026-W40",
+    "generated_at": "2026-10-04T09:45:00-05:00",
+    "period": "2026-W40",
+    "planning_period": "2026-W41",
     "status": "AT_RISK",
-    "score": 63,
-    "previous_score": 58
+    "score": 67,
+    "previous_score": 63
   },
-  "executive_summary": "Mejora en conversion FIXI y financiacion; caja, margen Bioenergy, riesgos SC y capacidad CEO siguen AT_RISK.",
+  "executive_summary": "W40 mejora por desembolso efectivo, Popsy/Focus/UE y avance operativo; siguen P0 el margen/cierre Bioenergy y la conversión DIM/Bepass a contrato/economics. La agenda mantiene duplicados estructurales entre calendarios.",
   "critical_outcomes": [
     {
       "company": "AllUp",
       "priority": "P0",
-      "owner": "Francisco + Juliana",
-      "date": "2026-09-30",
-      "metric": "Forecast 13 semanas + pagos 30-Sep + desembolso $170M fechado + max 3 escalaciones",
+      "owner": "Juliana + Carolina; Francisco excepciones",
+      "date": "2026-10-09",
+      "metric": "Taghleef/Riopaila/MQA con recaudo o fecha; forecast 13 semanas; top 3 desviaciones margen accionadas",
       "trend": "IMPROVED",
-      "title": "Cerrar septiembre con liquidez controlada"
-    },
-    {
-      "company": "Teky",
-      "priority": "P0",
-      "owner": "Francisco + Carolina + Nathalia",
-      "date": "2026-10-02",
-      "metric": "Bodytech/Popsy/Corona con piloto-propuesta-no-go + Focus Lab agendado + 1 prioridad CORE",
-      "trend": "IMPROVED",
-      "title": "Convertir FIXI en decisiones comerciales"
+      "title": "Convertir liquidez en caja sostenible y margen accionable"
     },
     {
       "company": "AllUp",
       "priority": "P0",
-      "owner": "Francisco + Alonso + Angela",
-      "date": "2026-09-30",
-      "metric": "Soporte/upgrade separados + HCM/pruebas cerrados o go-no-go + extra autorizado",
+      "owner": "Angela + Alonso + Mario; Francisco go/no-go",
+      "date": "2026-10-07",
+      "metric": "MyAgri/HCM cerrados o bloqueo cuantificado; horas aprobadas vs consumidas; go/no-go",
+      "trend": "WORSENED",
+      "title": "Cerrar Bioenergy sin seguir erosionando margen"
+    },
+    {
+      "company": "Teky",
+      "priority": "P0",
+      "owner": "Carolina + Nathalia + Producto; Francisco partnership/capital",
+      "date": "2026-10-09",
+      "metric": "Popsy con siguiente paso/fecha; Focus go/no-go; MVP Copernicus 1 pagina; CLIC go/no-go",
       "trend": "IMPROVED",
-      "title": "Cerrar Bioenergy sin fuga de margen"
+      "title": "Convertir señales FIXI en venta, partnership o no-go"
     },
     {
       "company": "Sports Crowd",
       "priority": "P0",
-      "owner": "Francisco + Mauricio + Operacion SC",
-      "date": "2026-10-02",
-      "metric": "AWS/Reckoner continuidad-escalacion-FinOps + Bepass solo go/no-go + cloud minimo privilegio",
-      "trend": "UNCHANGED",
-      "title": "Asegurar continuidad AWS y decisiones DIM/Bepass"
+      "owner": "Tatiana + Mauricio Uribe + Mauricio Sanchez; Francisco contrato/economics",
+      "date": "2026-10-07",
+      "metric": "DIM-Bepass ruta firma + business case escenarios + readiness 17-Oct; DIM-SIESA change request/nueva fecha",
+      "trend": "IMPROVED",
+      "title": "Pasar DIM de pilotos a operación comercial rentable"
     },
     {
       "company": "Personal/CEO",
       "priority": "P1",
-      "owner": "Francisco",
-      "date": "2026-10-02",
-      "metric": "Resolver choques/duplicados; >=2 deep work; max 7 acciones propias",
-      "trend": "WORSENED",
-      "title": "Recuperar capacidad ejecutiva"
+      "owner": "Francisco + Ops",
+      "date": "2026-10-09",
+      "metric": "Usar bloques existentes; cero nuevos status; resolver duplicados/choques; mantener deep work",
+      "trend": "UNCHANGED",
+      "title": "Proteger capacidad ejecutiva y deduplicar agenda"
     }
   ],
   "decisions": [
@@ -60,123 +60,123 @@
       "company": "AllUp",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-09-30",
-      "metric": "Condiciones + fecha desembolso + destino liquidez",
-      "trend": "IMPROVED",
-      "title": "Confirmar desembolso Banco de Occidente y uso $170M"
-    },
-    {
-      "company": "AllUp",
-      "priority": "P0",
-      "owner": "Francisco",
-      "date": "2026-09-28",
-      "metric": "Go/no-go y regla consumo documentada",
-      "trend": "IMPROVED",
-      "title": "Bioenergy: bolsa, alcance y horas adicionales"
+      "date": "2026-10-07",
+      "metric": "Go/no-go Bioenergy + límite de horas/esfuerzo aprobado",
+      "trend": "WORSENED",
+      "title": "Bioenergy: seguir, condicionar o escalar"
     },
     {
       "company": "Teky",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-10-02",
-      "metric": "1 hito producto + economics + siguiente paso/oportunidad",
+      "date": "2026-10-05",
+      "metric": "Focus Batch 1 go/no-go con beneficio/costo/hito 30-60d",
       "trend": "NEW",
-      "title": "Siguiente hito FIXI tras Bodytech/Popsy/Corona/Focus Lab"
+      "title": "Encaje de FIXI con Focus"
+    },
+    {
+      "company": "Teky",
+      "priority": "P1",
+      "owner": "Francisco",
+      "date": "2026-10-06",
+      "metric": "CLIC go/no-go; si sí, submission lista antes 8-Oct",
+      "trend": "NEW",
+      "title": "Aplicar o no a CLIC Agrifood Connector"
     },
     {
       "company": "Sports Crowd",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-10-02",
-      "metric": "Max 3 decisiones con owner/fecha; resto delegado",
-      "trend": "UNCHANGED",
-      "title": "Resolver riesgos materiales AWS/Bepass/Meta"
+      "date": "2026-10-06",
+      "metric": "Contrato/economics DIM-Bepass y autorización de inversión",
+      "trend": "IMPROVED",
+      "title": "DIM-Bepass: contrato, payback y go/no-go 17-Oct"
     },
     {
-      "company": "Personal/CEO",
-      "priority": "P1",
-      "owner": "Francisco + Ops",
-      "date": "2026-10-02",
-      "metric": "Sin duplicados recurrentes relevantes; conflictos resueltos",
+      "company": "Sports Crowd",
+      "priority": "P0",
+      "owner": "Francisco",
+      "date": "2026-10-07",
+      "metric": "Delta alcance DIM-SIESA + change request + nueva fecha",
       "trend": "NEW",
-      "title": "Eliminar duplicacion y choques de calendarios"
+      "title": "DIM-SIESA: no absorber alcance adicional"
     }
   ],
   "my_actions": [
     {
-      "company": "AllUp",
+      "company": "Teky",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-09-28",
-      "metric": "Decision Bioenergy cerrada",
+      "date": "2026-10-05",
+      "metric": "Go/no-go Focus y siguiente hito",
+      "trend": "NEW",
+      "title": "Focus Batch 1",
+      "calendar": "Outlook",
+      "event_status": "REUSED_UPDATED"
+    },
+    {
+      "company": "Sports Crowd",
+      "priority": "P0",
+      "owner": "Francisco",
+      "date": "2026-10-05",
+      "metric": "Bonificación Q3 decidida con cálculo reproducible",
       "trend": "IMPROVED",
-      "title": "Decidir Bioenergy",
-      "calendar": "Outlook",
-      "event_status": "REUSED"
+      "title": "Productividad DEV + bonificaciones",
+      "calendar": "Google",
+      "event_status": "REUSED_UPDATED"
     },
     {
       "company": "Sports Crowd",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-09-29",
-      "metric": "Impacto unit economics + accion",
-      "trend": "NEW",
-      "title": "Decidir impacto cobro WhatsApp Meta",
+      "date": "2026-10-06",
+      "metric": "Ruta firma + economics + go/no-go inversión",
+      "trend": "IMPROVED",
+      "title": "DIM-Bepass contrato/economics",
       "calendar": "Google",
-      "event_status": "REUSED"
+      "event_status": "REUSED_UPDATED"
     },
     {
-      "company": "Teky",
+      "company": "Sports Crowd",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-09-29",
-      "metric": "Piloto/propuesta/no-go",
+      "date": "2026-10-07",
+      "metric": "Change request + nueva fecha aprobada",
       "trend": "NEW",
-      "title": "Liderar demo Bodytech",
-      "calendar": "Outlook",
-      "event_status": "REUSED"
+      "title": "DIM-SIESA reestimación",
+      "calendar": "Google",
+      "event_status": "REUSED_UPDATED"
     },
     {
       "company": "AllUp",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-09-30",
-      "metric": "Liquidez octubre + uso credito + 3 acciones",
-      "trend": "NEW",
-      "title": "Cierre mes: caja, credito y margen",
+      "date": "2026-10-07",
+      "metric": "Máximo 3 decisiones de caja/margen",
+      "trend": "IMPROVED",
+      "title": "Weekly Finanzas caja+margen",
       "calendar": "Outlook",
-      "event_status": "CREATED"
+      "event_status": "REUSED_UPDATED"
     },
     {
-      "company": "Teky",
+      "company": "AllUp/Teky",
       "priority": "P0",
       "owner": "Francisco",
-      "date": "2026-10-02",
-      "metric": "3 oportunidades + Focus Lab + 1 prioridad",
+      "date": "2026-10-07",
+      "metric": "Bioenergy decisión/bloqueo + FIXI max 3 prioridades",
       "trend": "NEW",
-      "title": "Revision FIXI conversion + Focus Lab",
+      "title": "Operación+Producto excepciones",
       "calendar": "Outlook",
-      "event_status": "CREATED"
-    },
-    {
-      "company": "Sports Crowd",
-      "priority": "P0",
-      "owner": "Francisco",
-      "date": "2026-10-02",
-      "metric": "Max 3 decisiones; resto delegado",
-      "trend": "NEW",
-      "title": "Revision material AWS/Bepass",
-      "calendar": "Google",
-      "event_status": "CREATED"
+      "event_status": "REUSED_UPDATED"
     },
     {
       "company": "Personal/CEO",
       "priority": "P1",
       "owner": "Francisco",
-      "date": "2026-10-02",
-      "metric": "Choques 30-Sep/1-Oct resueltos",
-      "trend": "NEW",
-      "title": "Resolver duplicados/choques agenda",
+      "date": "2026-10-09",
+      "metric": "No crear status; mantener deep work y resolver duplicados",
+      "trend": "UNCHANGED",
+      "title": "Proteger buffer ejecutivo",
       "calendar": "Both",
       "event_status": "NO_NEW_EVENT"
     }
@@ -184,109 +184,123 @@
   "pending_radar": [
     {
       "company": "AllUp",
-      "title": "Alqueria: convertir buen feedback en decision/fecha",
+      "priority": "P1",
       "owner": "Carolina",
-      "date": "2026-10-02",
-      "status": "INCOMPLETO",
-      "trend": "IMPROVED"
+      "date": "2026-10-09",
+      "metric": "Alquería: siguiente decisión/fecha cliente",
+      "trend": "IMPROVED",
+      "title": "Alquería evaluación Soporte Avanzado"
     },
     {
       "company": "AllUp",
-      "title": "Taghleef upgrade: cerrar pricing",
-      "owner": "Carolina + Mario",
-      "date": "2026-10-02",
-      "status": "INCOMPLETO",
-      "trend": "UNCHANGED"
+      "priority": "P1",
+      "owner": "Carolina + Legal/Francisco",
+      "date": "2026-10-09",
+      "metric": "Markup, cuentas nombradas y economics cerrados",
+      "trend": "NEW",
+      "title": "Perceptio-AllUp modelo de colaboración"
     },
     {
       "company": "AllUp",
-      "title": "BAST: validar entrega y escalar reincidencia",
-      "owner": "Angela + Nathalia",
-      "date": "2026-09-29",
-      "status": "DELEGADO",
-      "trend": "UNCHANGED"
+      "priority": "P1",
+      "owner": "Carolina + Delivery",
+      "date": "2026-10-09",
+      "metric": "64h Comfandi ejecutadas/facturables con alcance controlado",
+      "trend": "NEW",
+      "title": "Comfandi PILA"
+    },
+    {
+      "company": "AllUp",
+      "priority": "P1",
+      "owner": "Angela",
+      "date": "2026-10-07",
+      "metric": "BAST nueva fecha cliente + impacto cronograma",
+      "trend": "WORSENED",
+      "title": "BAST dependencia cliente"
     },
     {
       "company": "Sports Crowd",
-      "title": "Productividad DEV Q3",
-      "owner": "Mauricio",
-      "date": "2026-10-02",
-      "status": "BORRADOR GMAIL",
-      "trend": "IMPROVED"
+      "priority": "P1",
+      "owner": "Mauricio Sanchez",
+      "date": "2026-10-08",
+      "metric": "Fargate retirement sin impacto; AWS support case cerrado",
+      "trend": "NEW",
+      "title": "AWS health / continuidad técnica"
     },
     {
       "company": "Sports Crowd",
-      "title": "Google Cloud 9 proyectos: minimo privilegio",
-      "owner": "Mauricio",
-      "date": "2026-09-29",
-      "status": "BORRADOR GMAIL",
-      "trend": "NEW"
+      "priority": "P1",
+      "owner": "Adriana + Finanzas",
+      "date": "2026-10-09",
+      "metric": "Cartera Fortaleza con fechas y conciliación",
+      "trend": "UNCHANGED",
+      "title": "Cartera Sports Crowd"
     }
   ],
   "delegations": [
     {
       "company": "AllUp",
-      "owner": "Juliana",
-      "date": "2026-09-30",
-      "task": "Forecast 13 semanas + pagos + cartera",
-      "dod": "Caja real y recaudos ponderados"
+      "owner": "Juliana/Carolina/Alonso",
+      "date": "2026-10-07",
+      "task": "Forecast + top cartera + top margen",
+      "dod": "Recaudo/fecha y 3 desviaciones accionables"
     },
     {
       "company": "AllUp",
-      "owner": "Carolina/Nathalia",
-      "date": "2026-09-29",
-      "task": "Popsy + pipeline conversion",
-      "dod": "Respuesta concreta + siguiente paso"
+      "owner": "Angela/Alonso",
+      "date": "2026-10-07",
+      "task": "Bioenergy MyAgri/HCM + control horas",
+      "dod": "Go/no-go o bloqueo cuantificado"
     },
     {
       "company": "AllUp",
-      "owner": "Mario",
-      "date": "2026-09-29",
-      "task": "Cierre W39 Operaciones",
-      "dod": "Top 3 riesgos/margen/capacidad"
-    },
-    {
-      "company": "AllUp",
-      "owner": "Alonso/Angela",
-      "date": "2026-09-30",
-      "task": "Bioenergy",
-      "dod": "Go/no-go + economics"
+      "owner": "Carolina/Nathalia/Mario/Sebastian/Mauricio",
+      "date": "2026-10-05",
+      "task": "Regularizar cierre W40 faltante",
+      "dod": "Max 5 resultados con evidencia/owner/fecha"
     },
     {
       "company": "Teky",
-      "owner": "Nathalia",
-      "date": "2026-10-02",
-      "task": "Baseline FIXI + demos",
-      "dod": "Baseline + max 3 prioridades"
+      "owner": "Carolina/Nathalia/Daniel/Sebastian/Mauricio",
+      "date": "2026-10-08",
+      "task": "Popsy + MVP Copernicus + CLIC",
+      "dod": "Siguiente paso; MVP 1 pagina; CLIC go/no-go/submission"
     },
     {
       "company": "Sports Crowd",
-      "owner": "Mauricio",
-      "date": "2026-10-02",
-      "task": "Cloud minimo privilegio + productividad Q3",
-      "dod": "Reversion + calculo reproducible"
+      "owner": "Tatiana/Mauricio Uribe/Mauricio Sanchez",
+      "date": "2026-10-07",
+      "task": "DIM-Bepass contrato/business case/readiness",
+      "dod": "Firma encaminada + escenarios + max 5 P0"
+    },
+    {
+      "company": "Sports Crowd",
+      "owner": "Mauricio Sanchez/Eider",
+      "date": "2026-10-07",
+      "task": "DIM-SIESA reestimación",
+      "dod": "Original vs nuevo + esfuerzo + CR + fecha"
     }
   ],
   "operational_execution": {
     "drafts_created": {
-      "outlook": 11,
+      "outlook": 8,
       "gmail": 2,
-      "total": 13
+      "total": 10
     },
     "drafts_reused": {
-      "outlook": 2,
-      "gmail": 0,
-      "total": 2
+      "outlook": 1,
+      "gmail": 3,
+      "total": 4
     },
     "events_created": {
-      "outlook": 2,
-      "google": 1,
-      "total": 3
+      "outlook": 0,
+      "google": 0,
+      "total": 0
     },
     "events_reused": {
-      "outlook": 2,
-      "google": 1,
-      "total": 3
+      "outlook": 3,
+      "google": 3,
+      "total": 6
     },
     "emails_sent": 0,
     "dedup": true
@@ -294,20 +308,23 @@
   "source_health": {
     "outlook_email": {
       "status": "OK",
-      "window_days": 60
+      "window_days": 60,
+      "notes": "Inbox/sent/flagged/high/drafts revisados; W40 foco individual"
     },
     "gmail": {
       "status": "OK",
-      "window_days": 60
+      "window_days": 60,
+      "notes": "Received/sent/starred/important/drafts Sports Crowd"
     },
     "teams": {
       "status": "PARTIAL",
       "window_days": 60,
-      "notes": "Indexacion devolvio pocos resultados utiles"
+      "notes": "Search connector returned no useful hits; cross-checked with email/Read AI/calendars"
     },
     "read_ai": {
       "status": "OK",
-      "window_days": 60
+      "window_days": 60,
+      "notes": "Recent meetings expanded; knowledge-base search unavailable but list/get works"
     },
     "outlook_calendar": {
       "status": "OK",
@@ -323,8 +340,7 @@
       "status": "OK"
     },
     "netlify": {
-      "status": "OK",
-      "site": "ceo-lifeos"
+      "status": "PENDING_POST_COMMIT_VERIFY"
     }
   }
 }
