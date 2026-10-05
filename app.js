@@ -163,10 +163,23 @@ qa('.seg').forEach(function(b){b.addEventListener('click',function(){
   qa('.seg').forEach(function(x){x.classList.toggle('active',x===b)});
   renderFinance();
 })});
-q('#applyDates').addEventListener('click',function(){
+function applyCustomDates(){
   var a=q('#startDate').value,b=q('#endDate').value;
-  if(!a||!b||a>b){q('#financeCompare').textContent='Selecciona un rango válido.';return}
-  state.custom=[a,b];qa('.seg').forEach(function(x){x.classList.remove('active')});renderFinance();
+  if(!a||!b){q('#financeCompare').textContent='Selecciona fecha inicial y fecha final.';return}
+  if(a>b){q('#financeCompare').textContent='La fecha inicial no puede ser posterior a la final.';return}
+  state.custom=[a,b];
+  state.range='custom';
+  qa('.seg').forEach(function(x){x.classList.remove('active')});
+  renderFinance();
+  q('#financeCompare').textContent='Rango personalizado aplicado: '+a+' → '+b+'. '+(((state.financial||{}).transactions||[]).filter(function(x){return x.scope==='Personal'&&x.date>=a&&x.date<=b}).length)+' movimientos encontrados.';
+}
+q('#applyDates').addEventListener('click',applyCustomDates);
+q('#startDate').addEventListener('keydown',function(e){if(e.key==='Enter')applyCustomDates()});
+q('#endDate').addEventListener('keydown',function(e){if(e.key==='Enter')applyCustomDates()});
+q('#resetDates').addEventListener('click',function(){
+  state.custom=null;state.range='30';
+  qa('.seg').forEach(function(x){x.classList.toggle('active',x.getAttribute('data-range')==='30')});
+  renderFinance();
 });
 q('#reloadBtn').addEventListener('click',load);
 window.addEventListener('resize',function(){if(q('#finance').classList.contains('active'))renderFinance()});
