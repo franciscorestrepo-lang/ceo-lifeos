@@ -1,5 +1,4 @@
 [build]
-  command = "npm run build"
   publish = "."
 
 [[headers]]
@@ -9,5 +8,10 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Cache-Control = "no-cache"
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    Cache-Control = "no-store, max-age=0"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0"
