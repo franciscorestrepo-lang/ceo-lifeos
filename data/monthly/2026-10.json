@@ -59,5 +59,15 @@
       "level": "MEDIUM",
       "risk": "Duplicados estructurales de agenda"
     }
-  ]
+  ],
+  "financial_control": {
+    "status": "WATCH",
+    "coverage_start": "2026-09-29",
+    "october_consumption_to_date": 1633322,
+    "run_rate_30d": 12249915,
+    "run_rate_note": "Simple 4-day pace, not forecast",
+    "top_category": "Restaurantes/Comida",
+    "top_category_share_pct": 44.2,
+    "objective": "Build reliable baseline, classify transfers/products, flag anomalies; do not set hard monthly cuts until history is sufficient"
+  }
 }
