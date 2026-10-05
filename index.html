@@ -55,6 +55,7 @@
       <button class="tab" data-view="objectives">Objetivos</button>
       <button class="tab" data-view="focus">Foco</button>
       <button class="tab" data-view="delegate">Delegar</button>
+      <button class="tab" data-view="finance">Finanzas</button>
       <button class="tab" data-view="more">Más</button>
     </nav>
 
@@ -87,6 +88,20 @@
       <div class="section-head"><div><div class="eyebrow">APROBAR EN CHATGPT</div><h3>Correos listos para borrador</h3></div><button id="approveEmailsBtn" class="btn primary">Aprobar seleccionados</button></div>
       <div class="notice">LifeOS no vuelve a autenticarse contra Microsoft o Read AI. Al aprobar, abre ChatGPT con el comando exacto; ChatGPT usa los conectores ya autorizados y crea los borradores o eventos.</div>
       <div id="emailProposals" class="stack"></div>
+    </section>
+
+    <section id="finance" class="view">
+      <div class="section-head"><div><div class="eyebrow">PERSONAL / CEO</div><h3>Financial Control</h3></div><span id="financeCoverage" class="source-pill warn">Cargando cobertura…</span></div>
+      <div id="financeMetrics" class="metric-grid finance-metrics"></div>
+      <div class="two-col finance-grid">
+        <article class="card"><div class="section-head"><h3>Tendencia diaria</h3></div><canvas id="dailyChart" class="fin-chart"></canvas></article>
+        <article class="card"><div class="section-head"><h3>Gasto por categoría</h3></div><canvas id="categoryChart" class="fin-chart"></canvas></article>
+      </div>
+      <div class="two-col">
+        <div><div class="section-head"><div><div class="eyebrow">EXCEPCIONES</div><h3>Alertas financieras</h3></div></div><div id="financeAlerts" class="stack"></div></div>
+        <div><div class="section-head"><div><div class="eyebrow">CHIEF OF STAFF / CFO</div><h3>Recomendaciones</h3></div></div><div id="financeRecommendations" class="stack"></div></div>
+      </div>
+      <div class="section-head"><h3>Últimos movimientos</h3></div><div id="financeTransactions" class="stack"></div>
     </section>
 
     <section id="more" class="view">
