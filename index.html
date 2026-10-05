@@ -92,9 +92,23 @@
 
     <section id="finance" class="view">
       <div class="section-head"><div><div class="eyebrow">PERSONAL / CEO</div><h3>Financial Control</h3></div><span id="financeCoverage" class="source-pill warn">Cargando cobertura…</span></div>
+      <div class="finance-toolbar">
+        <div class="segmented">
+          <button class="segment finance-range active" data-range="30">30 días</button>
+          <button class="segment finance-range" data-range="90">90 días</button>
+          <button class="segment finance-range" data-range="365">1 año</button>
+          <button class="segment finance-range" data-range="all">Todo</button>
+        </div>
+        <div class="finance-dates">
+          <label>Desde <input id="financeStart" type="date"></label>
+          <label>Hasta <input id="financeEnd" type="date"></label>
+          <button id="financeApply" class="btn ghost">Aplicar</button>
+        </div>
+      </div>
+      <div id="financeComparison" class="notice"></div>
       <div id="financeMetrics" class="metric-grid finance-metrics"></div>
       <div class="two-col finance-grid">
-        <article class="card"><div class="section-head"><h3>Tendencia diaria</h3></div><canvas id="dailyChart" class="fin-chart"></canvas></article>
+        <article class="card"><div class="section-head"><h3>Tendencia del período</h3></div><canvas id="dailyChart" class="fin-chart"></canvas></article>
         <article class="card"><div class="section-head"><h3>Gasto por categoría</h3></div><canvas id="categoryChart" class="fin-chart"></canvas></article>
       </div>
       <div class="two-col">
