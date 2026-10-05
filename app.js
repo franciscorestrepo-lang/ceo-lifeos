@@ -1,110 +1,174 @@
-const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
-const RAW='https://raw.githubusercontent.com/franciscorestrepo-lang/ceo-lifeos/main';
-const state={data:null,status:null,financial:null,financeRange:'30',financeStart:null,financeEnd:null,objectiveMode:'annual',lastGeneratedAt:null,pollTimer:null};
-let deferredPrompt=null;
+(function(){
+'use strict';
 
-const REFRESH_COMMAND=`Ejecuta AHORA la revisión CEO LifeOS completa usando los conectores ya autorizados en ChatGPT y ejecuta también la capa operativa posterior a la revisión.
+var state={current:null,status:null,financial:null,range:'30',custom:null};
+var RAW='https://raw.githubusercontent.com/franciscorestrepo-lang/ceo-lifeos/main/data/';
 
-FUENTES Y VENTANA
-- Analiza como mínimo los últimos 60 días de Outlook Email y Gmail: recibidos, enviados, pendientes relevantes y TODOS los correos con bandera/flag, prioridad, important o starred que puedan requerir decisión, seguimiento o respuesta.
-- Analiza los últimos 60 días de Microsoft Teams y Read AI.
-- Analiza los últimos 60 días de Outlook Calendar y Google Calendar y revisa además los próximos 30 días de ambos calendarios.
-- Usa Outlook como cuenta principal de AllUp/Teky y Gmail/Google Calendar como cuenta principal de Sports Crowd. Personal/CEO debe consolidarse sin duplicar actividades entre calendarios.\n- FINANCIAL CONTROL: revisa completa la carpeta Outlook FI Personal desde el inicio del historial disponible hasta hoy. Clasifica Personal/Corporativo/No clasificado; excluye corporativas del gasto personal; separa consumo, transferencias, ahorro/inversion y deuda. Actualiza data/financial.json preservando el historico previo y agrega nuevos movimientos sin duplicados. Genera alertas de gasto excesivo/anomalo, concentracion por categoria, movimientos grandes, comisiones/intereses/vencimientos y recomendaciones. No trates transferencias como consumo sin conocer destino. Extractos protegidos: marcar no legibles, nunca inferir.
+function q(s){return document.querySelector(s)}
+function qa(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})}
+function money(v){return new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(Number(v)||0)}
+function fmt(v){if(!v)return '—';try{return new Date(v).toLocaleString('es-CO',{dateStyle:'medium',timeStyle:'short'})}catch(e){return v}}
+function metric(label,value){return '<div class="metric"><strong>'+esc(value)+'</strong><span>'+esc(label)+'</span></div>'}
+function row(title,meta,right,cls){return '<article class="row '+(cls||'')+'"><div><div class="row-title">'+esc(title)+'</div><div class="row-meta">'+esc(meta||'')+'</div></div>'+(right?'<div class="row-right">'+right+'</div>':'')+'</article>'}
+function badge(v){var x=String(v||'').toUpperCase();return '<span class="badge '+x.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'">'+esc(x)+'</span>'}
 
-CRITERIO EJECUTIVO
-- Separa estrictamente AllUp, Teky, Sports Crowd y Personal/CEO.
-- Deduplica compromisos entre email, Teams, Read AI y calendarios.
-- Antes de crear cualquier borrador o evento revisa los borradores y eventos ya existentes y REUTILIZA los existentes cuando cubran la misma acción. No recrees ni dupliques trabajo ya preparado.
-- Prioriza caja, margen, cliente, producto, delivery, riesgo, delegación y capacidad real.
-- Si una iniciativa no mueve caja, margen, cliente, producto o ejecución, cuestiona su prioridad.
-- Si algo no tiene responsable, fecha o métrica, márcalo como INCOMPLETO.
-- Compara con el estado anterior y marca cada frente relevante como NEW, IMPROVED, WORSENED, UNCHANGED o CLOSED.
+async function getJson(name){
+  var urls=['/data/'+name+'?v='+Date.now(),RAW+name+'?v='+Date.now()];
+  var last;
+  for(var i=0;i<urls.length;i++){
+    try{
+      var r=await fetch(urls[i],{cache:'no-store'});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return await r.json();
+    }catch(e){last=e}
+  }
+  throw last||new Error('No se pudo cargar '+name);
+}
 
-OUTPUT LIFEOS
-- Genera máximo 5 resultados críticos, 5 decisiones y 7 acciones personales de Francisco.
-- Para cada resultado/decisión/acción incluye compañía, prioridad, owner, fecha, métrica/DoD y tendencia.
-- Mantén explícita la separación entre trabajo propio de Francisco y trabajo operativo/delegable.
+function renderHome(){
+  var d=state.current||{};
+  var meta=d.meta||{};
+  q('#lifeStatus').textContent=meta.status||d.overall_status||'AT_RISK';
+  q('#score').textContent=meta.score==null?'—':meta.score;
+  q('#summary').textContent=meta.executive_summary||d.executive_summary||'Revisión ejecutiva disponible.';
+  var crit=d.critical_outcomes||[];
+  var dec=d.decisions||[];
+  var act=d.my_actions||[];
+  var del=d.delegated_actions||d.delegations||[];
+  q('#headline').innerHTML=[
+    metric('Resultados',crit.length),
+    metric('Decisiones',dec.length),
+    metric('Mis acciones',act.length),
+    metric('Delegadas',del.length)
+  ].join('');
+  q('#critical').innerHTML=crit.length?crit.map(function(x){return row(x.title||x.expected_result,(x.company||'')+' · '+(x.metric||x.dod||''),badge(x.priority||'P2'))}).join(''):row('Sin resultados críticos','');
+  q('#decisions').innerHTML=dec.length?dec.map(function(x){return row(x.title||x.decision,(x.company||'')+' · '+(x.metric||x.dod||''),badge(x.priority||'P2'))}).join(''):row('Sin decisiones','');
+}
 
-EJECUCIÓN OPERATIVA
-1. TRABAJO OPERATIVO / DELEGACIÓN
-- Crea borradores de correo, NO envíes correos.
-- AllUp/Teky: crea los borradores en Outlook Email, preferiblemente respondiendo dentro del hilo existente cuando corresponda.
-- Sports Crowd: crea los borradores en Gmail, preferiblemente respondiendo dentro del hilo existente cuando corresponda.
-- El tono debe ser amable, ejecutivo y claro, con objetivo, acciones, responsable, fecha límite y resultado esperado.
-- Pon especial atención a correos con bandera/prioridad y pendientes de respuesta.
-- No crees un borrador si ya existe uno equivalente; reutilízalo y solo crea uno nuevo cuando falte realmente.
+function renderFocus(){
+  var d=state.current||{};
+  var a=d.my_actions||[];
+  var del=d.delegated_actions||d.delegations||[];
+  var rad=d.pending_radar||[];
+  q('#actions').innerHTML=a.length?a.map(function(x){return row(x.title||x.action,(x.company||'')+' · '+(x.date||'')+' · '+(x.metric||''),badge(x.priority||'P2'))}).join(''):row('Sin acciones','');
+  q('#delegations').innerHTML=del.length?del.map(function(x){return row(x.task||x.title,(x.company||'')+' · '+(x.owner||'')+' · '+(x.date||'')+' · '+(x.dod||''))}).join(''):row('Sin delegaciones','');
+  q('#radar').innerHTML=rad.length?rad.map(function(x){return row(x.title,(x.company||'')+' · '+(x.metric||''),badge(x.trend||x.priority||'WATCH'))}).join(''):row('Sin radar','');
+}
 
-2. TRABAJO PROPIO DE FRANCISCO
-- Crea directamente los eventos de calendario necesarios para sus acciones propias, después de verificar disponibilidad y conflictos en Outlook Calendar y Google Calendar.
-- AllUp/Teky y Personal/CEO: usa Outlook Calendar salvo que el compromiso ya exista en Google Calendar o sea claramente de Sports Crowd.
-- Sports Crowd: usa Google Calendar salvo que el compromiso ya exista en Outlook Calendar.
-- No dupliques eventos entre calendarios. Si ya existe un bloque equivalente, reutilízalo.
-- Cada evento debe tener título ejecutivo y una descripción con: objetivo, contexto mínimo, checklist de lo que Francisco debe revisar/decidir, resultado esperado/DoD y documentos/borradores que debe abrir si aplica.
-- Agenda solo trabajo que realmente requiera a Francisco; todo lo demás debe quedar delegado.
+function renderSources(){
+  var d=state.current||{};
+  var sh=d.source_health||{};
+  q('#sourceHealth').innerHTML=Object.keys(sh).length?Object.keys(sh).map(function(k){
+    var v=sh[k],st=typeof v==='string'?v:(v.status||'—'),notes=typeof v==='object'?(v.notes||v.note||''):'';
+    return row(k.replace(/_/g,' '),notes,badge(st));
+  }).join(''):row('Sin información de fuentes','');
+  var s=state.status||{};
+  q('#publishStatus').innerHTML=[
+    row('Última revisión',fmt((d.meta||{}).generated_at)),
+    row('Estado publicación',s.status||s.publish_status||'Disponible'),
+    row('Commit',(s.commit_sha||'—'))
+  ].join('');
+}
 
-ACTUALIZACIÓN DE DATOS
-- Actualiza directamente en GitHub el repositorio franciscorestrepo-lang/ceo-lifeos rama main:
-  data/current.json
-  data/status.json
-  data/weekly/YYYY-Www.json
-  data/monthly/YYYY-MM.json
-  data/annual/YYYY.json\n  data/financial.json
-- No cambies el código de la PWA durante la revisión.
-- data/status.json debe terminar en READY e incluir generated_at, period, planning_period, source_health y commit_sha.
-- Incluye en status/validation el número de borradores creados, borradores reutilizados, eventos creados y eventos reutilizados.
-- Verifica que current.json tenga contenido no vacío en critical_outcomes, decisions, my_actions y source_health.
-- Refleja en current.json las delegaciones, borradores y eventos finalmente creados/reutilizados, no solo propuestas abstractas.\n- Actualiza financial_control en current.json con cobertura, consumo, transferencias, alertas y calidad del dato. Conserva el historico financiero acumulado.
+function iso(d){return d.toISOString().slice(0,10)}
+function financeBounds(){
+  var tx=(state.financial&&state.financial.transactions)||[];
+  if(!tx.length)return [null,null];
+  var dates=tx.map(function(x){return x.date}).filter(Boolean).sort();
+  var end=state.custom?state.custom[1]:dates[dates.length-1];
+  var start;
+  if(state.custom)start=state.custom[0];
+  else if(state.range==='all')start=dates[0];
+  else{
+    var d=new Date(end+'T12:00:00');
+    d.setDate(d.getDate()-Number(state.range)+1);
+    start=iso(d);
+  }
+  return [start,end];
+}
+function aggregate(rows,key){
+  var o={};
+  rows.forEach(function(x){var k=key(x);o[k]=(o[k]||0)+(Number(x.amount)||0)});
+  return Object.keys(o).map(function(k){return {k:k,v:o[k]}})
+}
+function draw(canvas,rows){
+  if(!canvas)return;
+  var dpr=window.devicePixelRatio||1,w=canvas.clientWidth||500,h=250;
+  canvas.width=w*dpr;canvas.height=h*dpr;
+  var c=canvas.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);
+  if(!rows.length){c.fillStyle='#8fa4bf';c.font='13px system-ui';c.fillText('Sin datos para este período',18,34);return}
+  var max=Math.max.apply(null,rows.map(function(x){return x.v}))||1;
+  var left=28,bottom=36,usable=w-left-14,gap=Math.max(2,Math.min(8,usable/(rows.length*5))),bw=Math.max(3,(usable-gap*(rows.length-1))/rows.length);
+  rows.forEach(function(x,i){
+    var bh=(h-bottom-28)*x.v/max,xp=left+i*(bw+gap),yp=h-bottom-bh;
+    c.fillStyle='#62a8ff';c.fillRect(xp,yp,bw,bh);
+    if(rows.length<=12||i%Math.ceil(rows.length/10)===0){
+      c.fillStyle='#8fa4bf';c.font='10px system-ui';c.textAlign='center';c.fillText(String(x.k).slice(0,10),xp+bw/2,h-18);
+    }
+  });
+}
+function renderFinance(){
+  var f=state.financial;
+  if(!f){q('#financeCoverage').textContent='Sin datos';return}
+  var b=financeBounds(),start=b[0],end=b[1];
+  if(!start||!end){q('#financeCoverage').textContent='Sin movimientos';return}
+  var rows=(f.transactions||[]).filter(function(x){return x.scope==='Personal'&&x.date>=start&&x.date<=end});
+  var consumption=rows.filter(function(x){return x.method!=='Transferencia'});
+  var transfers=rows.filter(function(x){return x.method==='Transferencia'});
+  var csum=consumption.reduce(function(a,x){return a+(Number(x.amount)||0)},0);
+  var tsum=transfers.reduce(function(a,x){return a+(Number(x.amount)||0)},0);
+  var days=Math.max(1,Math.round((new Date(end+'T12:00:00')-new Date(start+'T12:00:00'))/86400000)+1);
+  q('#financeCoverage').textContent=start+' → '+end;
+  q('#financeMetrics').innerHTML=[
+    metric('Consumo',money(csum)),metric('Transferencias',money(tsum)),metric('Promedio diario',money(csum/days)),metric('Movimientos',rows.length)
+  ].join('');
+  q('#financeCompare').textContent=(f.meta&&f.meta.data_quality==='PARTIAL_HISTORY')?'Histórico todavía parcial. El tablero no extrapola datos faltantes.':'Histórico disponible para el rango seleccionado.';
+  var daily=aggregate(consumption,function(x){return x.date}).sort(function(a,b){return a.k.localeCompare(b.k)});
+  var cats=aggregate(consumption,function(x){return x.category||'Otros'}).sort(function(a,b){return b.v-a.v});
+  requestAnimationFrame(function(){draw(q('#trendChart'),daily);draw(q('#categoryChart'),cats)});
+  var alerts=(f.alerts||[]);
+  q('#financeAlerts').innerHTML=alerts.length?alerts.map(function(x){return row(x.title,x.recommendation||'',badge(x.severity||'INFO'),x.severity==='HIGH'?'danger':'')}).join(''):row('Sin alertas','');
+  q('#transactions').innerHTML=rows.length?rows.slice().sort(function(a,b){return b.date.localeCompare(a.date)}).slice(0,60).map(function(x){return row(x.merchant||'Movimiento',x.date+' · '+(x.category||'')+' · '+(x.method||''),'<strong>'+money(x.amount)+'</strong>')}).join(''):row('Sin movimientos','');
+  q('#startDate').value=start;q('#endDate').value=end;
+}
 
-CIERRE
-- No envíes ningún correo.
-- Confirma al final: resumen ejecutivo, cambios vs. semana anterior, 5 resultados, 5 decisiones, 7 acciones, borradores creados/reutilizados por cuenta, eventos creados/reutilizados por calendario, commit final de GitHub y deploy de Netlify en estado ready.`;
+function renderAll(){renderHome();renderFocus();renderSources();renderFinance()}
 
-function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function badge(v='P2'){return `<span class="badge ${String(v).toLowerCase()}">${esc(v)}</span>`}
-function statusBadge(v='AT_RISK'){return `<span class="badge ${String(v).toLowerCase()}">${esc(v)}</span>`}
-function item(title,meta='',right='',cls=''){return `<article class="item ${cls}"><div class="item-row"><div><div class="item-title">${esc(title)}</div><div class="item-meta">${esc(meta)}</div></div>${right}</div></article>`}
-function metric(label,val){return `<div class="metric"><strong>${esc(val)}</strong><span>${esc(label)}</span></div>`}
-function selected(kind){return $$(`input[data-kind="${kind}"]:checked`).map(x=>Number(x.dataset.index))}
-function selectable(kind,i,title,meta,p){return `<article class="item"><label class="check"><input type="checkbox" data-kind="${kind}" data-index="${i}"/><div style="flex:1"><div class="item-row"><div><div class="item-title">${esc(title)}</div><div class="item-meta">${esc(meta)}</div></div>${badge(p)}</div></div></label></article>`}
-function setSync(x){$('#syncStatus').textContent=x}
-function validData(d){return d&&Array.isArray(d.critical_outcomes)&&d.critical_outcomes.length>0&&Array.isArray(d.decisions)&&d.decisions.length>0&&Array.isArray(d.my_actions)&&d.my_actions.length>0}
+async function load(){
+  q('#syncStatus').textContent='Actualizando datos...';
+  try{
+    var res=await Promise.all([getJson('current.json'),getJson('status.json'),getJson('financial.json')]);
+    state.current=res[0];state.status=res[1];state.financial=res[2];
+    renderAll();
+    q('#syncDot').className='dot ok';
+    q('#syncStatus').textContent='Actualizado · '+fmt((state.current.meta||{}).generated_at);
+  }catch(e){
+    console.error(e);
+    q('#syncDot').className='dot error';
+    q('#syncStatus').textContent='Error de datos · '+e.message;
+    q('#lifeStatus').textContent='ERROR';
+    q('#summary').textContent='La interfaz cargó correctamente, pero no pudo leer los datos.';
+  }
+}
 
-async function fetchJson(path){const urls=[`${RAW}/${path}?t=${Date.now()}`,`/${path}?t=${Date.now()}`];let last;for(const url of urls){try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`${r.status}`);return await r.json()}catch(e){last=e}}throw last}
-async function loadFinancial(){try{state.financial=await fetchJson('data/financial.json');renderFinance()}catch(e){state.financial=null;const el=$('#financeCoverage');if(el)el.textContent='Financial data no disponible'}}
-async function loadStatus(){try{state.status=await fetchJson('data/status.json');renderPublishStatus()}catch{state.status=null;renderPublishStatus()}}
-async function loadCurrent(show=true){try{const d=await fetchJson('data/current.json');if(!validData(d))throw new Error('current.json inválido o vacío');const previous=state.lastGeneratedAt;state.data=d;state.lastGeneratedAt=d.meta?.generated_at||null;render();await Promise.all([loadStatus(),loadFinancial()]);if(show)setSync(`Actualizado ${formatDate(d.meta?.generated_at)} · ${d.meta?.period||''}`);return previous!==state.lastGeneratedAt}catch(e){setSync(`Error leyendo GitHub: ${e.message}`);return false}}
-function formatDate(v){if(!v)return 'sin fecha';try{return new Date(v).toLocaleString('es-CO',{dateStyle:'short',timeStyle:'short'})}catch{return v}}
-
-async function copyAndOpen(command){try{await navigator.clipboard.writeText(command)}catch{}$('#commandPreview').value=command;$('#chatgptDialog').showModal()}
-async function startRefresh(){await copyAndOpen(REFRESH_COMMAND);startPolling()}
-function startPolling(){clearInterval(state.pollTimer);let attempts=0;setSync('Esperando nueva publicación de ChatGPT…');state.pollTimer=setInterval(async()=>{attempts++;const changed=await loadCurrent(false);if(changed){clearInterval(state.pollTimer);setSync(`Nueva revisión detectada · ${formatDate(state.lastGeneratedAt)}`)}else if(attempts>=40){clearInterval(state.pollTimer);setSync('Sin cambio todavía. Pulsa Verificar cuando ChatGPT termine.')}},15000)}
-function openChatGPT(e){e?.preventDefault();window.open('https://chatgpt.com/','_blank','noopener')}
-
-function render(){const d=state.data;if(!d)return;$('#weekLabel').textContent=d.meta?.period||'Semana';$('#lifeosStatus').textContent=d.meta?.status||d.capacity?.status||'AT_RISK';$('#lifeosScore').textContent=d.meta?.score??'—';$('#executiveSummary').textContent=d.meta?.executive_summary||'Panorama actualizado.';const hm=[['Resultados',d.critical_outcomes?.length||0],['Decisiones',d.decisions?.length||0],['Mis acciones',d.my_actions?.length||0],['Delegadas',d.delegated_actions?.length||0]];$('#headlineMetrics').innerHTML=hm.map(x=>metric(x[0],x[1])).join('');
- const monthly=d.monthly||[];const mp=monthly.length?Math.round(monthly.reduce((a,x)=>a+(x.progress??0),0)/monthly.length):0;$('#monthHeadline').textContent=`${monthly.length} objetivos mensuales`;$('#monthSummary').textContent=monthly.length?`${monthly.filter(x=>x.status==='OFF_TRACK').length} fuera de trayectoria; ${monthly.filter(x=>x.status==='AT_RISK').length} en riesgo.`:'Sin objetivos mensuales';$('#monthProgress').style.width=`${Math.min(100,mp)}%`;$('#monthKpis').innerHTML=[['Progreso',`${mp}%`],['Off track',monthly.filter(x=>x.status==='OFF_TRACK').length]].map(x=>metric(x[0],x[1])).join('');
- $('#criticalOutcomes').innerHTML=(d.critical_outcomes||[]).map(x=>item(x.title,`${x.company} · ${x.metric||x.expected_result||''}`,badge(x.priority))).join('');$('#companyCards').innerHTML=(d.companies||[]).map(c=>`<article class="company-card"><div class="item-row"><div><div class="eyebrow">${esc(c.name)}</div><h4>${esc(c.weekly_result||c.main_objective||'')}</h4></div>${statusBadge(c.status)}</div><p class="item-meta">${esc(c.main_risk||'')}</p><div class="tiny-progress"><span style="width:${Math.min(100,c.progress||0)}%"></span></div></article>`).join('');const nd=(d.decisions||[])[0];$('#nextDecision').innerHTML=nd?item(nd.decision,`${nd.company} · ${nd.deadline||''} · ${nd.recommendation||''}`,badge(nd.priority)):item('Sin decisión crítica','');const c=d.capacity||{};$('#capacityCard').innerHTML=item(`Estado: ${c.status||'—'}`,`Reuniones ${c.meeting_hours||0}h · CEO ${c.proposed_ceo_hours||0}h · Buffer ${c.buffer_hours||0}h`);
- renderObjectives();$('#myActions').innerHTML=(d.my_actions||[]).map(x=>item(x.action,`${x.company} · ${x.deadline||''} · ${x.estimated_minutes||0} min`,badge(x.priority))).join('');$('#decisions').innerHTML=(d.decisions||[]).map(x=>item(x.decision,`${x.company} · ${x.deadline||''} · ${x.recommendation||''}`,badge(x.priority))).join('');$('#calendarProposals').innerHTML=(d.calendar_proposals||[]).map((x,i)=>selectable('cal',i,x.title||`CAL-${String(i+1).padStart(2,'0')}`,`${x.company} · ${x.start||''} → ${x.end||''} · ${x.objective||''}`,x.priority)).join('')||item('Sin bloques propuestos','');$('#delegatedActions').innerHTML=(d.delegated_actions||[]).map(x=>item(x.activity,`${x.company} → ${x.responsible||'RESPONSABLE POR DEFINIR'} · ${x.deadline||''} · DoD: ${x.definition_of_done||''}`,badge(x.priority))).join('');$('#emailProposals').innerHTML=(d.email_proposals||[]).map((x,i)=>selectable('mail',i,x.subject||`MAIL-${String(i+1).padStart(2,'0')}`,`${x.company} · Para: ${(x.to||[]).join(', ')} · ${x.objective||''}`,x.priority)).join('')||item('Sin correos propuestos','');$('#risks').innerHTML=(d.risks||[]).map(x=>item(x.risk,`${x.company} · ${x.probability||''}/${x.impact||''} · ${x.mitigation||''}`,badge(x.priority),['HIGH','CRITICAL'].includes(x.impact)?'heat-high':x.impact==='MEDIUM'?'heat-medium':'heat-low')).join('');$('#flagged').innerHTML=(d.flagged||[]).map(x=>item(x.subject,`${x.classification||''} · ${x.recommendation||''}`,statusBadge(x.classification||'FOLLOW_UP'))).join('');renderSourceHealth();renderAlerts();}
-function cop(v){return new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(v||0)}
-function isoDate(d){return d.toISOString().slice(0,10)}
-function sum(rows,fn){return rows.reduce((a,x)=>a+(fn(x)||0),0)}
-function financeBounds(){const tx=state.financial?.transactions||[];if(!tx.length)return [null,null];const max=state.financeEnd||tx.map(x=>x.date).sort().at(-1),end=new Date(max+'T12:00:00');let start;if(state.financeStart)start=new Date(state.financeStart+'T12:00:00');else if(state.financeRange==='all')start=new Date(tx.map(x=>x.date).sort()[0]+'T12:00:00');else{start=new Date(end);start.setDate(start.getDate()-Number(state.financeRange)+1)}return [isoDate(start),isoDate(end)]}
-function financeRows(start,end){return (state.financial?.transactions||[]).filter(x=>x.scope==='Personal'&&x.date>=start&&x.date<=end)}
-function aggregate(rows,keyFn,filterFn=x=>true){const m={};rows.filter(filterFn).forEach(x=>{const k=keyFn(x);m[k]=(m[k]||0)+x.amount});return Object.entries(m).map(([label,amount])=>({label,amount}))}
-function periodDays(a,b){return Math.max(1,Math.round((new Date(b)-new Date(a))/86400000)+1)}
-function previousPeriod(start,end){const n=periodDays(start,end),e=new Date(start+'T12:00:00');e.setDate(e.getDate()-1);const b=new Date(e);b.setDate(b.getDate()-n+1);return [isoDate(b),isoDate(e)]}
-function drawBarChart(canvas,rows,labelKey,valueKey){if(!canvas)return;const dpr=window.devicePixelRatio||1,w=canvas.clientWidth||500,h=260;canvas.width=w*dpr;canvas.height=h*dpr;const c=canvas.getContext('2d');c.scale(dpr,dpr);c.clearRect(0,0,w,h);if(!rows||!rows.length){c.fillStyle='#91a5bf';c.font='12px system-ui';c.fillText('Sin datos para este rango',20,40);return}const max=Math.max(...rows.map(x=>x[valueKey]),1),pad=34,gap=Math.min(10,Math.max(2,w/(rows.length*10))),bw=Math.max(3,(w-pad*2-gap*(rows.length-1))/rows.length);c.font='10px system-ui';c.textAlign='center';rows.forEach((x,i)=>{const bh=(h-75)*x[valueKey]/max,left=pad+i*(bw+gap),top=h-40-bh;c.fillStyle='#6aa8ff';c.fillRect(left,top,bw,bh);if(rows.length<=14||i%Math.ceil(rows.length/10)===0){c.fillStyle='#91a5bf';c.fillText(String(x[labelKey]).slice(0,12),left+bw/2,h-22)}if(rows.length<=12){c.fillStyle='#eef5ff';c.fillText(new Intl.NumberFormat('es-CO',{notation:'compact',maximumFractionDigits:1}).format(x[valueKey]),left+bw/2,Math.max(12,top-7))}})}
-function renderFinance(){const f=state.financial;if(!f)return;const [start,end]=financeBounds();if(!start||!end)return;const rows=financeRows(start,end),cons=rows.filter(x=>x.method!=='Transferencia'),trans=rows.filter(x=>x.method==='Transferencia'),consTotal=sum(cons,x=>x.amount),transTotal=sum(trans,x=>x.amount),days=periodDays(start,end),dailyAvg=consTotal/days;const [ps,pe]=previousPeriod(start,end),prev=financeRows(ps,pe).filter(x=>x.method!=='Transferencia'),prevTotal=sum(prev,x=>x.amount),delta=prevTotal?((consTotal-prevTotal)/prevTotal*100):null;const q=$('#financeCoverage');if(q)q.textContent=start+' → '+end+' · '+rows.length+' movimientos';const comp=$('#financeComparison');if(comp)comp.textContent=prevTotal?'Vs. período anterior ('+ps+' → '+pe+'): '+(delta>=0?'+':'')+delta.toFixed(1)+'% de consumo.':'Sin histórico suficiente para comparar con el período anterior.';const m=$('#financeMetrics');if(m)m.innerHTML=[['Consumo',cop(consTotal)],['Transferencias',cop(transTotal)],['Promedio diario',cop(dailyAvg)],['Movimientos',String(rows.length)]].map(x=>metric(x[0],x[1])).join('');
-const cats=aggregate(cons,x=>x.category).sort((a,b)=>b.amount-a.amount);const daily=aggregate(cons,x=>x.date).sort((a,b)=>a.label.localeCompare(b.label));
-const a=$('#financeAlerts');if(a){const alerts=[];if(cats[0]&&consTotal&&cats[0].amount/consTotal>.35)alerts.push({title:cats[0].label+' concentra '+(cats[0].amount/consTotal*100).toFixed(1)+'%',meta:'Revisar concentración en el rango seleccionado.',sev:'HIGH'});const large=cons.filter(x=>x.amount>=500000);if(large.length)alerts.push({title:large.length+' transacción(es) >= $500.000',meta:'Validar si son extraordinarias o recurrentes.',sev:'MEDIUM'});if(transTotal)alerts.push({title:cop(transTotal)+' en transferencias',meta:'Mantener separadas de consumo hasta clasificar destino.',sev:'MEDIUM'});a.innerHTML=alerts.length?alerts.map(x=>item(x.title,x.meta,statusBadge(x.sev),x.sev==='HIGH'?'heat-high':'heat-medium')).join(''):item('Sin alertas relevantes','Para el rango seleccionado.')}
-const rr=$('#financeRecommendations');if(rr)rr.innerHTML=(f.recommendations||[]).map((x,i)=>item((i+1)+'. '+x,'')).join('');const t=$('#financeTransactions');if(t)t.innerHTML=rows.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,50).map(x=>item(x.merchant,x.date+' · '+x.category+' · '+x.method+' '+x.product,'<strong>'+cop(x.amount)+'</strong>')).join('')||item('Sin movimientos','Rango seleccionado');if($('#financeStart'))$('#financeStart').value=start;if($('#financeEnd'))$('#financeEnd').value=end;requestAnimationFrame(()=>{drawBarChart($('#dailyChart'),daily,'label','amount');drawBarChart($('#categoryChart'),cats,'label','amount')})}
-function setFinanceRange(range){state.financeRange=range;state.financeStart=null;state.financeEnd=null;$$('.finance-range').forEach(x=>x.classList.toggle('active',x.dataset.range===range));renderFinance()}
-function applyFinanceDates(){const a=$('#financeStart').value,b=$('#financeEnd').value;if(!a||!b||a>b)return alert('Selecciona un rango de fechas válido.');state.financeStart=a;state.financeEnd=b;state.financeRange='custom';$$('.finance-range').forEach(x=>x.classList.remove('active'));renderFinance()}
-function renderObjectives(){const list=state.data?.[state.objectiveMode]||[];$('#objectivesList').innerHTML=list.map(o=>`<article class="item"><div class="item-row"><div><div class="item-title">${esc(o.title||o.expected_result||'')}</div><div class="item-meta">${esc(o.company||'')} · ${esc(o.metric||'')} · ${esc(o.current??'')} / ${esc(o.target??'')}</div></div>${statusBadge(o.status||'AT_RISK')}</div><div class="objective-progress"><div class="tiny-progress"><span style="width:${Math.min(100,o.progress||0)}%"></span></div><strong>${Math.round(o.progress||0)}%</strong></div></article>`).join('')||item('Sin objetivos definidos','')}
-function renderSourceHealth(){const h=state.data?.source_health||{};const ok=v=>['OK','SNAPSHOT','CONNECTED'].includes(String(v).toUpperCase());$('#sourceStrip').innerHTML=Object.entries(h).map(([k,v])=>`<span class="source-pill ${ok(v)?'ok':'warn'}">${esc(k)} · ${esc(String(v).toUpperCase())}</span>`).join('');$('#sourceHealth').innerHTML=Object.entries(h).map(([k,v])=>item(k,String(v))).join('')}
-function renderPublishStatus(){const s=state.status;if(!s){$('#publishStatus').innerHTML=item('GitHub','status.json no disponible');return}$('#publishStatus').innerHTML=[item('Estado',s.status||'UNKNOWN'),item('Última publicación',formatDate(s.generated_at)),item('Periodo',s.period||''),item('Commit',s.commit_sha||'pendiente')].join('')}
-function renderAlerts(){const alerts=[];for(const r of (state.data?.risks||[]).filter(x=>['P0','P1'].includes(x.priority)).slice(0,3))alerts.push(`<span class="alert-chip ${r.priority==='P0'?'red':'amber'}">${esc(r.company)} · ${esc(r.risk)}</span>`);$('#quickAlerts').innerHTML=alerts.join('')}
-function doSearch(){const q=$('#globalSearch').value.trim().toLowerCase();if(!q)return;const groups=['annual','monthly','weekly','decisions','my_actions','delegated_actions','risks','flagged','email_proposals','calendar_proposals'];const hits=[];for(const g of groups)for(const x of(state.data?.[g]||[]))if(JSON.stringify(x).toLowerCase().includes(q))hits.push({g,x});$('#searchResults').innerHTML=hits.slice(0,30).map(h=>item(h.x.title||h.x.subject||h.x.decision||h.x.action||h.x.activity||h.x.risk||h.g,h.g)).join('')||item('Sin resultados',q)}
-function approvalCommand(kind){const ids=selected(kind);if(!ids.length)return null;const arr=kind==='cal'?state.data.calendar_proposals:state.data.email_proposals;const prefix=kind==='cal'?'APROBAR CALENDARIO':'APROBAR CORREOS';const details=ids.map((i,n)=>`${kind==='cal'?'CAL':'MAIL'}-${String(i+1).padStart(2,'0')}: ${arr[i]?.title||arr[i]?.subject||''}`).join('\n');return `${prefix}: ${ids.map(i=>`${kind==='cal'?'CAL':'MAIL'}-${String(i+1).padStart(2,'0')}`).join(', ')}\n\nEjecuta estos elementos usando los conectores ya autorizados en ChatGPT. Calendario: verifica disponibilidad y crea solo los eventos aprobados, sin asistentes nuevos. Correos: crea borradores en Outlook, NO envíes.\n\n${details}`}
-async function approve(kind){const cmd=approvalCommand(kind);if(!cmd)return alert('Selecciona al menos un elemento.');await copyAndOpen(cmd)}
-function wire(){ $('.finance-range').forEach(b=>b.onclick=()=>setFinanceRange(b.dataset.range));if($('#financeApply'))$('#financeApply').onclick=applyFinanceDates;$$('.tab').forEach(b=>b.onclick=()=>{$$('.tab').forEach(x=>x.classList.remove('active'));$$('.view').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#'+b.dataset.view).classList.add('active')});$$('.segment').forEach(b=>b.onclick=()=>{$$('.segment').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.objectiveMode=b.dataset.objective;renderObjectives()});$('#refreshBtn').onclick=startRefresh;$('#checkBtn').onclick=()=>loadCurrent(true);$('#approveCalendarBtn').onclick=()=>approve('cal');$('#approveEmailsBtn').onclick=()=>approve('mail');$('#searchBtn').onclick=doSearch;$('#globalSearch').onkeydown=e=>{if(e.key==='Enter')doSearch()};$('#openChatGPTBtn').onclick=openChatGPT;window.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')loadCurrent(false)});window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;$('#installBtn').classList.remove('hidden')});$('#installBtn').onclick=async()=>{await deferredPrompt?.prompt();deferredPrompt=null;$('#installBtn').classList.add('hidden')}}
-wire();if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js');loadCurrent(true);
+qa('.tab').forEach(function(b){b.addEventListener('click',function(){
+  qa('.tab').forEach(function(x){x.classList.remove('active')});
+  qa('.view').forEach(function(x){x.classList.remove('active')});
+  b.classList.add('active');q('#'+b.getAttribute('data-view')).classList.add('active');
+  if(b.getAttribute('data-view')==='finance')setTimeout(renderFinance,20);
+})});
+qa('.seg').forEach(function(b){b.addEventListener('click',function(){
+  state.range=b.getAttribute('data-range');state.custom=null;
+  qa('.seg').forEach(function(x){x.classList.toggle('active',x===b)});
+  renderFinance();
+})});
+q('#applyDates').addEventListener('click',function(){
+  var a=q('#startDate').value,b=q('#endDate').value;
+  if(!a||!b||a>b){q('#financeCompare').textContent='Selecciona un rango válido.';return}
+  state.custom=[a,b];qa('.seg').forEach(function(x){x.classList.remove('active')});renderFinance();
+});
+q('#reloadBtn').addEventListener('click',load);
+window.addEventListener('resize',function(){if(q('#finance').classList.contains('active'))renderFinance()});
+load();
+})();
