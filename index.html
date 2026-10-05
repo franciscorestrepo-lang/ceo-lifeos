@@ -1,148 +1,115 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#07111f" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08111f">
   <title>CEO LifeOS</title>
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=20261005-1">
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <div class="eyebrow">CEO COMMAND CENTER</div>
-      <h1>LifeOS</h1>
-      <div class="meta-line"><span id="syncStatus">Cargando última revisión…</span><span>•</span><span id="weekLabel">Semana actual</span></div>
-    </div>
-    <div class="header-actions">
-      <button id="installBtn" class="btn ghost hidden">Instalar</button>
-      <button id="checkBtn" class="btn ghost">Verificar</button>
-      <button id="refreshBtn" class="btn primary">Actualizar con ChatGPT</button>
-    </div>
-  </header>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">CEO COMMAND CENTER</div>
+        <h1>LifeOS</h1>
+        <div class="status-line"><span id="syncDot" class="dot"></span><span id="syncStatus">Cargando datos...</span></div>
+      </div>
+      <button id="reloadBtn" class="btn">Actualizar</button>
+    </header>
 
-  <main>
-    <section class="source-strip" id="sourceStrip"></section>
-
-    <section class="hero-grid">
-      <article class="hero card">
-        <div class="eyebrow">ESTADO EJECUTIVO</div>
-        <div class="hero-row">
-          <div>
-            <h2 id="lifeosStatus">CARGANDO</h2>
-            <p id="executiveSummary" class="lead">Leyendo la última revisión publicada desde GitHub.</p>
-          </div>
-          <div class="score"><span id="lifeosScore">—</span><small>/100</small></div>
-        </div>
-        <div class="metric-grid" id="headlineMetrics"></div>
-      </article>
-      <article class="card month-card">
-        <div class="eyebrow">MES</div>
-        <h3 id="monthHeadline">Objetivos del mes</h3>
-        <p id="monthSummary" class="lead">Cargando.</p>
-        <div class="progress-shell"><div id="monthProgress" class="progress-bar"></div></div>
-        <div class="month-kpis" id="monthKpis"></div>
-      </article>
-    </section>
-
-    <section class="quick-alerts" id="quickAlerts"></section>
-
-    <nav class="tabs" aria-label="Navegación principal">
+    <nav class="tabs">
       <button class="tab active" data-view="home">Home</button>
-      <button class="tab" data-view="objectives">Objetivos</button>
       <button class="tab" data-view="focus">Foco</button>
-      <button class="tab" data-view="delegate">Delegar</button>
       <button class="tab" data-view="finance">Finanzas</button>
-      <button class="tab" data-view="more">Más</button>
+      <button class="tab" data-view="sources">Fuentes</button>
     </nav>
 
-    <section id="home" class="view active">
-      <div class="section-head"><div><div class="eyebrow">MÁXIMO 5</div><h3>Resultados críticos</h3></div></div>
-      <div id="criticalOutcomes" class="stack"></div>
-      <div class="two-col">
-        <div><div class="section-head"><h3>Compañías</h3></div><div id="companyCards" class="company-grid"></div></div>
-        <div><div class="section-head"><h3>Próxima decisión</h3></div><div id="nextDecision"></div><div class="section-head"><h3>Carga ejecutiva</h3></div><div id="capacityCard"></div></div>
-      </div>
-    </section>
-
-    <section id="objectives" class="view">
-      <div class="segmented"><button class="segment active" data-objective="annual">Año</button><button class="segment" data-objective="monthly">Mes</button><button class="segment" data-objective="weekly">Semana</button></div>
-      <div id="objectivesList" class="stack"></div>
-    </section>
-
-    <section id="focus" class="view">
-      <div class="two-col">
-        <div><div class="section-head"><div><div class="eyebrow">SOLO CEO</div><h3>Mis acciones</h3></div></div><div id="myActions" class="stack"></div></div>
-        <div><div class="section-head"><div><div class="eyebrow">DECIDIR</div><h3>Decisiones</h3></div></div><div id="decisions" class="stack"></div></div>
-      </div>
-      <div class="section-head"><div><div class="eyebrow">APROBAR EN CHATGPT</div><h3>Bloques de calendario propuestos</h3></div><button id="approveCalendarBtn" class="btn primary">Aprobar seleccionados</button></div>
-      <div id="calendarProposals" class="stack"></div>
-    </section>
-
-    <section id="delegate" class="view">
-      <div class="section-head"><div><div class="eyebrow">SACAR DE MI CABEZA</div><h3>Delegaciones</h3></div></div></div>
-      <div id="delegatedActions" class="stack"></div>
-      <div class="section-head"><div><div class="eyebrow">APROBAR EN CHATGPT</div><h3>Correos listos para borrador</h3></div><button id="approveEmailsBtn" class="btn primary">Aprobar seleccionados</button></div>
-      <div class="notice">LifeOS no vuelve a autenticarse contra Microsoft o Read AI. Al aprobar, abre ChatGPT con el comando exacto; ChatGPT usa los conectores ya autorizados y crea los borradores o eventos.</div>
-      <div id="emailProposals" class="stack"></div>
-    </section>
-
-    <section id="finance" class="view">
-      <div class="section-head"><div><div class="eyebrow">PERSONAL / CEO</div><h3>Financial Control</h3></div><span id="financeCoverage" class="source-pill warn">Cargando cobertura…</span></div>
-      <div class="finance-toolbar">
-        <div class="segmented">
-          <button class="segment finance-range active" data-range="30">30 días</button>
-          <button class="segment finance-range" data-range="90">90 días</button>
-          <button class="segment finance-range" data-range="365">1 año</button>
-          <button class="segment finance-range" data-range="all">Todo</button>
+    <main>
+      <section id="home" class="view active">
+        <div class="hero card">
+          <div>
+            <div class="eyebrow">ESTADO EJECUTIVO</div>
+            <h2 id="lifeStatus">—</h2>
+            <p id="summary" class="lead">Cargando revisión...</p>
+          </div>
+          <div class="score"><span id="score">—</span><small>/100</small></div>
         </div>
-        <div class="finance-dates">
-          <label>Desde <input id="financeStart" type="date"></label>
-          <label>Hasta <input id="financeEnd" type="date"></label>
-          <button id="financeApply" class="btn ghost">Aplicar</button>
+
+        <div id="headline" class="metric-grid"></div>
+
+        <div class="section-head"><h3>Resultados críticos</h3><span class="pill">Máx. 5</span></div>
+        <div id="critical" class="stack"></div>
+
+        <div class="section-head"><h3>Decisiones</h3><span class="pill">Máx. 5</span></div>
+        <div id="decisions" class="stack"></div>
+      </section>
+
+      <section id="focus" class="view">
+        <div class="section-head"><h3>Acciones de Francisco</h3><span class="pill">Máx. 7</span></div>
+        <div id="actions" class="stack"></div>
+
+        <div class="section-head"><h3>Delegaciones</h3></div>
+        <div id="delegations" class="stack"></div>
+
+        <div class="section-head"><h3>Radar</h3></div>
+        <div id="radar" class="stack"></div>
+      </section>
+
+      <section id="finance" class="view">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">PERSONAL / CEO</div>
+            <h3>Financial Control</h3>
+          </div>
+          <span id="financeCoverage" class="pill">—</span>
         </div>
-      </div>
-      <div id="financeComparison" class="notice"></div>
-      <div class="section-head"><div><div class="eyebrow">CONTROL PRESUPUESTAL</div><h3>Presupuesto 2026 vs. Real</h3></div><span class="source-pill warn">Fuente: Relación I-O · IO - 2 (2026)</span></div>
-      <div id="budgetMetrics" class="metric-grid finance-metrics"></div>
-      <div id="budgetStatus" class="notice">La capa presupuestaria requiere almacenamiento privado para publicar valores personales en producción.</div>
-      <div id="financeMetrics" class="metric-grid finance-metrics"></div>
-      <div class="two-col finance-grid">
-        <article class="card"><div class="section-head"><h3>Tendencia del período</h3></div><canvas id="dailyChart" class="fin-chart"></canvas></article>
-        <article class="card"><div class="section-head"><h3>Gasto por categoría</h3></div><canvas id="categoryChart" class="fin-chart"></canvas></article>
-      </div>
-      <div class="two-col">
-        <div><div class="section-head"><div><div class="eyebrow">EXCEPCIONES</div><h3>Alertas financieras</h3></div></div><div id="financeAlerts" class="stack"></div></div>
-        <div><div class="section-head"><div><div class="eyebrow">CHIEF OF STAFF / CFO</div><h3>Recomendaciones</h3></div></div><div id="financeRecommendations" class="stack"></div></div>
-      </div>
-      <div class="section-head"><h3>Últimos movimientos</h3></div><div id="financeTransactions" class="stack"></div>
-    </section>
 
-    <section id="more" class="view">
-      <div class="search-box"><input id="globalSearch" type="search" placeholder="Buscar Popsy, Bioenergy, Fixi…"/><button id="searchBtn" class="btn ghost">Buscar</button></div>
-      <div id="searchResults" class="stack"></div>
-      <div class="two-col">
-        <div><div class="section-head"><h3>Riesgos</h3></div><div id="risks" class="stack"></div></div>
-        <div><div class="section-head"><h3>Correos con bandera</h3></div><div id="flagged" class="stack"></div></div>
-      </div>
-      <div class="section-head"><h3>Salud de fuentes</h3></div><div id="sourceHealth" class="stack"></div>
-      <div class="section-head"><h3>Estado de publicación</h3></div><div id="publishStatus" class="stack"></div>
-    </section>
-  </main>
+        <div class="toolbar">
+          <div class="segmented">
+            <button class="seg active" data-range="30">30 días</button>
+            <button class="seg" data-range="90">90 días</button>
+            <button class="seg" data-range="365">1 año</button>
+            <button class="seg" data-range="all">Todo</button>
+          </div>
+          <div class="dates">
+            <label>Desde<input id="startDate" type="date"></label>
+            <label>Hasta<input id="endDate" type="date"></label>
+            <button id="applyDates" class="btn secondary">Aplicar</button>
+          </div>
+        </div>
 
-  <dialog id="chatgptDialog">
-    <form method="dialog" class="dialog-card">
-      <div class="eyebrow">ACTUALIZACIÓN A DEMANDA</div>
-      <h3>ChatGPT ejecuta la revisión</h3>
-      <p class="lead">El comando ya quedó copiado. Abre ChatGPT, pégalo y envíalo. Cuando termine, vuelve a LifeOS: el tablero detectará automáticamente el nuevo <code>current.json</code> publicado en GitHub.</p>
-      <textarea id="commandPreview" rows="9" readonly></textarea>
-      <div class="button-row"><button class="btn ghost" value="cancel">Cerrar</button><button id="openChatGPTBtn" class="btn primary" value="default">Abrir ChatGPT</button></div>
-    </form>
-  </dialog>
+        <div id="financeMetrics" class="metric-grid"></div>
+        <div id="financeCompare" class="notice"></div>
 
-  <script type="module" src="/app.js"></script>
+        <div class="two-col">
+          <article class="card">
+            <div class="section-head"><h3>Tendencia</h3></div>
+            <canvas id="trendChart" class="chart"></canvas>
+          </article>
+          <article class="card">
+            <div class="section-head"><h3>Categorías</h3></div>
+            <canvas id="categoryChart" class="chart"></canvas>
+          </article>
+        </div>
+
+        <div class="section-head"><h3>Alertas</h3></div>
+        <div id="financeAlerts" class="stack"></div>
+
+        <div class="section-head"><h3>Movimientos</h3></div>
+        <div id="transactions" class="stack"></div>
+      </section>
+
+      <section id="sources" class="view">
+        <div class="section-head"><h3>Salud de fuentes</h3></div>
+        <div id="sourceHealth" class="stack"></div>
+
+        <div class="section-head"><h3>Publicación</h3></div>
+        <div id="publishStatus" class="stack"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js?v=20261005-1" defer></script>
 </body>
 </html>
