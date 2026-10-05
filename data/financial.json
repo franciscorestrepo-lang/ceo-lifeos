@@ -6,7 +6,18 @@
     "coverage_days": 6,
     "currency": "COP",
     "data_quality": "PARTIAL_HISTORY",
-    "source": "Outlook/AllUp folder FI Personal"
+    "source": "Outlook/AllUp folder FI Personal",
+    "history_model": "PERSISTENT_TRANSACTION_LEDGER",
+    "ui_capabilities": [
+      "30d",
+      "90d",
+      "365d",
+      "all_history",
+      "custom_date_range",
+      "previous_period_comparison",
+      "dynamic_category_chart",
+      "dynamic_period_chart"
+    ]
   },
   "summary": {
     "personal_outflows_total": 2655072,
@@ -346,5 +357,18 @@
       "type": "Portfolio statement *9697",
       "status": "PASSWORD_PROTECTED"
     }
-  ]
+  ],
+  "history_policy": {
+    "preserve_all_transactions": true,
+    "deduplicate_on_ingest": true,
+    "never_replace_history_with_current_snapshot": true,
+    "minimum_fields": [
+      "date",
+      "amount",
+      "category",
+      "method",
+      "scope"
+    ],
+    "comparison": "selected period vs immediately previous equal-length period"
+  }
 }
