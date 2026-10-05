@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "generated_at": "2026-10-04T18:55:00-05:00",
+    "history_start": "2026-09-29",
+    "history_end": "2026-10-04",
+    "coverage_days": 6,
+    "currency": "COP",
+    "data_quality": "PARTIAL_HISTORY",
+    "source": "Outlook/AllUp folder FI Personal"
+  },
+  "summary": {
+    "personal_outflows_total": 2655072,
+    "consumption_ex_transfers": 1959572,
+    "transfers": 695500,
+    "corporate_excluded": 2740144,
+    "october_consumption_to_date": 1633322,
+    "october_daily_pace": 408331,
+    "october_30d_pace": 12249915,
+    "note": "October pace is a simple run-rate from Oct 1-4 consumption and is not a forecast."
+  },
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "type": "CATEGORY_CONCENTRATION",
+      "title": "Restaurantes/comida concentra 44.2% del consumo identificado",
+      "amount": 866008,
+      "recommendation": "Definir presupuesto semanal de comida fuera/Rappi y separar gasto familiar vs. reembolsable antes de tomar decisiones."
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "LARGE_PURCHASE",
+      "title": "Compra única D1 por $470.580",
+      "amount": 470580,
+      "recommendation": "Validar si corresponde a mercado mensual/stock-up. Si es mercado recurrente, usarla como referencia para presupuesto de supermercado."
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "UNCLASSIFIED_TRANSFERS",
+      "title": "$695.500 en transferencias sin clasificación económica",
+      "amount": 695500,
+      "recommendation": "Etiquetar destinatarios recurrentes como ahorro, inversión, familia, deuda o gasto para evitar tratar transferencias como consumo."
+    },
+    {
+      "severity": "INFO",
+      "type": "DATA_COVERAGE",
+      "title": "Histórico disponible solo desde 29-Sep",
+      "recommendation": "Mantener FI Personal como fuente continua; las tendencias mensuales ganarán validez tras 4-8 semanas."
+    }
+  ],
+  "recommendations": [
+    "Separar consumo real de transferencias, ahorro e inversión.",
+    "Crear umbrales: compra individual > $500k; categoría >35% del consumo semanal; gasto diario >2x mediana de 30 días.",
+    "Clasificar productos *3905, *4267, *5874, *7819, *1895 y *5685 para mejorar precisión.",
+    "Excluir automáticamente movimientos de AllUp/Teky/Sports Crowd de Personal Financial Control.",
+    "Revisar semanalmente únicamente excepciones y máximo 3 decisiones de capital."
+  ],
+  "categories": [
+    {
+      "category": "Restaurantes/Comida",
+      "amount": 866008,
+      "share_pct": 44.2
+    },
+    {
+      "category": "Mercado",
+      "amount": 470580,
+      "share_pct": 24
+    },
+    {
+      "category": "Combustible",
+      "amount": 214693,
+      "share_pct": 11
+    },
+    {
+      "category": "Entretenimiento",
+      "amount": 168000,
+      "share_pct": 8.6
+    },
+    {
+      "category": "Hotel/Viajes",
+      "amount": 147950,
+      "share_pct": 7.6
+    },
+    {
+      "category": "Parqueo/Otros",
+      "amount": 60000,
+      "share_pct": 3.1
+    },
+    {
+      "category": "Otros",
+      "amount": 32341,
+      "share_pct": 1.7
+    }
+  ],
+  "daily": [
+    {
+      "date": "29-Sep",
+      "consumption": 6000,
+      "transfers": 0
+    },
+    {
+      "date": "30-Sep",
+      "consumption": 320250,
+      "transfers": 0
+    },
+    {
+      "date": "1-Oct",
+      "consumption": 513256,
+      "transfers": 468500
+    },
+    {
+      "date": "2-Oct",
+      "consumption": 189986,
+      "transfers": 220000
+    },
+    {
+      "date": "3-Oct",
+      "consumption": 638580,
+      "transfers": 7000
+    },
+    {
+      "date": "4-Oct",
+      "consumption": 291500,
+      "transfers": 0
+    }
+  ],
+  "payment_mix": [
+    {
+      "method": "Débito",
+      "amount": 993721
+    },
+    {
+      "method": "Crédito",
+      "amount": 965851
+    },
+    {
+      "method": "Transferencias",
+      "amount": 695500
+    }
+  ],
+  "transactions": [
+    {
+      "date": "2026-09-29",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "TIENDA DIM ESTADIO",
+      "amount": 6000,
+      "category": "Parqueo/Otros",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*7819",
+      "method": "Crédito",
+      "merchant": "HOTEL SAN FERNANDO P",
+      "amount": 122008,
+      "category": "Hotel/Viajes",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*7819",
+      "method": "Crédito",
+      "merchant": "HOTEL SAN FERNANDO P",
+      "amount": 25942,
+      "category": "Hotel/Viajes",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "CONJ INMOBILIARIO SA",
+      "amount": 6000,
+      "category": "Parqueo/Otros",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "FRISBY I16 ARRAYANES",
+      "amount": 59000,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "RAPPI",
+      "amount": 59300,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*5874",
+      "method": "Crédito",
+      "merchant": "PARK 5",
+      "amount": 48000,
+      "category": "Parqueo/Otros",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-01",
+      "product": "*5874",
+      "method": "Crédito",
+      "merchant": "SIMON PARRILLA SUR",
+      "amount": 161922,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-01",
+      "product": "*5874",
+      "method": "Crédito",
+      "merchant": "EDS EL LIMONAR FR",
+      "amount": 214693,
+      "category": "Combustible",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-01",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "GRUPO EMPRESARIAL LA",
+      "amount": 32341,
+      "category": "Otros",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-01",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "RAPPI",
+      "amount": 104300,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-01",
+      "product": "*1895",
+      "method": "Transferencia",
+      "merchant": "TRANSFERENCIA *3166955335",
+      "amount": 18500,
+      "category": "Transferencias",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-01",
+      "product": "*1895",
+      "method": "Transferencia",
+      "merchant": "TRANSFERENCIA *3136582755",
+      "amount": 450000,
+      "category": "Transferencias",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-02",
+      "product": "*1895",
+      "method": "Transferencia",
+      "merchant": "TRANSFERENCIA *61400021693",
+      "amount": 220000,
+      "category": "Transferencias",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-02",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "CAMPANELLA",
+      "amount": 88200,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-02",
+      "product": "*5874",
+      "method": "Crédito",
+      "merchant": "BOLD SA*LA ROMAN",
+      "amount": 101786,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-03",
+      "product": "*4267",
+      "method": "Débito",
+      "merchant": "TIENDA D1 CALI DARK",
+      "amount": 470580,
+      "category": "Mercado",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-03",
+      "product": "*3905",
+      "method": "Débito",
+      "merchant": "PROKARTING",
+      "amount": 168000,
+      "category": "Entretenimiento",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-03",
+      "product": "*5685",
+      "method": "Transferencia",
+      "merchant": "QR *8308",
+      "amount": 7000,
+      "category": "Transferencias",
+      "scope": "Personal"
+    },
+    {
+      "date": "2026-10-04",
+      "product": "*5874",
+      "method": "Crédito",
+      "merchant": "VENTOLINI N 35",
+      "amount": 291500,
+      "category": "Restaurantes/Comida",
+      "scope": "Personal"
+    }
+  ],
+  "excluded_corporate": [
+    {
+      "date": "2026-09-30",
+      "product": "*3300",
+      "amount": 2722925,
+      "reason": "Pago proveedores/contratistas AllUp"
+    },
+    {
+      "date": "2026-09-30",
+      "product": "*3300",
+      "amount": 17219,
+      "reason": "PSE Seguros; cuenta con aprobador corporativo"
+    }
+  ],
+  "documents": [
+    {
+      "date": "2026-10-03",
+      "institution": "Bancolombia",
+      "type": "Credit card statement",
+      "status": "PASSWORD_PROTECTED"
+    },
+    {
+      "date": "2026-10-04",
+      "institution": "Davivienda",
+      "type": "Portfolio statement *9697",
+      "status": "PASSWORD_PROTECTED"
+    }
+  ]
+}
