@@ -341,6 +341,26 @@
     },
     "netlify": {
       "status": "PENDING_POST_COMMIT_VERIFY"
+    },
+    "financial_mail": {
+      "status": "OK",
+      "folder": "FI Personal",
+      "messages": 26,
+      "history_start": "2026-09-29",
+      "note": "Partial history; trend confidence increases as history accumulates"
     }
+  },
+  "financial_control": {
+    "status": "WATCH",
+    "source": "Outlook/AllUp/FI Personal",
+    "history_start": "2026-09-29",
+    "history_end": "2026-10-04",
+    "consumption_ex_transfers": 1959572,
+    "transfers": 695500,
+    "corporate_excluded": 2740144,
+    "top_category": "Restaurantes/Comida",
+    "top_category_share_pct": 44.2,
+    "alerts": 4,
+    "data_file": "data/financial.json"
   }
 }
