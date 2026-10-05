@@ -86,5 +86,20 @@
     "Perceptio-AllUp define economics preliminares por cuentas nombradas; faltan markup y reglas finales.",
     "DIM-Bepass busca firma 7-Oct y readiness 17-Oct; no conviene tercer piloto sin contrato.",
     "DIM-SIESA cambia a web services nativos, JSON->XML y servicios adicionales posibles."
-  ]
+  ],
+  "financial_control": {
+    "status": "WATCH",
+    "coverage": "29-Sep to 4-Oct; 26 financial emails",
+    "personal_consumption": 1959572,
+    "transfers_unclassified": 695500,
+    "corporate_excluded": 2740144,
+    "top_category": "Restaurantes/Comida 44.2%",
+    "alerts": [
+      "Category concentration",
+      "Large D1 purchase",
+      "Unclassified transfers",
+      "Partial history"
+    ],
+    "decision": "Establish category budgets only after enough history; immediately classify transfer destinations and products"
+  }
 }
