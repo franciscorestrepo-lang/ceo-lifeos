@@ -1,6 +1,6 @@
 {
   "status": "READY",
-  "generated_at": "2026-10-04T09:45:00-05:00",
+  "generated_at": "2026-10-04T18:55:00-05:00",
   "period": "2026-W40",
   "planning_period": "2026-W41",
   "source_health": {
@@ -11,9 +11,10 @@
     "outlook_calendar": "OK",
     "google_calendar": "OK",
     "github": "OK",
-    "netlify": "READY"
+    "netlify": "READY",
+    "financial_mail": "OK_FI_PERSONAL_PARTIAL_HISTORY"
   },
-  "commit_sha": "6249ecdb914805028842671fbebb5e6b4f033dde",
+  "commit_sha": "0795071ed8774a535fe74d8d904a032b4528cf7d",
   "deploy_id": "6ac274535604920008682336",
   "validation": {
     "drafts_created": {
@@ -48,10 +49,28 @@
       "closures_received": 4,
       "closures_missing": 5,
       "status": "INCOMPLETE"
+    },
+    "financial_control": {
+      "folder": "FI Personal",
+      "messages": 26,
+      "history_start": "2026-09-29",
+      "transactions_personal": 20,
+      "corporate_excluded": 2,
+      "statements_protected": 2,
+      "dashboard": true,
+      "history_persisted": true
     }
   },
   "protocol_update": {
-    "required": false,
-    "reason": "No hay práctica nueva que requiera cambio de PWA/protocolo; las reglas ya están incorporadas."
+    "required": true,
+    "implemented": true,
+    "changes": [
+      "FI Personal added as permanent weekly source",
+      "data/financial.json persists history",
+      "Personal vs corporate classification",
+      "Consumption vs transfers separation",
+      "Excess/anomaly alerts and recommendations",
+      "Financial dashboard with trend/category charts"
+    ]
   }
 }
