@@ -21,7 +21,8 @@
     },
     "Personal_CEO": {
       "status": "OFF_TRACK",
-      "focus": "Capacidad ejecutiva y deduplicación de agenda"
+      "focus": "Capacidad ejecutiva y deduplicación de agenda",
+      "financial_control": "New permanent LifeOS dimension: personal consumption, transfers, banking alerts, debt/investment signals and trend history from FI Personal."
     }
   },
   "current_quarter_focus": [
@@ -29,6 +30,7 @@
     "Cerrar Bioenergy con control de margen/horas",
     "Convertir FIXI sin dispersión ni customización gratuita",
     "Firmar/economizar DIM antes de invertir",
-    "Proteger buffer CEO y delegación"
+    "Proteger buffer CEO y delegación",
+    "Build Personal Financial Control baseline and spending anomaly detection"
   ]
 }
