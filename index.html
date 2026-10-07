@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#08111f">
   <title>CEO LifeOS</title>
-  <link rel="stylesheet" href="/styles.css?v=20261005-1">
+  <link rel="stylesheet" href="/styles.css?v=20261007-1">
 </head>
 <body>
   <div class="app-shell">
@@ -72,6 +72,7 @@
             <button class="seg" data-range="365">1 año</button>
             <button class="seg" data-range="all">Todo</button>
           </div>
+          <div class="finance-filters"><label>Alcance<select id="financeScope"><option value="personal">Personal</option><option value="confirm">Por confirmar</option><option value="corporate">Corporativo</option><option value="all">Todos</option></select></label><label>Movimiento<select id="financeKind"><option value="all">Todos</option><option value="expense">Gastos</option><option value="transfer">Transferencias</option><option value="income">Ingresos</option><option value="obligation">Obligaciones</option><option value="unclassified">Por clasificar</option></select></label><label>Categoría<select id="financeCategory"><option value="all">Todas las categorías</option></select></label></div>
           <div class="dates">
             <label>Desde<input id="startDate" type="date"></label>
             <label>Hasta<input id="endDate" type="date"></label>
@@ -96,8 +97,8 @@
         <div class="section-head"><h3>Alertas</h3></div>
         <div id="financeAlerts" class="stack"></div>
 
-        <div class="section-head"><h3>Movimientos</h3></div>
-        <div id="transactions" class="stack"></div>
+        <div class="section-head"><h3>Movimientos</h3><span id="transactionCount" class="pill"></span></div>
+        <div id="transactions" class="stack"></div><button id="loadMoreTransactions" type="button" class="btn secondary" hidden>Mostrar más movimientos</button>
       </section>
 
       <section id="sources" class="view">
@@ -110,6 +111,6 @@
     </main>
   </div>
 
-  <script src="/app.js?v=20261005-2" defer></script>
+  <script src="/app.js?v=20261007-1" defer></script>
 </body>
 </html>
