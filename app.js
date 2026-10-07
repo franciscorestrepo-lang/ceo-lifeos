@@ -101,13 +101,17 @@ function draw(canvas,rows){
   });
 }
 function txKind(x){
-  var method=String(x.method||x.type||'').toLowerCase();
-  var tag=String(x.direction||x.transaction_type||'').toLowerCase();
+  var method=String(x.method||'').toLowerCase();
+  var type=String(x.type||x.transaction_type||'').toLowerCase();
+  var direction=String(x.direction||'').toLowerCase();
+  var category=String(x.category||'').toLowerCase();
   var merchant=String(x.merchant||x.description||'').toLowerCase();
-  if(/income|ingreso|abono|credit in/.test(tag+' '+method))return 'income';
-  if(/pago.*(tarjeta|cr[eé]dito)|payment.*(card|credit)|obligaci[oó]n/.test(merchant+' '+method+' '+tag))return 'obligation';
-  if(/transfer|bre-b|qr/.test(method+' '+tag))return 'transfer';
-  if(/d[eé]bito|cr[eé]dito|compra|purchase|consumo|debit|credit/.test(method+' '+tag))return 'expense';
+  if(/inflow|income|ingreso/.test(direction)||/ingreso|income/.test(type+' '+method))return 'income';
+  if(/pago de obligaci[oó]n|debt payment|credit card payment/.test(category)||/pago.*(tarjeta|cr[eé]dito)|payment.*(card|credit)/.test(merchant))return 'obligation';
+  if(/transfer/.test(type+' '+method+' '+category)||/bre-b/.test(type+' '+method))return 'transfer';
+  if(x.is_consumption===true)return 'expense';
+  if(x.is_consumption===false)return 'unclassified';
+  if(/compra|purchase|d[eé]bito|cr[eé]dito|debit|credit/.test(type+' '+method))return 'expense';
   return 'unclassified';
 }
 function txScope(x){
