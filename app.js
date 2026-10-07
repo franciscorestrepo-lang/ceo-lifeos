@@ -189,7 +189,7 @@ async function load(){
   renderAll();
   var errors=res.map(function(x,i){return x.status==='rejected'?['revisión','estado de publicación','finanzas'][i]+': '+x.reason.message:null}).filter(Boolean);
   q('#syncDot').className='dot '+(errors.length?'error':'ok');
-  q('#syncStatus').textContent=errors.length?'Carga parcial · '+errors.join(' · '):'Actualizado · '+fmt((state.current.meta||{}).generated_at);
+  q('#syncStatus').textContent=errors.length?'Carga parcial · '+errors.join(' · '):'Actualizado · '+fmt(((state.current||{}).meta||{}).generated_at);
 }
 
 qa('.tab').forEach(function(b){b.addEventListener('click',function(){
