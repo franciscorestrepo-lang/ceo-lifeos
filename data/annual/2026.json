@@ -4,33 +4,5 @@
     "period": "2026",
     "status": "AT_RISK",
     "score": 67
-  },
-  "summary": "Q4 debe convertir pipeline y producto en caja/margen, y convertir Sports Crowd de pilotos a contratos/economics repetibles sin llevar a Francisco a la operación.",
-  "companies": {
-    "AllUp": {
-      "status": "AT_RISK",
-      "focus": "Caja, margen Bioenergy, conversión comercial y delivery"
-    },
-    "Teky": {
-      "status": "WATCH",
-      "focus": "FIXI repeatable product + Popsy/UE/Focus/Copernicus"
-    },
-    "Sports_Crowd": {
-      "status": "AT_RISK",
-      "focus": "DIM contrato/economics, SIESA scope, AWS continuity"
-    },
-    "Personal_CEO": {
-      "status": "OFF_TRACK",
-      "focus": "Capacidad ejecutiva y deduplicación de agenda",
-      "financial_control": "New permanent LifeOS dimension: personal consumption, transfers, banking alerts, debt/investment signals and trend history from FI Personal."
-    }
-  },
-  "current_quarter_focus": [
-    "Recaudo y forecast 13 semanas",
-    "Cerrar Bioenergy con control de margen/horas",
-    "Convertir FIXI sin dispersión ni customización gratuita",
-    "Firmar/economizar DIM antes de invertir",
-    "Proteger buffer CEO y delegación",
-    "Build Personal Financial Control baseline and spending anomaly detection"
-  ]
+  }
 }
