@@ -4,55 +4,5 @@
     "period": "2026-09",
     "status": "AT_RISK",
     "score": 63
-  },
-  "summary": "Septiembre cierra con mejor pipeline/FIXI y acceso a financiacion, pero caja, margen y capacidad CEO exigen disciplina.",
-  "outcomes": [
-    {
-      "company": "AllUp",
-      "trend": "IMPROVED",
-      "result": "Credito $170M en desembolso; Alqueria con buen feedback; Bioenergy avanza pero margen en riesgo."
-    },
-    {
-      "company": "Teky",
-      "trend": "IMPROVED",
-      "result": "FIXI suma Bodytech/Popsy/Corona y Focus Lab Batch 1."
-    },
-    {
-      "company": "Sports Crowd",
-      "trend": "UNCHANGED",
-      "result": "AWS/Reckoner y DIM/Bepass siguen como riesgos materiales."
-    },
-    {
-      "company": "Personal/CEO",
-      "trend": "WORSENED",
-      "result": "Duplicacion/choques de agenda; buffer ejecutivo insuficiente."
-    }
-  ],
-  "risks": [
-    {
-      "company": "AllUp",
-      "level": "HIGH",
-      "risk": "Caja/recaudos sin fecha firme al cierre de mes"
-    },
-    {
-      "company": "AllUp",
-      "level": "HIGH",
-      "risk": "Bioenergy: erosion de margen por horas/esfuerzo"
-    },
-    {
-      "company": "Teky",
-      "level": "MEDIUM",
-      "risk": "Customizaciones FIXI sin economics"
-    },
-    {
-      "company": "Sports Crowd",
-      "level": "HIGH",
-      "risk": "AWS/Bepass/Meta/permisos cloud"
-    },
-    {
-      "company": "Personal/CEO",
-      "level": "HIGH",
-      "risk": "Sobrecarga y duplicacion de agenda"
-    }
-  ]
+  }
 }
