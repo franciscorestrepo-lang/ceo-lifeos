@@ -1,36 +1,9 @@
 {
-  "meta":{"generated_at":"2026-08-23T20:01:00-05:00","period":"2026-W34","status":"AT_RISK","score":54,"planning_window":"2026-08-24/2026-08-30"},
-  "critical_outcomes":[
-    {"id":"CO-01","company":"AllUp","priority":"P0","trend":"NEW","title":"Recuperar valor económico en disputa MQA","metric":"Matriz 100% líneas + monto objetivo + próxima reunión","deadline":"2026-08-26"},
-    {"id":"CO-02","company":"AllUp","priority":"P0","trend":"IMPROVED","title":"Convertir Scrap en acta y facturación del 50%","metric":"Pruebas + acta + fecha factura","deadline":"2026-08-25"},
-    {"id":"CO-03","company":"AllUp","priority":"P0","trend":"WORSENED","title":"Cerrar recovery plan de Bioenergy","metric":"1 plan aprobado + cero pendiente sin dueño/fecha","deadline":"2026-08-27"},
-    {"id":"CO-04","company":"Teky","priority":"P1","trend":"IMPROVED","title":"Congelar Fixi como producto repetible","metric":"1 baseline producto + demo operable por equipo","deadline":"2026-08-28"},
-    {"id":"CO-05","company":"Sports Crowd","priority":"P0","trend":"UNCHANGED","title":"Eliminar o mitigar riesgos AWS/Cortex/D-Pass","metric":"100% riesgos críticos con owner/fecha/evidencia","deadline":"2026-08-28"}
-  ],
-  "decisions":[
-    {"id":"D-01","company":"AllUp","priority":"P0","trend":"NEW","decision":"Definir postura y monto objetivo frente a facturas MQA 903/879","deadline":"2026-08-26"},
-    {"id":"D-02","company":"AllUp","priority":"P0","trend":"IMPROVED","decision":"Autorizar acta/facturación Scrap solo contra pruebas internas satisfactorias","deadline":"2026-08-25"},
-    {"id":"D-03","company":"AllUp","priority":"P0","trend":"WORSENED","decision":"Aprobar recovery plan y go/no-go Bioenergy","deadline":"2026-08-27"},
-    {"id":"D-04","company":"Teky","priority":"P1","trend":"IMPROVED","decision":"Fijar baseline Fixi y limitar personalizaciones derivadas de demos","deadline":"2026-08-25"},
-    {"id":"D-05","company":"Sports Crowd","priority":"P0","trend":"UNCHANGED","decision":"Gestionar AWS/Cortex/D-Pass por un único risk pack","deadline":"2026-08-28"}
-  ],
-  "my_actions":[
-    {"id":"F-01","company":"AllUp","priority":"P0","action":"Revisar matriz MQA y definir monto/postura","deadline":"2026-08-26","estimated_minutes":60},
-    {"id":"F-02","company":"AllUp","priority":"P0","action":"Aprobar acta/facturación Scrap tras pruebas","deadline":"2026-08-25","estimated_minutes":20},
-    {"id":"F-03","company":"AllUp","priority":"P0","action":"Aprobar recovery plan Bioenergy","deadline":"2026-08-27","estimated_minutes":30},
-    {"id":"F-04","company":"Teky","priority":"P1","action":"Aprobar baseline Fixi y prioridades de producto","deadline":"2026-08-25","estimated_minutes":45},
-    {"id":"F-05","company":"Sports Crowd","priority":"P0","action":"Aprobar risk pack AWS/Cortex/D-Pass","deadline":"2026-08-28","estimated_minutes":30},
-    {"id":"F-06","company":"AllUp","priority":"P1","action":"Elegir top 3 oportunidades comerciales para intervención personal","deadline":"2026-08-25","estimated_minutes":30},
-    {"id":"F-07","company":"Personal/CEO","priority":"P0","action":"Eliminar Dailies/status sin decisión y resolver solapamientos","deadline":"2026-08-24","estimated_minutes":20}
-  ],
-  "comparison":[
-    {"company":"AllUp","item":"MQA facturas 903/879","trend":"NEW"},
-    {"company":"AllUp","item":"Scrap","trend":"IMPROVED"},
-    {"company":"AllUp","item":"Bioenergy","trend":"WORSENED"},
-    {"company":"AllUp","item":"Momentum comercial","trend":"IMPROVED"},
-    {"company":"Teky","item":"Fixi producto/demo","trend":"IMPROVED"},
-    {"company":"Sports Crowd","item":"AWS/Cortex/D-Pass","trend":"UNCHANGED"},
-    {"company":"Personal/CEO","item":"Buffer ejecutivo","trend":"WORSENED"},
-    {"company":"AllUp","item":"Demo inicial Popsy W34","trend":"CLOSED"}
-  ]
+  "meta": {
+    "generated_at": "2026-08-23T20:01:00-05:00",
+    "period": "2026-W34",
+    "status": "AT_RISK",
+    "score": 54,
+    "planning_window": "2026-08-24/2026-08-30"
+  }
 }
