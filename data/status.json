@@ -11,8 +11,7 @@
     "outlook_calendar": "OK",
     "google_calendar": "OK",
     "github": "OK",
-    "netlify": "READY",
-    "financial_mail": "OK_FI_PERSONAL_PARTIAL_HISTORY"
+    "netlify": "READY"
   },
   "commit_sha": "0795071ed8774a535fe74d8d904a032b4528cf7d",
   "deploy_id": "6ac274535604920008682336",
@@ -49,28 +48,6 @@
       "closures_received": 4,
       "closures_missing": 5,
       "status": "INCOMPLETE"
-    },
-    "financial_control": {
-      "folder": "FI Personal",
-      "messages": 26,
-      "history_start": "2026-09-29",
-      "transactions_personal": 20,
-      "corporate_excluded": 2,
-      "statements_protected": 2,
-      "dashboard": true,
-      "history_persisted": true
     }
-  },
-  "protocol_update": {
-    "required": true,
-    "implemented": true,
-    "changes": [
-      "FI Personal added as permanent weekly source",
-      "data/financial.json persists history",
-      "Personal vs corporate classification",
-      "Consumption vs transfers separation",
-      "Excess/anomaly alerts and recommendations",
-      "Financial dashboard with trend/category charts"
-    ]
   }
 }
