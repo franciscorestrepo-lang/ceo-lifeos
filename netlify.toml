@@ -1,5 +1,12 @@
 [build]
+  command = "npm run build"
   publish = "."
+
+[[redirects]]
+  from = "/fixed.html"
+  to = "/"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
@@ -9,9 +16,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Cache-Control = "no-store, max-age=0"
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
-
-[[headers]]
-  for = "/data/*"
-  [headers.values]
-    Cache-Control = "no-store, max-age=0"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"

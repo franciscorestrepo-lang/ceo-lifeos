@@ -1,1 +1,1 @@
-{"name":"ceo-lifeos","version":"5.0.0","private":true,"type":"module","scripts":{"build":"node scripts/validate.mjs","validate":"node scripts/validate.mjs","test":"node scripts/validate.mjs"}}
+{"name":"ceo-lifeos","version":"7.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","validate":"node scripts/validate.mjs","test":"node scripts/validate.mjs && node scripts/test-ui.mjs"}}

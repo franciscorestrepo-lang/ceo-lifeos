@@ -1,73 +1,143 @@
 {
   "meta": {
-    "generated_at": "2026-10-04T09:45:00-05:00",
-    "period": "2026-W40",
-    "planning_period": "2026-W41",
-    "status": "AT_RISK",
-    "score": 67,
-    "previous_score": 63
+    "generated_at": "2026-10-25T18:11:30-05:00",
+    "period": "2026-W43",
+    "planning_period": "2026-W44",
+    "status": "PARTIAL",
+    "scope": "OPERATIONS",
+    "window_start": "2026-09-25",
+    "window_end": "2026-10-25",
+    "visibility": "PRIVATE_DETAIL_LINK",
+    "data_revision": "473425274ae5c487"
   },
-  "operational_execution": {
-    "drafts_created": {
-      "outlook": 8,
-      "gmail": 2,
-      "total": 10
+  "executive_summary": "Corte W43 actualizado y planificación W44 preparada. Consulta el informe privado para ver resultados, decisiones, responsables y evidencias.",
+  "coverage_note": "El detalle ejecutivo está en la revisión privada de OneDrive. Esta vista conserva el corte y el acceso al seguimiento de cada compañía.",
+  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W43_PLAN_W44.md",
+  "annual": [
+    {
+      "period": "2026",
+      "status": "PARTIAL",
+      "note": "Seguimiento derivado de W43; no constituye una revisión anual completa."
+    }
+  ],
+  "monthly": [
+    {
+      "period": "2026-10",
+      "status": "PARTIAL",
+      "note": "Corte operativo al 25 de octubre; no constituye cierre mensual."
+    }
+  ],
+  "weekly": [
+    {
+      "period": "2026-W43",
+      "planning_period": "2026-W44",
+      "status": "PARTIAL"
+    }
+  ],
+  "companies": [
+    {
+      "name": "AllUp",
+      "role": "CEO / CCO"
     },
-    "drafts_reused": {
-      "outlook": 1,
-      "gmail": 3,
-      "total": 4
+    {
+      "name": "Teky",
+      "role": "CPO / CTO"
     },
-    "events_created": {
-      "outlook": 0,
-      "google": 0,
-      "total": 0
+    {
+      "name": "Sports Crowd",
+      "role": "COO / CTO"
+    }
+  ],
+  "critical_outcomes": [
+    {
+      "company": "AllUp",
+      "title": "Operación y ejecución",
+      "metric": "Resultados y próximos pasos disponibles en la revisión privada.",
+      "trend": "WATCH"
     },
-    "events_reused": {
-      "outlook": 3,
-      "google": 3,
-      "total": 6
+    {
+      "company": "Teky",
+      "title": "Producto y calidad",
+      "metric": "Prioridades y criterios de aceptación disponibles en la revisión privada.",
+      "trend": "WATCH"
     },
-    "emails_sent": 0,
-    "dedup": true
+    {
+      "company": "Sports Crowd",
+      "title": "Producto y continuidad operativa",
+      "metric": "Seguimiento y decisiones disponibles en la revisión privada.",
+      "trend": "WATCH"
+    }
+  ],
+  "decisions": [
+    {
+      "company": "CEO",
+      "title": "Revisar las decisiones propuestas para W44",
+      "metric": "El informe privado distingue decisiones pendientes, hechos y recomendaciones.",
+      "priority": "P1"
+    }
+  ],
+  "my_actions": [
+    {
+      "company": "CEO",
+      "title": "Consultar prioridades y agenda de W44",
+      "date": "26–30 octubre",
+      "metric": "Revisar las acciones propias y los espacios existentes en el informe privado.",
+      "event_status": "PROPOSED"
+    }
+  ],
+  "delegated_actions": [],
+  "pending_radar": [
+    {
+      "company": "CEO",
+      "title": "Validar los límites de cobertura",
+      "metric": "Hay fuentes con cobertura parcial; consultar sus límites antes de dar la revisión por cerrada.",
+      "priority": "P1"
+    }
+  ],
+  "calendar_proposals": [],
+  "email_proposals": [],
+  "risks": [],
+  "flagged": [],
+  "capacity": {
+    "planned_limit_percent": 70,
+    "buffer_percent": 30,
+    "notes": "Conservar capacidad para imprevistos y contrastar calendarios antes de crear nuevos bloques."
   },
   "source_health": {
     "outlook_email": {
+      "label": "Outlook Email",
       "status": "OK",
-      "window_days": 60,
-      "notes": "Inbox/sent/flagged/high/drafts revisados; W40 foco individual"
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
     },
     "gmail": {
+      "label": "Gmail",
       "status": "OK",
-      "window_days": 60,
-      "notes": "Received/sent/starred/important/drafts Sports Crowd"
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
     },
     "teams": {
+      "label": "Microsoft Teams",
       "status": "PARTIAL",
-      "window_days": 60,
-      "notes": "Search connector returned no useful hits; cross-checked with email/Read AI/calendars"
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
     },
     "read_ai": {
-      "status": "OK",
-      "window_days": 60,
-      "notes": "Recent meetings expanded; knowledge-base search unavailable but list/get works"
+      "label": "Read AI",
+      "status": "PARTIAL",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
     },
     "outlook_calendar": {
+      "label": "Outlook Calendar",
       "status": "OK",
-      "past_days": 60,
-      "future_days": 30
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
     },
     "google_calendar": {
+      "label": "Google Calendar",
       "status": "OK",
-      "past_days": 60,
-      "future_days": 30
-    },
-    "github": {
-      "status": "OK"
-    },
-    "netlify": {
-      "status": "PENDING_POST_COMMIT_VERIFY"
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
     }
   },
-  "executive_summary": "Actualización de seguimiento ejecutivo y operativo."
+  "evolution": {
+    "previous_period": "2026-W40",
+    "reviewed_period": "2026-W43",
+    "note": "Corte actualizado. No se presume el cierre de periodos intermedios."
+  }
 }

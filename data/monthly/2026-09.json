@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-09-28T08:55:00-05:00",
     "period": "2026-09",
-    "status": "AT_RISK",
-    "score": 63
-  }
+    "scope": "OPERATIONS",
+    "status": "ARCHIVED_SUMMARY"
+  },
+  "note": "El detalle histórico se mantiene fuera de esta vista."
 }

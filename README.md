@@ -1,97 +1,26 @@
-# CEO LifeOS v5
+# CEO LifeOS — seguimiento operativo
 
-PWA ejecutiva para Francisco. Netlify es únicamente la capa de visualización. GitHub es el datastore/histórico. ChatGPT es el motor de ingestión, análisis y ejecución porque allí ya están conectados Outlook, Calendar, Teams, Read AI y GitHub.
+Visor estático del corte de revisión y acceso al detalle privado del CEO Command Center.
 
-## Arquitectura
+## Alcance de esta versión
+- Corte W43 y preparación W44, 25 de octubre de 2026.
+- Resumen por AllUp, Teky y Sports Crowd; el contenido de proyectos, responsables, agenda y fuentes permanece en el informe privado de OneDrive.
+- El enlace requiere los permisos corporativos existentes y no cambia quién puede acceder al archivo.
+- No incluye módulo financiero ni movimientos, saldos, tarifas o remuneración.
+- Los archivos históricos publicados se redujeron a metadatos de periodo; los originales y evidencias no se vuelven a publicar aquí.
 
-```text
-Outlook + Flagged + Calendar + Teams + Read AI
-                    ↓
-             ChatGPT connectors
-                    ↓
-           Chief of Staff analysis
-                    ↓
-                GitHub main
-   data/current.json + históricos + status
-                    ↓
-              Netlify static PWA
-```
+## Funcionamiento
+El botón Actualizar recarga los archivos del sitio. No inicia agentes ni escribe correos, calendarios o documentos. No se afirma que exista una automatización programada.
 
-No hay MSAL, Microsoft Graph, Read AI API, OpenAI API ni secretos de fuentes en la PWA o en Netlify.
+Los datos se sirven desde el propio sitio. No hay integración directa con las fuentes, credenciales ni funciones de análisis en la web. El detalle se consulta en OneDrive.
 
-## Actualización automática
-
-La automatización de ChatGPT `CEO LifeOS Weekly Sync` se ejecuta cada lunes a las 8:00 a. m. America/Bogota. Revisa 30 días de Outlook/Teams/Read AI, calendario -30/+30, correos con bandera, genera la revisión ejecutiva y actualiza:
-
-- `data/current.json`
-- `data/status.json`
-- `data/weekly/YYYY-Www.json`
-- `data/monthly/YYYY-MM.json`
-- `data/annual/YYYY.json`
-
-Cada commit en `main` provoca el deploy automático de Netlify.
-
-## Actualización a demanda
-
-El botón **Actualizar con ChatGPT**:
-
-1. copia el comando maestro de revisión;
-2. abre ChatGPT;
-3. Francisco pega/envía el comando en su CEO Command Center;
-4. ChatGPT usa los conectores ya autorizados y actualiza GitHub;
-5. LifeOS consulta `raw.githubusercontent.com` cada 15 segundos y detecta el nuevo `generated_at`;
-6. al volver a la PWA el tablero se refresca automáticamente.
-
-La limitación deliberada es que una web externa no puede disparar silenciosamente un agente interno de ChatGPT sin un webhook/API. Por seguridad y para evitar duplicar credenciales, el envío del comando requiere una interacción en ChatGPT.
-
-## Aprobaciones
-
-La PWA no escribe directamente en Outlook. En Foco y Delegar se seleccionan propuestas y se pulsa **Aprobar seleccionados**. LifeOS copia un comando de aprobación y abre ChatGPT:
-
-- calendario: ChatGPT verifica disponibilidad y crea solo los eventos aprobados;
-- correo: ChatGPT crea borradores en Outlook; nunca envía por defecto.
-
-## Fuente de datos
-
-La PWA intenta primero:
-
-`https://raw.githubusercontent.com/franciscorestrepo-lang/ceo-lifeos/main/data/current.json`
-
-con fallback al archivo incluido en el deploy de Netlify. Así puede ver una actualización de GitHub incluso antes de que termine un nuevo deploy.
-
-## Pruebas automáticas
-
-`npm run build` ejecuta `scripts/validate.mjs` y bloquea el deploy si:
-
-- `current.json` queda vacío en resultados, decisiones o acciones;
-- `status.json` no contiene estado/fecha/periodo;
-- reaparece una integración directa a Microsoft, Read AI u OpenAI;
-- el botón no contiene el comando de ChatGPT;
-- desaparecen las acciones de aprobación;
-- Netlify vuelve a tener Functions/API;
-- el Service Worker no invalida versiones anteriores.
-
-## Despliegue
-
-Netlify está conectado a `franciscorestrepo-lang/ceo-lifeos`, rama `main`.
-
-Build:
-
-```bash
+## Build y comprobaciones
+npm test
 npm run build
-```
 
-Publish directory: `.`
+El build valida el contrato y las exclusiones de contenido y genera build-info.json con COMMIT_REF y DEPLOY_ID cuando Netlify los proporciona. No se inventa el SHA de publicación dentro de status.json.
 
-No se requieren variables de entorno para operar LifeOS v5.
+Los documentos de /data/ se consultan sin caché. El Service Worker usa una versión nueva y elimina las cachés anteriores al activarse.
 
-## Principios
-
-- Máximo 5 resultados críticos semanales.
-- Máximo 5 decisiones.
-- Máximo 7 acciones personales.
-- 30% de buffer ejecutivo.
-- AllUp, Teky y Sports Crowd siempre separados.
-- Trabajo CEO -> decisión/calendario.
-- Trabajo operativo -> delegación/correo.
-- GitHub conserva el histórico; la PWA nunca inventa datos.
+## Límite de la limpieza
+Esta actualización limpia el árbol actual y el nuevo despliegue. No reescribe el historial Git ni elimina versiones anteriores del hosting. El acceso a copias históricas debe tratarse por separado.

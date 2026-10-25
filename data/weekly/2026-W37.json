@@ -1,28 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-09-13T17:45:00-05:00",
     "period": "2026-W37",
-    "planning_period": "2026-W38",
-    "status": "AT_RISK",
-    "score": 58
+    "scope": "OPERATIONS",
+    "status": "ARCHIVED_SUMMARY"
   },
-  "execution": {
-    "emails_sent": 0,
-    "drafts_created": {
-      "outlook": 2,
-      "gmail": 1
-    },
-    "drafts_reused": {
-      "outlook": 0,
-      "gmail": 3
-    },
-    "events_created": {
-      "outlook": 3,
-      "google": 1
-    },
-    "events_reused": {
-      "outlook": 1,
-      "google": 0
-    }
-  }
+  "note": "El detalle histórico se mantiene fuera de esta vista."
 }

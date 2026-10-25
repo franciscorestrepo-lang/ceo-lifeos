@@ -1,45 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-08-10T22:54:00-05:00",
     "period": "2026-W33",
-    "status": "AT_RISK",
-    "score": 66,
-    "mode": "chatgpt_connector_refresh"
+    "scope": "OPERATIONS",
+    "status": "ARCHIVED_SUMMARY"
   },
-  "capacity": {
-    "calendar_hours": 27,
-    "meeting_hours": 21,
-    "proposed_ceo_hours": 4,
-    "buffer_hours": 5,
-    "status": "AT_RISK"
-  },
-  "source_health": {
-    "mail": "OK",
-    "flagged": "PARTIAL",
-    "calendar": "OK",
-    "teams": "OK",
-    "read": "OK"
-  },
-  "evolution": {
-    "new": [
-      "Pendiente explícito: caso de uso Bedrock para créditos AWS",
-      "Evidencia del premio refuerza la narrativa de tracción de Fixi"
-    ],
-    "improved": [
-      "Santa Anita ya recibió material comercial",
-      "Juliana ya preparó pagos del 10 y proyecciones 15/30"
-    ],
-    "worsened": [
-      "Agenda del martes tiene múltiples conflictos",
-      "Buffer ejecutivo por debajo del objetivo"
-    ],
-    "unchanged": [
-      "Bioenergy requiere cierre delegado",
-      "Popsy requiere demo probada",
-      "Fixi requiere tres milestones"
-    ],
-    "closed": [
-      "Ficha AllUp para Arelia respondida"
-    ]
-  }
+  "note": "El detalle histórico se mantiene fuera de esta vista."
 }

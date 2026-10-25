@@ -1,53 +1,22 @@
 {
-  "status": "READY",
-  "generated_at": "2026-10-04T18:55:00-05:00",
-  "period": "2026-W40",
-  "planning_period": "2026-W41",
+  "status": "DATA_UPDATED",
+  "coverage_status": "PARTIAL",
+  "generated_at": "2026-10-25T18:11:30-05:00",
+  "period": "2026-W43",
+  "planning_period": "2026-W44",
+  "scope": "OPERATIONS",
+  "data_revision": "473425274ae5c487",
   "source_health": {
     "outlook_email": "OK",
     "gmail": "OK",
-    "teams": "PARTIAL_NO_USEFUL_HITS",
-    "read_ai": "OK_LIST_EXPAND; KB_SEARCH_UNAVAILABLE",
+    "teams": "PARTIAL",
+    "read_ai": "PARTIAL",
     "outlook_calendar": "OK",
-    "google_calendar": "OK",
-    "github": "OK",
-    "netlify": "READY"
+    "google_calendar": "OK"
   },
-  "commit_sha": "0795071ed8774a535fe74d8d904a032b4528cf7d",
-  "deploy_id": "6ac274535604920008682336",
   "validation": {
-    "drafts_created": {
-      "outlook": 8,
-      "gmail": 2,
-      "total": 10
-    },
-    "drafts_reused": {
-      "outlook": 1,
-      "gmail": 3,
-      "total": 4
-    },
-    "events_created": {
-      "outlook": 0,
-      "google": 0,
-      "total": 0
-    },
-    "events_reused": {
-      "outlook": 3,
-      "google": 3,
-      "total": 6
-    },
-    "emails_sent": 0,
-    "dedup": true,
-    "current_non_empty": {
-      "critical_outcomes": true,
-      "decisions": true,
-      "my_actions": true,
-      "source_health": true
-    },
-    "focus_weekly": {
-      "closures_received": 4,
-      "closures_missing": 5,
-      "status": "INCOMPLETE"
-    }
+    "operational_only": true,
+    "private_details_linked": true,
+    "source_gaps_visible": true
   }
 }
