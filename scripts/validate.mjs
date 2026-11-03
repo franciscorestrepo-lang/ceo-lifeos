@@ -19,7 +19,7 @@ assert.equal(d.meta.data_revision,s.data_revision);assert.ok(d.meta.data_revisio
 assert.equal(d.meta.period,s.period);assert.equal(d.meta.planning_period,s.planning_period);
 assert.equal(d.meta.generated_at,s.generated_at);
 assert.deepEqual(JSON.parse(read('data/weekly/'+d.meta.period+'.json')),d);
-assert.equal(d.meta.period,'2026-W43');assert.equal(d.meta.planning_period,'2026-W44');
+assert.match(d.meta.period,/^\d{4}-W(?:0[1-9]|[1-4]\d|5[0-3])$/);assert.match(d.meta.planning_period,/^\d{4}-W(?:0[1-9]|[1-4]\d|5[0-3])$/);assert.notEqual(d.meta.period,d.meta.planning_period);
 
 const restricted=/(financ|cartera|factur|tarifa|\bcaja\b|liquid|rentabil|margen|cr[eé]dito|desembolso|\bpag[oa]s?\b|\bbanco\b|\bCOP\b|\bUSD\b|\$|economics|econ[oó]mic|finagro|budget|income|expense|consumption|transfer|forecast|markup|tributari|bonific|incentiv|salario|sueldo|honorario|presupuesto|recaudo)/i;
 export function assertOperational(value,path='data'){

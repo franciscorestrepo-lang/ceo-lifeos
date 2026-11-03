@@ -20,8 +20,8 @@ const fetch=async url=>{requests.push(url);const path=url.split('?')[0].slice(1)
 runInNewContext(read('app.js'),{document,fetch,navigator:{},Date,console,URL});
 await new Promise(r=>setImmediate(r));
 assert.match(els.get('syncStatus').textContent,/Actualizado/);
-assert.match(els.get('period').textContent,/W43/);
-assert.match(els.get('planningPeriod').textContent,/W44/);
+assert.ok(els.get('period').textContent.includes(JSON.parse(read('data/current.json')).meta.period.split('-').at(-1)));
+assert.ok(els.get('planningPeriod').textContent.includes(JSON.parse(read('data/current.json')).meta.planning_period.split('-').at(-1)));
 assert.equal((els.get('critical').innerHTML.match(/class="row-title"/g)||[]).length,3);
 assert.equal((els.get('actions').innerHTML.match(/class="row-title"/g)||[]).length,1);
 assert.match(els.get('privateReportLink').getAttribute('href'),/^https:\/\/aliansapconsultingsas-my\.sharepoint\.com\//);

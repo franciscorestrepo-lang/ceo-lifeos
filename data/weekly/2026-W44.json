@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "generated_at": "2026-11-02T19:10:00-05:00",
+    "period": "2026-W44",
+    "planning_period": "2026-W45",
+    "status": "PARTIAL",
+    "scope": "OPERATIONS",
+    "window_start": "2026-10-03",
+    "window_end": "2026-11-02",
+    "visibility": "PRIVATE_DETAIL_LINK",
+    "data_revision": "a204d6b1c9281fc9"
+  },
+  "executive_summary": "Corte W44 actualizado y planificación W45 preparada. Consulta el informe privado para ver resultados, decisiones, responsables y evidencias.",
+  "coverage_note": "El detalle ejecutivo está en la revisión privada de OneDrive. Esta vista conserva el corte y el acceso al seguimiento de cada compañía.",
+  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W44_PLAN_W45.txt",
+  "annual": [
+    {
+      "period": "2026",
+      "status": "PARTIAL",
+      "note": "Seguimiento derivado de W44; no constituye una revisión anual completa."
+    }
+  ],
+  "monthly": [
+    {
+      "period": "2026-11",
+      "status": "PARTIAL",
+      "note": "Corte operativo al 2 de noviembre; no constituye cierre mensual."
+    }
+  ],
+  "weekly": [
+    {
+      "period": "2026-W44",
+      "planning_period": "2026-W45",
+      "status": "PARTIAL"
+    }
+  ],
+  "companies": [
+    {
+      "name": "AllUp",
+      "role": "CEO / CCO"
+    },
+    {
+      "name": "Teky",
+      "role": "CPO / CTO"
+    },
+    {
+      "name": "Sports Crowd",
+      "role": "COO / CTO"
+    }
+  ],
+  "critical_outcomes": [
+    {
+      "company": "AllUp",
+      "title": "Operación y ejecución",
+      "metric": "Resultados y próximos pasos disponibles en la revisión privada.",
+      "trend": "WATCH"
+    },
+    {
+      "company": "Teky",
+      "title": "Producto y calidad",
+      "metric": "Prioridades y criterios de aceptación disponibles en la revisión privada.",
+      "trend": "WATCH"
+    },
+    {
+      "company": "Sports Crowd",
+      "title": "Producto y continuidad operativa",
+      "metric": "Seguimiento y decisiones disponibles en la revisión privada.",
+      "trend": "WATCH"
+    }
+  ],
+  "decisions": [
+    {
+      "company": "CEO",
+      "title": "Revisar las decisiones propuestas para W45",
+      "metric": "El informe privado distingue decisiones pendientes, hechos y recomendaciones.",
+      "priority": "P1"
+    }
+  ],
+  "my_actions": [
+    {
+      "company": "CEO",
+      "title": "Consultar prioridades y agenda de W45",
+      "date": "2–6 noviembre",
+      "metric": "Revisar las acciones propias y los bloques verificados en el informe privado.",
+      "event_status": "CREATED"
+    }
+  ],
+  "delegated_actions": [],
+  "pending_radar": [
+    {
+      "company": "CEO",
+      "title": "Validar los límites de cobertura",
+      "metric": "Hay fuentes con cobertura parcial; consultar sus límites antes de dar la revisión por cerrada.",
+      "priority": "P1"
+    }
+  ],
+  "calendar_proposals": [],
+  "email_proposals": [],
+  "risks": [],
+  "flagged": [],
+  "capacity": {
+    "planned_limit_percent": 70,
+    "buffer_percent": 30,
+    "notes": "Conservar capacidad para imprevistos y contrastar calendarios antes de crear nuevos bloques."
+  },
+  "source_health": {
+    "outlook_email": {
+      "label": "Outlook Email",
+      "status": "OK",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
+    },
+    "gmail": {
+      "label": "Gmail",
+      "status": "OK",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
+    },
+    "teams": {
+      "label": "Microsoft Teams",
+      "status": "PARTIAL",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
+    },
+    "read_ai": {
+      "label": "Read AI",
+      "status": "PARTIAL",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
+    },
+    "outlook_calendar": {
+      "label": "Outlook Calendar",
+      "status": "OK",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
+    },
+    "google_calendar": {
+      "label": "Google Calendar",
+      "status": "OK",
+      "notes": "Cobertura y evidencias detalladas en el informe privado."
+    }
+  },
+  "evolution": {
+    "previous_period": "2026-W43",
+    "reviewed_period": "2026-W44",
+    "note": "Corte actualizado. Consultar evidencias y límites en la revisión privada."
+  }
+}

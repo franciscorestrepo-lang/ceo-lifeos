@@ -1,8 +1,8 @@
 {
-  "meta": {
-    "period": "2026",
-    "scope": "OPERATIONS",
-    "status": "ARCHIVED_SUMMARY"
-  },
-  "note": "El detalle histórico se mantiene fuera de esta vista."
+  "period": "2026",
+  "scope": "OPERATIONS",
+  "status": "PARTIAL",
+  "reviewed_through": "2026-11-02",
+  "latest_review": "2026-W44",
+  "note": "Metadatos de seguimiento; el detalle está en la revisión privada."
 }
