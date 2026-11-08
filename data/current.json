@@ -1,36 +1,36 @@
 {
   "meta": {
-    "generated_at": "2026-11-02T19:10:00-05:00",
-    "period": "2026-W44",
-    "planning_period": "2026-W45",
+    "generated_at": "2026-11-08T07:07:55-05:00",
+    "period": "2026-W45",
+    "planning_period": "2026-W46",
     "status": "PARTIAL",
     "scope": "OPERATIONS",
-    "window_start": "2026-10-03",
-    "window_end": "2026-11-02",
+    "window_start": "2026-10-09",
+    "window_end": "2026-11-08",
     "visibility": "PRIVATE_DETAIL_LINK",
-    "data_revision": "a204d6b1c9281fc9"
+    "data_revision": "0a1432a689f5b91a"
   },
-  "executive_summary": "Corte W44 actualizado y planificación W45 preparada. Consulta el informe privado para ver resultados, decisiones, responsables y evidencias.",
-  "coverage_note": "El detalle ejecutivo está en la revisión privada de OneDrive. Esta vista conserva el corte y el acceso al seguimiento de cada compañía.",
-  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W44_PLAN_W45.txt",
+  "executive_summary": "Corte W45 y preparación W46 registrados con cobertura parcial. Consulta la revisión privada para resultados, decisiones y evidencias.",
+  "coverage_note": "La revisión de fuentes sigue parcial. La recuperación de registros no equivale a revisión exhaustiva de cada mensaje y adjunto.",
+  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W45_PLAN_W46.txt",
   "annual": [
     {
       "period": "2026",
       "status": "PARTIAL",
-      "note": "Seguimiento derivado de W44; no constituye una revisión anual completa."
+      "note": "Seguimiento derivado de W45; no constituye una revisión anual completa."
     }
   ],
   "monthly": [
     {
       "period": "2026-11",
       "status": "PARTIAL",
-      "note": "Corte operativo al 2 de noviembre; no constituye cierre mensual."
+      "note": "Corte operativo al 8 de noviembre; no constituye cierre mensual."
     }
   ],
   "weekly": [
     {
-      "period": "2026-W44",
-      "planning_period": "2026-W45",
+      "period": "2026-W45",
+      "planning_period": "2026-W46",
       "status": "PARTIAL"
     }
   ],
@@ -71,7 +71,7 @@
   "decisions": [
     {
       "company": "CEO",
-      "title": "Revisar las decisiones propuestas para W45",
+      "title": "Revisar las decisiones propuestas para W46",
       "metric": "El informe privado distingue decisiones pendientes, hechos y recomendaciones.",
       "priority": "P1"
     }
@@ -79,9 +79,9 @@
   "my_actions": [
     {
       "company": "CEO",
-      "title": "Consultar prioridades y agenda de W45",
-      "date": "2–6 noviembre",
-      "metric": "Revisar las acciones propias y los bloques verificados en el informe privado.",
+      "title": "Consultar prioridades y agenda de W46",
+      "date": "9–13 noviembre",
+      "metric": "Tres bloques propios privados verificados; consultar alcance y agenda en la revisión privada.",
       "event_status": "CREATED"
     }
   ],
@@ -106,23 +106,23 @@
   "source_health": {
     "outlook_email": {
       "label": "Outlook Email",
-      "status": "OK",
-      "notes": "Cobertura y evidencias detalladas en el informe privado."
+      "status": "PARTIAL",
+      "notes": "Límites de recuperación y revisión visibles en el informe privado."
     },
     "gmail": {
       "label": "Gmail",
-      "status": "OK",
-      "notes": "Cobertura y evidencias detalladas en el informe privado."
+      "status": "PARTIAL",
+      "notes": "Límites de recuperación y revisión visibles en el informe privado."
     },
     "teams": {
       "label": "Microsoft Teams",
       "status": "PARTIAL",
-      "notes": "Cobertura y evidencias detalladas en el informe privado."
+      "notes": "Límites de recuperación y revisión visibles en el informe privado."
     },
     "read_ai": {
       "label": "Read AI",
       "status": "PARTIAL",
-      "notes": "Cobertura y evidencias detalladas en el informe privado."
+      "notes": "Límites de recuperación y revisión visibles en el informe privado."
     },
     "outlook_calendar": {
       "label": "Outlook Calendar",
@@ -136,8 +136,8 @@
     }
   },
   "evolution": {
-    "previous_period": "2026-W43",
-    "reviewed_period": "2026-W44",
+    "previous_period": "2026-W44",
+    "reviewed_period": "2026-W45",
     "note": "Corte actualizado. Consultar evidencias y límites en la revisión privada."
   }
 }

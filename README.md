@@ -3,7 +3,7 @@
 Visor estático del corte de revisión y acceso al detalle privado del CEO Command Center.
 
 ## Alcance de esta versión
-- Corte W43 y preparación W44, 25 de octubre de 2026.
+- Corte W45 y preparación W46, 8 de noviembre de 2026. Cobertura parcial.
 - Resumen por AllUp, Teky y Sports Crowd; el contenido de proyectos, responsables, agenda y fuentes permanece en el informe privado de OneDrive.
 - El enlace requiere los permisos corporativos existentes y no cambia quién puede acceder al archivo.
 - No incluye módulo financiero ni movimientos, saldos, tarifas o remuneración.
