@@ -31,7 +31,7 @@ function walk(dir){for(const name of readdirSync(dir)){const path=join(dir,name)
 walk('data');assert.equal(existsSync('data/financial.json'),false);
 const html=read('index.html'),app=read('app.js'),old=read('fixed.html');
 for(const id of ['syncStatus','reloadBtn','publishStatus','protocol','critical','actions','sourceHealth','coverageNotice'])assert.ok(html.includes('id="'+id+'"'),'Missing UI '+id);
-for(const word of ['data-view="protocol"','últimos 30 días','Los cinco pasos','No enviar automáticamente'])assert.ok(html.includes(word),'Missing protocol '+word);
+for(const word of ['data-view="protocol"','últimos 7 días','Los cinco pasos','No enviar automáticamente'])assert.ok(html.includes(word),'Missing protocol '+word);
 for(const value of ['data-view="finance"','Financial Control','financeMetrics','FI Personal'])assert.ok(!html.includes(value),'Removed section reappeared');
 for(const value of ['financial.json','renderFinance','applyCustomDates','raw.githubusercontent.com','graph.microsoft.com','OPENAI_API_KEY','READ_AI_API_KEY'])assert.ok(!app.includes(value),'Disallowed frontend dependency '+value);
 assert.ok(!/finance|financial|financiera/i.test(old),'Legacy page retains removed content');

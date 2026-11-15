@@ -1,36 +1,36 @@
 {
   "meta": {
-    "generated_at": "2026-11-08T07:07:55-05:00",
-    "period": "2026-W45",
-    "planning_period": "2026-W46",
+    "generated_at": "2026-11-15T06:59:06-05:00",
+    "period": "2026-W46",
+    "planning_period": "2026-W47",
     "status": "PARTIAL",
     "scope": "OPERATIONS",
-    "window_start": "2026-10-09",
-    "window_end": "2026-11-08",
+    "window_start": "2026-11-08",
+    "window_end": "2026-11-15",
     "visibility": "PRIVATE_DETAIL_LINK",
-    "data_revision": "0a1432a689f5b91a"
+    "data_revision": "922a8c7dbdaa6223"
   },
-  "executive_summary": "Corte W45 y preparación W46 registrados con cobertura parcial. Consulta la revisión privada para resultados, decisiones y evidencias.",
+  "executive_summary": "Corte W46 y preparación W47 disponibles. Revisión semanal de siete días con límites de cobertura visibles en el informe privado.",
   "coverage_note": "La revisión de fuentes sigue parcial. La recuperación de registros no equivale a revisión exhaustiva de cada mensaje y adjunto.",
-  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W45_PLAN_W46.txt",
+  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W46_PLAN_W47.txt",
   "annual": [
     {
       "period": "2026",
       "status": "PARTIAL",
-      "note": "Seguimiento derivado de W45; no constituye una revisión anual completa."
+      "note": "Seguimiento derivado de W46; no constituye una revisión anual completa."
     }
   ],
   "monthly": [
     {
       "period": "2026-11",
       "status": "PARTIAL",
-      "note": "Corte operativo al 8 de noviembre; no constituye cierre mensual."
+      "note": "Corte operativo al 15 de noviembre; sin nuevo cierre mensual en esta revisión."
     }
   ],
   "weekly": [
     {
-      "period": "2026-W45",
-      "planning_period": "2026-W46",
+      "period": "2026-W46",
+      "planning_period": "2026-W47",
       "status": "PARTIAL"
     }
   ],
@@ -71,7 +71,7 @@
   "decisions": [
     {
       "company": "CEO",
-      "title": "Revisar las decisiones propuestas para W46",
+      "title": "Revisar las decisiones propuestas para W47",
       "metric": "El informe privado distingue decisiones pendientes, hechos y recomendaciones.",
       "priority": "P1"
     }
@@ -79,8 +79,8 @@
   "my_actions": [
     {
       "company": "CEO",
-      "title": "Consultar prioridades y agenda de W46",
-      "date": "9–13 noviembre",
+      "title": "Consultar prioridades y agenda de W47",
+      "date": "17–20 noviembre",
       "metric": "Tres bloques propios privados verificados; consultar alcance y agenda en la revisión privada.",
       "event_status": "CREATED"
     }
@@ -101,7 +101,7 @@
   "capacity": {
     "planned_limit_percent": 70,
     "buffer_percent": 30,
-    "notes": "Conservar capacidad para imprevistos y contrastar calendarios antes de crear nuevos bloques."
+    "notes": "Referencia de capacidad y conflictos detallada en la revisión privada; conservar al menos treinta por ciento de reserva."
   },
   "source_health": {
     "outlook_email": {
@@ -136,8 +136,8 @@
     }
   },
   "evolution": {
-    "previous_period": "2026-W44",
-    "reviewed_period": "2026-W45",
+    "previous_period": "2026-W45",
+    "reviewed_period": "2026-W46",
     "note": "Corte actualizado. Consultar evidencias y límites en la revisión privada."
   }
 }

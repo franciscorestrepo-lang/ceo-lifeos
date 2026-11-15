@@ -1,11 +1,11 @@
 {
   "status": "DATA_UPDATED",
   "coverage_status": "PARTIAL",
-  "generated_at": "2026-11-08T07:07:55-05:00",
-  "period": "2026-W45",
-  "planning_period": "2026-W46",
+  "generated_at": "2026-11-15T06:59:06-05:00",
+  "period": "2026-W46",
+  "planning_period": "2026-W47",
   "scope": "OPERATIONS",
-  "data_revision": "0a1432a689f5b91a",
+  "data_revision": "922a8c7dbdaa6223",
   "source_health": {
     "outlook_email": "PARTIAL",
     "gmail": "PARTIAL",
