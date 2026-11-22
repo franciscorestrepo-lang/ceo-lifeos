@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "generated_at": "2026-11-22T07:00:45-05:00",
+    "period": "2026-W47",
+    "planning_period": "2026-W48",
+    "status": "PARTIAL",
+    "scope": "OPERATIONS",
+    "window_start": "2026-11-15T07:00:45-05:00",
+    "window_end": "2026-11-22T07:00:45-05:00",
+    "visibility": "PRIVATE_DETAIL_LINK",
+    "data_revision": "36738649c7faa6d5"
+  },
+  "executive_summary": "Corte W47 y preparación W48 disponibles. Revisión semanal de siete días; los avances y límites de cobertura se consultan en el informe privado.",
+  "coverage_note": "La revisión de fuentes sigue parcial. La recuperación de registros no equivale a revisión exhaustiva de cada mensaje y adjunto.",
+  "private_report_url": "https://aliansapconsultingsas-my.sharepoint.com/personal/francisco_restrepo_allup_com_co/Documents/CEO_Command_Center_Compartido/01_Estado_y_Registro/REVISION_SEMANAL_2026-W47_PLAN_W48.txt",
+  "annual": [
+    {
+      "period": "2026",
+      "status": "PARTIAL",
+      "note": "Seguimiento derivado de W47; no constituye una revisión anual completa."
+    }
+  ],
+  "monthly": [
+    {
+      "period": "2026-11",
+      "status": "PARTIAL",
+      "note": "Corte operativo al 22 de noviembre; sin nuevo cierre mensual en esta revisión."
+    }
+  ],
+  "weekly": [
+    {
+      "period": "2026-W47",
+      "planning_period": "2026-W48",
+      "status": "PARTIAL"
+    }
+  ],
+  "companies": [
+    {
+      "name": "AllUp",
+      "role": "CEO / CCO"
+    },
+    {
+      "name": "Teky",
+      "role": "CPO / CTO"
+    },
+    {
+      "name": "Sports Crowd",
+      "role": "COO / CTO"
+    }
+  ],
+  "critical_outcomes": [
+    {
+      "company": "AllUp",
+      "title": "Operación y ejecución",
+      "metric": "Resultados y próximos pasos disponibles en la revisión privada.",
+      "trend": "WATCH"
+    },
+    {
+      "company": "Teky",
+      "title": "Producto y calidad",
+      "metric": "Prioridades y criterios de aceptación disponibles en la revisión privada.",
+      "trend": "WATCH"
+    },
+    {
+      "company": "Sports Crowd",
+      "title": "Producto y continuidad operativa",
+      "metric": "Seguimiento y decisiones disponibles en la revisión privada.",
+      "trend": "WATCH"
+    }
+  ],
+  "decisions": [
+    {
+      "company": "CEO",
+      "title": "Revisar las decisiones propuestas para W48",
+      "metric": "El informe privado distingue decisiones pendientes, hechos y recomendaciones.",
+      "priority": "P1"
+    }
+  ],
+  "my_actions": [
+    {
+      "company": "CEO",
+      "title": "Consultar prioridades y agenda de W48",
+      "date": "23–27 noviembre",
+      "metric": "Consultar acciones propias y estado de su programación en la revisión privada.",
+      "event_status": "SEE_PRIVATE_REPORT"
+    }
+  ],
+  "delegated_actions": [],
+  "pending_radar": [
+    {
+      "company": "CEO",
+      "title": "Validar los límites de cobertura",
+      "metric": "Hay fuentes con cobertura parcial; consultar sus límites antes de dar la revisión por cerrada.",
+      "priority": "P1"
+    }
+  ],
+  "calendar_proposals": [],
+  "email_proposals": [],
+  "risks": [],
+  "flagged": [],
+  "capacity": {
+    "planned_limit_percent": 70,
+    "buffer_percent": 30,
+    "notes": "Referencia de capacidad y conflictos detallada en la revisión privada; conservar al menos treinta por ciento de reserva."
+  },
+  "source_health": {
+    "outlook_email": {
+      "label": "Outlook Email",
+      "status": "PARTIAL",
+      "notes": "Cobertura y límites de revisión detallados en el informe privado."
+    },
+    "gmail": {
+      "label": "Gmail",
+      "status": "PARTIAL",
+      "notes": "Cobertura y límites de revisión detallados en el informe privado."
+    },
+    "teams": {
+      "label": "Microsoft Teams",
+      "status": "PARTIAL",
+      "notes": "Cobertura y límites de revisión detallados en el informe privado."
+    },
+    "read_ai": {
+      "label": "Read AI",
+      "status": "PARTIAL",
+      "notes": "Cobertura y límites de revisión detallados en el informe privado."
+    },
+    "outlook_calendar": {
+      "label": "Outlook Calendar",
+      "status": "PARTIAL",
+      "notes": "Cobertura y límites de revisión detallados en el informe privado."
+    },
+    "google_calendar": {
+      "label": "Google Calendar",
+      "status": "PARTIAL",
+      "notes": "Cobertura y límites de revisión detallados en el informe privado."
+    }
+  },
+  "evolution": {
+    "previous_period": "2026-W46",
+    "reviewed_period": "2026-W47",
+    "note": "Corte actualizado. Consultar evidencias y límites en la revisión privada."
+  }
+}
